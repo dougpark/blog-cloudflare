@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>python — 64Zbit.com</title>
+
+    <meta name="description"
+        content="All posts which refer to tag python">
+    <meta name="author" content="Doug">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" href="/theme/icons/favicon.ico?v=2" />
+    <link rel="icon" type="image/png" href="/theme/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/theme/icons/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/theme/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="64Zbit.com" />
+    <link rel="manifest" href="/theme/icons/site.webmanifest" />
+
+    <!-- Mastodon Verification -->
+    <link rel="me" href="https://mastodon.social/@Parkdn">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.1/dist/simplex/bootstrap.min.css" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/local.css?v=2" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Canonical Link for SEO -->
+
+    <!-- Feeds -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://64zbit.com/feeds/all.rss" />
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="https://64zbit.com/feeds/all.atom.xml" />
+
+</head>
+
+<body>
+
+    <div class="container-fluid pl-0 mb-0 bg-white text-center ml-0 pr-0 pl-0">
+        <!-- Navigation Bar -->
+        <nav class="navbar p-0 m-0 dnp-navbar-color dnp-navbar-adjust justify-content-center">
+            <div class="navbar-collapse d-flex justify-content-center w-100">
+                <ul class="navbar-nav flex-row dnp-navbar-color">
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/archives.html">ARCHIVE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/contact.html">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/feeds/all.rss">RSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Brand Logo at the top of the page -->
+        <div class="mt-3 dnp-site-title">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1">64</span><span class="dnp-logo-2">Z</span><span
+                    class="dnp-logo-1">bit.com</span>
+            </a>
+        </div>
+        <small class="dnp-subTitle">Tech is way, WAY interesting</small>     </div>
+
+    <div class="container mx-auto">
+
+        <!-- Custom horitontal rule -->
+        <div class="row">
+            <div class="mt-0 col-md-8 col-md-offset-2 text-center mx-auto">
+                <hr class="custom-hr">
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <div class="row">
+            <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> 
+
+
+<div class="dnp-search container-fluid mb-3">
+    <label for="searchBox" class="form-label">Search Tags</label>
+
+    <div class="position-relative" style="width: 100%;">
+        <input type="text" id="searchBox" class="form-control pe-5" placeholder="Search tags..." />
+        <span id="clearSearchIcon" class="position-absolute" style="
+        top: 50%;
+        right: 0.75rem;
+        transform: translateY(-50%);
+        font-size: 0.75rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        text-align: center;
+        color: white;
+        background-color: black;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+      ">
+            ×
+        </span>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-2 flex-wrap gap-2">
+        <button class="btn btn-sm btn-outline-primary" id="toggleSummaryBtn" title="Toggle Summaries">
+            <span class="me-1">Show Summaries</span>
+            <i class="fa-solid fa-toggle-off"></i>
+        </button>
+    </div>
+</div>
+
+
+
+
+<script>
+    const searchBox = document.getElementById('searchBox');
+    const clearIcon = document.getElementById('clearSearchIcon');
+    const toggleSummaryBtn = document.getElementById('toggleSummaryBtn');
+    let summariesVisible = false;
+
+    function setSummaryVisibility(visible) {
+        summariesVisible = visible;
+
+        const summaries = document.querySelectorAll('.hidden-summary');
+        summaries.forEach(summary => {
+            summary.style.display = visible ? 'block' : 'none';
+        });
+
+        const toggleIcon = toggleSummaryBtn.querySelector('i');
+        toggleIcon.classList.toggle('fa-toggle-off', !visible);
+        toggleIcon.classList.toggle('fa-toggle-on', visible);
+    }
+
+    searchBox.addEventListener('input', function () {
+        const query = this.value.trim().toLowerCase();
+
+        // Show or hide the clear "×"
+        clearIcon.style.display = query ? 'inline-block' : 'none';
+
+        // Your search logic here (already implemented)
+        const items = document.querySelectorAll('.archive-item');
+        items.forEach(item => {
+            if (item.dataset.originalHtml) {
+                item.innerHTML = item.dataset.originalHtml;
+            } else {
+                item.dataset.originalHtml = item.innerHTML;
+            }
+
+            const textContent = item.textContent.toLowerCase();
+            const show = query === '' || textContent.includes(query);
+            item.style.display = show ? '' : 'none';
+
+            if (show && query) {
+                highlightText(item, query);
+            }
+        });
+
+        // Re-apply summary state if you're using it
+        setSummaryVisibility(summariesVisible);
+    });
+
+    clearIcon.addEventListener('click', function () {
+        searchBox.value = '';
+        clearIcon.style.display = 'none';
+        searchBox.dispatchEvent(new Event('input'));
+    });
+
+    function highlightText(element, keyword) {
+        const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+
+        const textNodes = [];
+        while (walker.nextNode()) {
+            const node = walker.currentNode;
+            if (node.nodeValue.trim()) {
+                textNodes.push(node);
+            }
+        }
+
+        textNodes.forEach(node => {
+            const value = node.nodeValue;
+            const parent = node.parentNode;
+
+            // Skip script/style/code/pre tags
+            if (['SCRIPT', 'STYLE', 'CODE', 'PRE'].includes(parent.tagName)) return;
+
+            const regex = new RegExp(`(${keyword})`, 'gi');
+            if (regex.test(value)) {
+                const highlighted = value.replace(regex, '<mark>$1</mark>');
+                const span = document.createElement('span');
+                span.innerHTML = highlighted;
+                parent.replaceChild(span, node);
+            }
+        });
+    }
+
+
+
+    // Toggle summaries visibility
+    toggleSummaryBtn.addEventListener('click', function () {
+
+        setSummaryVisibility(!summariesVisible);
+
+        const summaries = document.querySelectorAll('.hidden-summary');
+
+        summaries.forEach(summary => {
+            summary.style.display = summariesVisible ? 'block' : 'none';
+        });
+
+        // Update the icon
+        const toggleIcon = toggleSummaryBtn.querySelector('i');
+        toggleIcon.classList.toggle('fa-toggle-off', !summariesVisible);
+        toggleIcon.classList.toggle('fa-toggle-on', summariesVisible);
+    });
+</script>
+
+
+<h1>Tag <small>python</small></h1>
+<div>
+
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/behind-hello-world-on-linux.html">
+            <h2 itemprop="name headline">Behind "Hello World" on Linux</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-08-06T15:38:24-05:00" itemprop="datePublished">August 06, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/architecture.html" rel="tag">architecture</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/linux.html" rel="tag">linux</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/programming.html" rel="tag">programming</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/behind-hello-world-on-linux.html" class="archive-link">Behind "Hello World" on Linux</a>
+        </span>
+
+        <span class="hidden-summary"><p>But behind the scenes, there’s a lot more going on. I’ll describe some of what happens, and (much much more importantly!) explain some tools you can use to see what’s going on behind the scenes yourself. We’ll use readelf, strace, ldd, debugfs, /proc, ltrace, dd, and stat. I won’t talk about the Python-specific parts at all – just what happens when you run any dynamically linked executable.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/implement-dns-in-a-weekend.html">
+            <h2 itemprop="name headline">Implement DNS in a weekend</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-05-13T03:39:01-05:00" itemprop="datePublished">May 13, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/dns.html" rel="tag">dns</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/binary.html" rel="tag">binary</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/implement-dns-in-a-weekend.html" class="archive-link">Implement DNS in a weekend</a>
+        </span>
+
+        <span class="hidden-summary"><p>Implement DNS in a weekend</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/micropython-on-unicorn.html">
+            <h2 itemprop="name headline">MicroPython on Unicorn</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-11-29T01:50:08-06:00" itemprop="datePublished">November 29, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/micropython.html" rel="tag">micropython</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/micropython-on-unicorn.html" class="archive-link">MicroPython on Unicorn</a>
+        </span>
+
+        <span class="hidden-summary"><h1>Welcome to MicroPython on Unicorn!</h1></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/python-multithreaded-programming.html">
+            <h2 itemprop="name headline">Python - Multithreaded Programming</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-10-17T20:48:13-05:00" itemprop="datePublished">October 17, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/thread.html" rel="tag">thread</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/python-multithreaded-programming.html" class="archive-link">Python - Multithreaded Programming</a>
+        </span>
+
+        <span class="hidden-summary"><p>The Threading Module</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/how-to-import-local-modules-with-python-quentin-fortier.html">
+            <h2 itemprop="name headline">How to import local modules with Python - Quentin Fortier</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-10-14T18:17:13-05:00" itemprop="datePublished">October 14, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/how-to-import-local-modules-with-python-quentin-fortier.html" class="archive-link">How to import local modules with Python - Quentin Fortier</a>
+        </span>
+
+        <span class="hidden-summary"><p>1st solution: add root to sys.path</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/openwonderlabsswitchbotapi-switchbot-open-api-documents.html">
+            <h2 itemprop="name headline">OpenWonderLabs/SwitchBotAPI: SwitchBot Open API Documents</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-10-14T04:59:54-05:00" itemprop="datePublished">October 14, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/switchbot.html" rel="tag">switchbot</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/api.html" rel="tag">api</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/openwonderlabsswitchbotapi-switchbot-open-api-documents.html" class="archive-link">OpenWonderLabs/SwitchBotAPI: SwitchBot Open API Documents</a>
+        </span>
+
+        <span class="hidden-summary"><p>Open Token and Secret Key</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/switchbot-client-pypi.html">
+            <h2 itemprop="name headline">switchbot-client · PyPI</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-10-14T04:32:28-05:00" itemprop="datePublished">October 14, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/switchbot.html" rel="tag">switchbot</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/api.html" rel="tag">api</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/switchbot-client-pypi.html" class="archive-link">switchbot-client · PyPI</a>
+        </span>
+
+        <span class="hidden-summary"><p>An unofficial Python client implementation of the SwitchBot API.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/python-3-command-line-arguments.html">
+            <h2 itemprop="name headline">Python 3 - Command Line Arguments</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-10-10T17:18:36-05:00" itemprop="datePublished">October 10, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/commandline.html" rel="tag">commandline</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/arguments.html" rel="tag">arguments</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/python-3-command-line-arguments.html" class="archive-link">Python 3 - Command Line Arguments</a>
+        </span>
+
+        <span class="hidden-summary"><p>Python provides a getopt module that helps you parse command-line options and arguments.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/python-in-visual-studio-code-august-2022-release-python.html">
+            <h2 itemprop="name headline">Python in Visual Studio Code – August 2022 Release - Python</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-09-02T15:30:04-05:00" itemprop="datePublished">September 02, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/vscode.html" rel="tag">vscode</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/python-in-visual-studio-code-august-2022-release-python.html" class="archive-link">Python in Visual Studio Code – August 2022 Release - Python</a>
+        </span>
+
+        <span class="hidden-summary"><p>Microsoft announces the availability of the Python and Jupyter extensions for Visual Studio @Code - August 2022. Updates include a new Python Tools extension template, Web app debug setups that are automatically generated and more.  #Python #Jupyter</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/docker-composing-a-python-3-flask-app-line-by-line-by-luis-ferrer-labarca-bitcraft-medium.html">
+            <h2 itemprop="name headline">"Docker-composing" a Python 3 Flask App Line-by-Line | by Luis Ferrer-Labarca | BitCraft | Medium</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-08-24T02:24:23-05:00" itemprop="datePublished">August 24, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/docker.html" rel="tag">docker</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/flask.html" rel="tag">flask</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/docker-composing-a-python-3-flask-app-line-by-line-by-luis-ferrer-labarca-bitcraft-medium.html" class="archive-link">"Docker-composing" a Python 3 Flask App Line-by-Line | by Luis Ferrer-Labarca | BitCraft | Medium</a>
+        </span>
+
+        <span class="hidden-summary"><p>"Docker-composing" a Python 3 Flask App Line-by-Line</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/purple-air-api-pypi.html">
+            <h2 itemprop="name headline">Purple Air API · PyPI</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-08-20T04:29:51-05:00" itemprop="datePublished">August 20, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/purpleair.html" rel="tag">purpleair</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/api.html" rel="tag">api</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/purple-air-api-pypi.html" class="archive-link">Purple Air API · PyPI</a>
+        </span>
+
+        <span class="hidden-summary"><p>Welcome to the PurpleAir API</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/sqlite-with-python-chris-ostrouchov.html">
+            <h2 itemprop="name headline">SQLite with Python - Chris Ostrouchov</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2021-08-21T23:16:03-05:00" itemprop="datePublished">August 21, 2021</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/database.html" rel="tag">database</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sqlite.html" rel="tag">sqlite</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/json.html" rel="tag">json</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/sqlite-with-python-chris-ostrouchov.html" class="archive-link">SQLite with Python - Chris Ostrouchov</a>
+        </span>
+
+        <span class="hidden-summary"><p>SQLite is a commonly misunderstood database. I myself first heard of the database when I was experimenting with android app development. My thoughts were that since the database was a single file and its name had lite in it, that it could not be taken seriously. But I could not have been more wrong. Now I love sqlite and use it for much of my scientific research. Sqlite is everywhere. It is on every android phone, airplanes, and the storage for many computer applications. The sqlite website details when using sqlite would be appropriate to use and can be summarized with these three questions.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/install-mini-pitft-pi-hole-ad-blocker-with-pi-zero-w-adafruit-learning-system.html">
+            <h2 itemprop="name headline">Install Mini PiTFT | Pi Hole Ad Blocker with Pi Zero W | Adafruit Learning System</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2021-08-05T17:16:06-05:00" itemprop="datePublished">August 05, 2021</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/pi-hole.html" rel="tag">pi-hole</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/pi-zero.html" rel="tag">Pi-Zero</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/mini-pitft.html" rel="tag">Mini-PiTFT</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/install-mini-pitft-pi-hole-ad-blocker-with-pi-zero-w-adafruit-learning-system.html" class="archive-link">Install Mini PiTFT | Pi Hole Ad Blocker with Pi Zero W | Adafruit Learning System</a>
+        </span>
+
+        <span class="hidden-summary"><p>Raspberry Pi Zero W</p></span>
+
+
+    </div>
+
+</div>
+            </div>
+        </div>
+        <!-- <hr> -->
+    </div>
+    <!-- /container -->
+
+    <!-- Footer -->
+    <div class="col-md-12 dnp-text-dark text-center center-block aw-bottom">
+        <div class="dnp-footer-logo">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1f">64</span><span class="dnp-logo-2f">Z</span><span
+                    class="dnp-logo-1f">bit.com</span>
+            </a>
+            <p>&copy; 64Zbit.com 2026 All rights reserved</p>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js"
+            crossorigin="anonymous"></script>
+
+        <script src="https://64zbit.com/theme/js/dnp.js"></script>
+
+
+
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $("div.collapseheader").click(function () {
+                    $header = $(this).children("span").first();
+                    $codearea = $(this).children(".input_area");
+                    $codearea.slideToggle(500, function () {
+                        $header.text(function () {
+                            return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+                        });
+                    });
+                });
+            });
+        </script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DL0ZSFC661"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-DL0ZSFC661');
+</script>
+
+
+</body>
+
+</html>

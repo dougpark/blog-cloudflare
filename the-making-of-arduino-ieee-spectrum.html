@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>The Making of Arduino - IEEE Spectrum — 64Zbit.com</title>
+
+    <meta name="description"
+        content="Title: The Making of Arduino - IEEE Spectrum; Date: 2011-10-29; Author: Doug">
+    <meta name="author" content="Doug">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" href="/theme/icons/favicon.ico?v=2" />
+    <link rel="icon" type="image/png" href="/theme/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/theme/icons/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/theme/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="64Zbit.com" />
+    <link rel="manifest" href="/theme/icons/site.webmanifest" />
+
+    <!-- Mastodon Verification -->
+    <link rel="me" href="https://mastodon.social/@Parkdn">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.1/dist/simplex/bootstrap.min.css" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/local.css?v=2" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Canonical Link for SEO -->
+    <link rel="canonical" href="https://64zbit.com/the-making-of-arduino-ieee-spectrum.html" />
+
+    <!-- Feeds -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://64zbit.com/feeds/all.rss" />
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="https://64zbit.com/feeds/all.atom.xml" />
+
+</head>
+
+<body>
+
+    <div class="container-fluid pl-0 mb-0 bg-white text-center ml-0 pr-0 pl-0">
+        <!-- Navigation Bar -->
+        <nav class="navbar p-0 m-0 dnp-navbar-color dnp-navbar-adjust justify-content-center">
+            <div class="navbar-collapse d-flex justify-content-center w-100">
+                <ul class="navbar-nav flex-row dnp-navbar-color">
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/archives.html">ARCHIVE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/contact.html">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/feeds/all.rss">RSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Brand Logo at the top of the page -->
+        <div class="mt-3 dnp-site-title">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1">64</span><span class="dnp-logo-2">Z</span><span
+                    class="dnp-logo-1">bit.com</span>
+            </a>
+        </div>
+        <small class="dnp-subTitle">Tech is way, WAY interesting</small>     </div>
+
+    <div class="container mx-auto">
+
+        <!-- Custom horitontal rule -->
+        <div class="row">
+            <div class="mt-0 col-md-8 col-md-offset-2 text-center mx-auto">
+                <hr class="custom-hr">
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <div class="row">
+            <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+
+	<h2 class="dnp-article-title" itemprop="name headline">The Making of Arduino - IEEE Spectrum</h2>
+
+	<time class="dnp-index-date" datetime="2011-10-29T21:18:00-05:00" itemprop="datePublished">October 29, 2011</time>
+
+
+
+	<!-- <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		| <span itemprop="name">Doug
+		</span>
+	</span> -->
+
+	<!-- <span>
+		|
+		<span itemprop="articleSection">
+			<a href="https://64zbit.com/category/robotcraft.html" rel="category">RobotCraft</a>
+		</span>
+	</span> -->
+
+	<!-- <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+			<h4 itemprop="name">Doug</h4>
+		</span> -->
+
+	<div itemprop="articleBody" class="article-body"><blockquote>
+<div>
+<div>
+<p><img alt=" The Arduino core team [from left]—David Cuartielles, Gianluca Martino, Tom Igoe, David Mellis, and Massimo Banzi—get together at Maker Faire in New York City." height="343" src="http://spectrum.ieee.org/img/arduino01-1319573198164.jpg" style="height: 343px;" width="464"></p>
+<div>
+<p>Photo: Randi Silberman Klett</p>
+</div>
+<div>
+<p>The Arduino core team [from left]—David Cuartielles, Gianluca Martino, Tom Igoe, David Mellis, and Massimo Banzi—get together at Maker Faire in New York City.</p>
+</div>
+</div>
+<p>The picturesque town of Ivrea, which straddles the blue-green Dora Baltea River in northern Italy, is famous for its underdog kings. In 1002, King Arduin became the ruler of the country, only to be dethroned by King Henry II, of Germany, two years later. Today, the <a href="http://www.myspace.com/bardirearduino">Bar di Re Arduino</a>, a pub on a cobblestoned street in town, honors his memory, and that’s where an unlikely new king was born.</p>
+<p>The bar is the watering hole of <a href="http://www.massimobanzi.com/">Massimo Banzi</a>, the Italian cofounder of the electronics project that he named <a href="http://www.arduino.cc/">Arduino</a> in honor of the place. Arduino is a low-cost microcontroller board that lets even a novice do really amazing things. You can connect an Arduino to all kinds of sensors, lights, motors, and other devices and use easy-to-learn <a href="http://www.arduino.cc/en/Main/software">software</a> to program how your creation will behave. You can build an interactive <a href="http://arduino.cc/blog/category/actuators/lcd/">display</a> or a mobile <a href="http://arduino.cc/blog/category/robot/">robot</a> and then share your design with the world by posting it on the Net.</p>
+<p>Released in 2005 as a modest tool for Banzi’s students at the <a href="http://en.wikipedia.org/wiki/Interaction_Design_Institute_Ivrea">Interaction Design Institute Ivrea</a> (IDII), Arduino has spawned an international do-it-yourself revolution in electronics. You can <a href="http://www.arduino.cc/en/Main/Buy">buy</a> an Arduino board for just about US \$30 or build your own from scratch: All hardware schematics and source code are available for free under public licenses. As a result, Arduino has become the most influential <a href="http://en.wikipedia.org/wiki/Open-source_hardware">open-source hardware</a> movement of its time.</p>
+<p>The little board is now the go-to gear for artists, hobbyists, students, and anyone with a gadgetry dream. More than 250 000 Arduino boards have been sold around the world—and that doesn’t include the reams of clones. "It made it possible for people do things they wouldn’t have done otherwise," says <a href="http://dam.mellis.org/">David A. Mellis</a>, who was a student at IDII before pursuing graduate work at the MIT Media Lab and is the lead software developer of Arduino.</p>
+<p>There are Arduino-based <a href="http://nootropicdesign.com/projectlab/2010/09/17/arduino-breathalyzer/">breathalyzers</a>, <a href="http://www.youtube.com/watch?v=GUcX41pokZY">LED cubes</a>, <a href="http://spectrum.ieee.org/geek-life/hands-on/the-diy-smart-thermostat/0">home-automation systems</a>, <a href="http://www.instructables.com/id/Use-twitter-and-weather-to-post-notes-and-temperat/">Twitter displays</a>, and even <a href="http://arduino.cc/blog/2011/07/07/screen-your-genome-under-512-open-sourcing-biology-with-openpcr/">DNA analysis kits</a>. There are Arduino parties and Arduino clubs. Google has recently released an Arduino-based <a href="http://developer.android.com/guide/topics/usb/adk.html">development kit</a> for its Android smartphone. As Dale Dougherty, the editor and publisher of <a href="http://makezine.com/"><em>Make</em></a> magazine, the bible of DIY builders, puts it, Arduino has become "the brains of maker projects."</p>
+<p>But Arduino isn’t just an open-source project that aims to make technology more accessible. It’s also a start-up company run by Banzi and a group of friends, and it’s facing a challenge that even their magic board can’t solve: how to survive success and grow. "We need to make the next jump," Banzi tells me, "and become an established company."</p>
+<p><strong>Arduino rose out of another</strong> formidable challenge: how to teach students to create electronics, fast. It was 2002, and Banzi, a bearded and avuncular software architect, had been brought on by IDII as an associate professor to promote new ways of doing interactive design—a nascent field sometimes known as <a href="http://en.wikipedia.org/wiki/Physical_computing">physical computing</a>. But with a shrinking budget and limited class time, his options for tools were few.</p>
+<p>Like many of his colleagues, Banzi relied on the <a href="http://www.parallax.com/tabid/295/Default.aspx">BASIC Stamp</a>, a microcontroller created by California company Parallax that engineers had been using for about a decade. Coded with the BASIC programming language, the Stamp was like a tidy little circuit board, packing the essentials of a power supply, a microcontroller, memory, and input/output ports for attaching hardware. But the BASIC Stamp had two problems, Banzi discovered: It didn’t have enough computing power for some of the projects his students had in mind, and it was also a bit too expensive—a board plus basic parts could cost about US \$100. He also needed something that could run on Macintosh computers, which were ubiquitous among the IDII designers. What if they could make a board that suited their needs themselves?</p>
+<p>Banzi had a colleague from MIT who had developed a designer-friendly programming language called <a href="http://processing.org/">Processing</a>. Processing was rapidly gaining popularity because it allowed even inexperienced programmers to create complex—and <a href="http://processing.org/exhibition/">beautiful</a>—data visualizations. One of the reasons for its success was an extremely easy-to-use integrated development environment, or IDE. Banzi wondered if they could create similar software tools to code a microcontroller instead of graphics on a screen.</p>
+<p>A student in the program, <a href="http://barraganstudio.com/">Hernando Barragán</a>, took the first steps in that direction. He developed a prototyping platform called <a href="http://wiring.org.co/">Wiring</a>, which included both a user-friendly IDE and a ready-to-use circuit board. It was a promising project that continues to this day, but Banzi was already thinking bigger: He wanted to make a platform that was even simpler, cheaper, and easier to use.</p>
+</div>
+</blockquote>
+<p>via <a href="http://spectrum.ieee.org/geek-life/hands-on/the-making-of-arduino/0">spectrum.ieee.org</a></p></div>
+	<hr>
+
+
+</div>
+            </div>
+        </div>
+        <!-- <hr> -->
+    </div>
+    <!-- /container -->
+
+    <!-- Footer -->
+    <div class="col-md-12 dnp-text-dark text-center center-block aw-bottom">
+        <div class="dnp-footer-logo">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1f">64</span><span class="dnp-logo-2f">Z</span><span
+                    class="dnp-logo-1f">bit.com</span>
+            </a>
+            <p>&copy; 64Zbit.com 2026 All rights reserved</p>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js"
+            crossorigin="anonymous"></script>
+
+        <script src="https://64zbit.com/theme/js/dnp.js"></script>
+
+
+
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $("div.collapseheader").click(function () {
+                    $header = $(this).children("span").first();
+                    $codearea = $(this).children(".input_area");
+                    $codearea.slideToggle(500, function () {
+                        $header.text(function () {
+                            return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+                        });
+                    });
+                });
+            });
+        </script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DL0ZSFC661"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-DL0ZSFC661');
+</script>
+
+
+</body>
+
+</html>

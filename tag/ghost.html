@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Ghost — 64Zbit.com</title>
+
+    <meta name="description"
+        content="All posts which refer to tag Ghost">
+    <meta name="author" content="Doug">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" href="/theme/icons/favicon.ico?v=2" />
+    <link rel="icon" type="image/png" href="/theme/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/theme/icons/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/theme/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="64Zbit.com" />
+    <link rel="manifest" href="/theme/icons/site.webmanifest" />
+
+    <!-- Mastodon Verification -->
+    <link rel="me" href="https://mastodon.social/@Parkdn">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.1/dist/simplex/bootstrap.min.css" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/local.css?v=2" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Canonical Link for SEO -->
+
+    <!-- Feeds -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://64zbit.com/feeds/all.rss" />
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="https://64zbit.com/feeds/all.atom.xml" />
+
+</head>
+
+<body>
+
+    <div class="container-fluid pl-0 mb-0 bg-white text-center ml-0 pr-0 pl-0">
+        <!-- Navigation Bar -->
+        <nav class="navbar p-0 m-0 dnp-navbar-color dnp-navbar-adjust justify-content-center">
+            <div class="navbar-collapse d-flex justify-content-center w-100">
+                <ul class="navbar-nav flex-row dnp-navbar-color">
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/archives.html">ARCHIVE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/contact.html">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/feeds/all.rss">RSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Brand Logo at the top of the page -->
+        <div class="mt-3 dnp-site-title">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1">64</span><span class="dnp-logo-2">Z</span><span
+                    class="dnp-logo-1">bit.com</span>
+            </a>
+        </div>
+        <small class="dnp-subTitle">Tech is way, WAY interesting</small>     </div>
+
+    <div class="container mx-auto">
+
+        <!-- Custom horitontal rule -->
+        <div class="row">
+            <div class="mt-0 col-md-8 col-md-offset-2 text-center mx-auto">
+                <hr class="custom-hr">
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <div class="row">
+            <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> 
+
+
+<div class="dnp-search container-fluid mb-3">
+    <label for="searchBox" class="form-label">Search Tags</label>
+
+    <div class="position-relative" style="width: 100%;">
+        <input type="text" id="searchBox" class="form-control pe-5" placeholder="Search tags..." />
+        <span id="clearSearchIcon" class="position-absolute" style="
+        top: 50%;
+        right: 0.75rem;
+        transform: translateY(-50%);
+        font-size: 0.75rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        text-align: center;
+        color: white;
+        background-color: black;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+      ">
+            ×
+        </span>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-2 flex-wrap gap-2">
+        <button class="btn btn-sm btn-outline-primary" id="toggleSummaryBtn" title="Toggle Summaries">
+            <span class="me-1">Show Summaries</span>
+            <i class="fa-solid fa-toggle-off"></i>
+        </button>
+    </div>
+</div>
+
+
+
+
+<script>
+    const searchBox = document.getElementById('searchBox');
+    const clearIcon = document.getElementById('clearSearchIcon');
+    const toggleSummaryBtn = document.getElementById('toggleSummaryBtn');
+    let summariesVisible = false;
+
+    function setSummaryVisibility(visible) {
+        summariesVisible = visible;
+
+        const summaries = document.querySelectorAll('.hidden-summary');
+        summaries.forEach(summary => {
+            summary.style.display = visible ? 'block' : 'none';
+        });
+
+        const toggleIcon = toggleSummaryBtn.querySelector('i');
+        toggleIcon.classList.toggle('fa-toggle-off', !visible);
+        toggleIcon.classList.toggle('fa-toggle-on', visible);
+    }
+
+    searchBox.addEventListener('input', function () {
+        const query = this.value.trim().toLowerCase();
+
+        // Show or hide the clear "×"
+        clearIcon.style.display = query ? 'inline-block' : 'none';
+
+        // Your search logic here (already implemented)
+        const items = document.querySelectorAll('.archive-item');
+        items.forEach(item => {
+            if (item.dataset.originalHtml) {
+                item.innerHTML = item.dataset.originalHtml;
+            } else {
+                item.dataset.originalHtml = item.innerHTML;
+            }
+
+            const textContent = item.textContent.toLowerCase();
+            const show = query === '' || textContent.includes(query);
+            item.style.display = show ? '' : 'none';
+
+            if (show && query) {
+                highlightText(item, query);
+            }
+        });
+
+        // Re-apply summary state if you're using it
+        setSummaryVisibility(summariesVisible);
+    });
+
+    clearIcon.addEventListener('click', function () {
+        searchBox.value = '';
+        clearIcon.style.display = 'none';
+        searchBox.dispatchEvent(new Event('input'));
+    });
+
+    function highlightText(element, keyword) {
+        const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+
+        const textNodes = [];
+        while (walker.nextNode()) {
+            const node = walker.currentNode;
+            if (node.nodeValue.trim()) {
+                textNodes.push(node);
+            }
+        }
+
+        textNodes.forEach(node => {
+            const value = node.nodeValue;
+            const parent = node.parentNode;
+
+            // Skip script/style/code/pre tags
+            if (['SCRIPT', 'STYLE', 'CODE', 'PRE'].includes(parent.tagName)) return;
+
+            const regex = new RegExp(`(${keyword})`, 'gi');
+            if (regex.test(value)) {
+                const highlighted = value.replace(regex, '<mark>$1</mark>');
+                const span = document.createElement('span');
+                span.innerHTML = highlighted;
+                parent.replaceChild(span, node);
+            }
+        });
+    }
+
+
+
+    // Toggle summaries visibility
+    toggleSummaryBtn.addEventListener('click', function () {
+
+        setSummaryVisibility(!summariesVisible);
+
+        const summaries = document.querySelectorAll('.hidden-summary');
+
+        summaries.forEach(summary => {
+            summary.style.display = summariesVisible ? 'block' : 'none';
+        });
+
+        // Update the icon
+        const toggleIcon = toggleSummaryBtn.querySelector('i');
+        toggleIcon.classList.toggle('fa-toggle-off', !summariesVisible);
+        toggleIcon.classList.toggle('fa-toggle-on', summariesVisible);
+    });
+</script>
+
+
+<h1>Tag <small>Ghost</small></h1>
+<div>
+
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/use-prism-for-syntax-highlighting-in-ghost.html">
+            <h2 itemprop="name headline">Use Prism for Syntax Highlighting in Ghost</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2020-10-05T03:00:00-05:00" itemprop="datePublished">October 05, 2020</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">D</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/ghost.html" rel="tag">Ghost</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/tech.html" rel="tag">Tech</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/use-prism-for-syntax-highlighting-in-ghost.html" class="archive-link">Use Prism for Syntax Highlighting in Ghost</a>
+        </span>
+
+        <span class="hidden-summary"><p>Configure Ghost and Prism to provide code syntax highlighting for all popular formats including javascript, php, html, css, markdown and more.</p>
+<p>Ghost is a great CMS and it's easy to add a code syntax highlighter such as <a href="https://prismjs.com/">Prism</a>.</p>
+<h2>Versions</h2>
+<p>Ghost version 3.3<br>
+Prism version 1.21</p>
+<h2>Prism</h2>
+<p>There are …</p></span>
+
+
+    </div>
+
+</div>
+            </div>
+        </div>
+        <!-- <hr> -->
+    </div>
+    <!-- /container -->
+
+    <!-- Footer -->
+    <div class="col-md-12 dnp-text-dark text-center center-block aw-bottom">
+        <div class="dnp-footer-logo">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1f">64</span><span class="dnp-logo-2f">Z</span><span
+                    class="dnp-logo-1f">bit.com</span>
+            </a>
+            <p>&copy; 64Zbit.com 2026 All rights reserved</p>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js"
+            crossorigin="anonymous"></script>
+
+        <script src="https://64zbit.com/theme/js/dnp.js"></script>
+
+
+
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $("div.collapseheader").click(function () {
+                    $header = $(this).children("span").first();
+                    $codearea = $(this).children(".input_area");
+                    $codearea.slideToggle(500, function () {
+                        $header.text(function () {
+                            return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+                        });
+                    });
+                });
+            });
+        </script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DL0ZSFC661"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-DL0ZSFC661');
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>64Zbit.com</title>
+
+    <meta name="description"
+        content="Coding, scientific development, finance, data analysis, visualization, statistics, and machine learning">
+    <meta name="author" content="Doug">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" href="/theme/icons/favicon.ico?v=2" />
+    <link rel="icon" type="image/png" href="/theme/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/theme/icons/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/theme/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="64Zbit.com" />
+    <link rel="manifest" href="/theme/icons/site.webmanifest" />
+
+    <!-- Mastodon Verification -->
+    <link rel="me" href="https://mastodon.social/@Parkdn">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.1/dist/simplex/bootstrap.min.css" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/local.css?v=2" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Canonical Link for SEO -->
+
+    <!-- Feeds -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://64zbit.com/feeds/all.rss" />
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="https://64zbit.com/feeds/all.atom.xml" />
+
+</head>
+
+<body>
+
+    <div class="container-fluid pl-0 mb-0 bg-white text-center ml-0 pr-0 pl-0">
+        <!-- Navigation Bar -->
+        <nav class="navbar p-0 m-0 dnp-navbar-color dnp-navbar-adjust justify-content-center">
+            <div class="navbar-collapse d-flex justify-content-center w-100">
+                <ul class="navbar-nav flex-row dnp-navbar-color">
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/archives.html">ARCHIVE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/contact.html">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/feeds/all.rss">RSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Brand Logo at the top of the page -->
+        <div class="mt-3 dnp-site-title">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1">64</span><span class="dnp-logo-2">Z</span><span
+                    class="dnp-logo-1">bit.com</span>
+            </a>
+        </div>
+        <small class="dnp-subTitle">Tech is way, WAY interesting</small>     </div>
+
+    <div class="container mx-auto">
+
+        <!-- Custom horitontal rule -->
+        <div class="row">
+            <div class="mt-0 col-md-8 col-md-offset-2 text-center mx-auto">
+                <hr class="custom-hr">
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <div class="row">
+            <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/sqlite-with-python-chris-ostrouchov.html">
+        <h2 itemprop="name headline">SQLite with Python - Chris Ostrouchov</h2>
+    </a>
+    <!-- 21 August 2021 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2021-08-21T23:16:03-05:00" itemprop="datePublished"> August 21, 2021</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Link
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/link.html" rel="category">Link</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/database.html" rel="tag">database</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/sqlite.html" rel="tag">sqlite</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/json.html" rel="tag">json</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>SQLite is a commonly misunderstood database. I myself first heard of the database when I was experimenting with android app development. My thoughts were that since the database was a single file and its name had lite in it, that it could not be taken seriously. But I could not have been more wrong. Now I love sqlite and use it for much of my scientific research. Sqlite is everywhere. It is on every android phone, airplanes, and the storage for many computer applications. The sqlite website details when using sqlite would be appropriate to use and can be summarized with these three questions.</p></span> -->
+    <div itemprop="articleBody" class="article-body"><blockquote>
+<p>SQLite is a commonly misunderstood database. I myself first heard of the database when I was experimenting with android app development. My thoughts were that since the database was a single file and its name had lite in it, that it could not be taken seriously. But I could not have been more wrong. Now I love sqlite and use it for much of my scientific research. Sqlite is everywhere. It is on every android phone, airplanes, and the storage for many computer applications. The sqlite website details when using sqlite would be appropriate to use and can be summarized with these three questions.</p>
+</blockquote>
+<p><a href="https://chrisostrouchov.com/post/python_sqlite/">Link to the original article</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/database.html" rel="tag">database</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/sqlite.html" rel="tag">sqlite</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/json.html" rel="tag">json</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/its-going-to-be-okay-the-oatmeal.html">
+        <h2 itemprop="name headline">It's going to be okay. - The Oatmeal</h2>
+    </a>
+    <!-- 19 August 2021 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2021-08-19T22:20:06-05:00" itemprop="datePublished"> August 19, 2021</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Link
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/link.html" rel="category">Link</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/history.html" rel="tag">history</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/startrek.html" rel="tag">startrek</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>And if you haven't seen this, well then. Let's fix that right now. Via @Oatmeal.</p></span> -->
+    <div itemprop="articleBody" class="article-body"><blockquote>
+<p>And if you haven't seen this, well then. Let's fix that right now. Via @Oatmeal.</p>
+</blockquote>
+<p><a href="https://theoatmeal.com/comics/plane">Link to the original article</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/history.html" rel="tag">history</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/startrek.html" rel="tag">startrek</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/install-mini-pitft-pi-hole-ad-blocker-with-pi-zero-w-adafruit-learning-system.html">
+        <h2 itemprop="name headline">Install Mini PiTFT | Pi Hole Ad Blocker with Pi Zero W | Adafruit Learning System</h2>
+    </a>
+    <!-- 05 August 2021 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2021-08-05T17:16:06-05:00" itemprop="datePublished"> August 05, 2021</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Link
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/link.html" rel="category">Link</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/pi-hole.html" rel="tag">pi-hole</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/pi-zero.html" rel="tag">Pi-Zero</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/mini-pitft.html" rel="tag">Mini-PiTFT</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>Raspberry Pi Zero W</p></span> -->
+    <div itemprop="articleBody" class="article-body"><blockquote>
+<p>Raspberry Pi Zero W 
+We've updated our popular PiOLED script for use with the Mini PiTFT, a 135x240 Color TFT add-on for your Raspberry Pi. This cute little display has two tactile buttons on GPIO pins that we'll use to make a simple user-interface display for your Pi-Hole.</p>
+</blockquote>
+<p><a href="https://learn.adafruit.com/pi-hole-ad-blocker-with-pi-zero-w/install-mini-pitft">Link to the original article</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/pi-hole.html" rel="tag">pi-hole</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/pi-zero.html" rel="tag">Pi-Zero</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/mini-pitft.html" rel="tag">Mini-PiTFT</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/the-expanse-ui-design-hudsguis.html">
+        <h2 itemprop="name headline">The Expanse UI Design — HUDS+GUIS</h2>
+    </a>
+    <!-- 28 May 2021 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2021-05-28T22:28:10-05:00" itemprop="datePublished"> May 28, 2021</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Link
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/link.html" rel="category">Link</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/art.html" rel="tag">art</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/design.html" rel="tag">design</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/sci-fi.html" rel="tag">sci-fi</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>The Expanse UI Design</p></span> -->
+    <div itemprop="articleBody" class="article-body"><blockquote>
+<p>The Expanse UI Design
+Here’s a look at the various FUI designs from the sci-fi series The Expanse. </p>
+<p>Special thanks to Brian Benton who suggested this and provided some great links as well! A lot of the images have been collected from this massive image dump from drainsmith and further below we have some insights and images provided by Rhys Yorke who worked on The Expanse (Season 3 &amp; 5) as a motion graphics designer.</p>
+</blockquote>
+<p><a href="https://www.hudsandguis.com/home/2021/theexpanse">Link to the original article</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/art.html" rel="tag">art</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/design.html" rel="tag">design</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/sci-fi.html" rel="tag">sci-fi</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/ping-network-monitor.html">
+        <h2 itemprop="name headline">Ping network monitor</h2>
+    </a>
+    <!-- 08 March 2021 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2021-03-08T22:38:00-06:00" itemprop="datePublished"> March 08, 2021</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/ping.html" rel="tag">Ping</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/shell.html" rel="tag">Shell</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>The ping command is a built in linux and macOS command that shows the performance of the network connection to a remote server. It can be used to log network performance issues over time. The default ping command displays the results to standard output (the shell window). Used with the …</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>The ping command is a built in linux and macOS command that shows the performance of the network connection to a remote server. It can be used to log network performance issues over time. The default ping command displays the results to standard output (the shell window). Used with the following options it routes the output to a file that you can look at later.</p>
+<blockquote>
+<p>The ping command will ping the remote server every second until you manually kill the process. This will create 86,400 pings per day in the output file. It's not something you want to forget about and let it run forever. It could create a very large file that fills up your drive space and crashes your system. I run my ping network monitor on a Raspberry Pi 4 so that it will run 24 hours per day in low power and uninterupted environment.</p>
+</blockquote>
+<h3>Ping directed to a file</h3>
+<p>You would normally just run the ping command interactivly and then stop it when you are done. But, that's not what we are doing today. We are looking for an intermident bug that may happen anytime in the future. For this we need to run the command for weeks at a time and be able to look at the results after a network error has been detected.</p>
+<p>Here is the <code>ping</code> command, running in the background, with the output directed to a file called "network.log".<br>
+Copy and paste this text to your command line.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">ping</span><span class="w"> </span><span class="nt">google</span><span class="p">.</span><span class="nc">com</span><span class="w"> </span><span class="nt">2</span><span class="o">&gt;&amp;</span><span class="nt">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nt">while</span><span class="w"> </span><span class="nt">read</span><span class="w"> </span><span class="nt">pong</span><span class="o">;</span><span class="w"> </span><span class="nt">do</span><span class="w"> </span><span class="nt">date</span><span class="w"> </span><span class="s2">&quot;+%c: $pong&quot;</span><span class="o">;</span><span class="w"> </span><span class="nt">done</span><span class="w"> </span><span class="o">&gt;</span><span class="nt">network</span><span class="p">.</span><span class="nc">log</span><span class="w"> </span><span class="o">&amp;</span>
+</code></pre></div>
+
+<p>Here are the details of what this command does</p>
+<ul>
+<li><code>ping</code> // the ping command to run</li>
+<li><code>google.com</code> // name of the remote server</li>
+<li><code>2&gt;&amp;1</code> // routes stderr to stdout</li>
+<li><code>| while read pong; do date "+%c: $pong"; done</code> // pipe the ping results and add the current date and time</li>
+<li><code>&gt;network.log</code> // routes output to file network.log</li>
+<li><code>&amp;</code> // at end means to run in background</li>
+</ul>
+<p>The <code>pipe</code> command, represented by the vertical bar <code>|</code> takes the output of the first command and routes it into the second command. In this case it takes the output of the <code>ping</code> command and routes it into a command that prepends the current date and then uses the <code>&gt;</code> command to route everthing to a file instead of standard out (stdout).</p>
+<p>The <code>&amp;</code> at the end of the line makes this command run in the background. This frees up your terminal so you can run other commands. It will continue running even when you exit your terminal and logout. The commands below show you how to find the background command later and control it.</p>
+<h3>Jobs and Processes</h3>
+<p>The jobs command only works for jobs you have started in the current shell. If you exit the shell and open a new one then this command will not display your jobs. You will need to use the other commands listed below to work with system level processes.</p>
+<blockquote>
+<p>Fun fact: jobs are started by a user, processes are started and managed by the system. A users job is also a system process.</p>
+</blockquote>
+<h3>Process Id</h3>
+<p>Every command running on the computer is assigned a unique process id (PID). You can use this PID to interact with background processes.</p>
+<blockquote>
+<p>The terms Command, Job, and Process are basically the same thing. They are programs running on your computer.</p>
+<p>Type <code>top</code> into your shell to see a list of the top processes running on your current computer. Notice the PID column listed on the far left. Type <code>q</code> to exit this view. For a fun day of reading type <code>man top</code> to read all the details of the <code>top</code> command.</p>
+</blockquote>
+<p>Use the jobs command to see running background jobs, <code>-l</code> shows the process id (PID). (That’s a lowercase L)</p>
+<div class="codehilite"><pre><span></span><code>jobs -l 
+</code></pre></div>
+
+<h3>Viewing your ping log</h3>
+<p>Use the <code>cat</code> command to view contents of the output file, use the <code>| more</code> option to show a page at a time. This could take awhile, you are getting 86,400 lines per day and paging through them a few lines at a time will get tedious.</p>
+<div class="codehilite"><pre><span></span><code>cat network.log 
+or
+cat network.log | more
+</code></pre></div>
+
+<h3>Look at the output</h3>
+<p>If all goes well you should see a <code>time=</code> value at the end of each line. This tells you the ping completed successfully and you have a good connection to the server.</p>
+<p>When the connection goes down you will receive error messages. These will be helpful in determining what went wrong.</p>
+<p><img alt="" src="https://ghost.64zbit.com/content/images/2021/03/Screenshot_2021-03-08-21.51.21_ya0Tr6.png"></p>
+<p>Example showing a request timout error</p>
+<h3>Use grep to find interesting data</h3>
+<p>The <code>grep</code> command will help you find interesting data in your output file.</p>
+<div class="codehilite"><pre><span></span><code>cat network.log | grep -v time
+</code></pre></div>
+
+<p>The <code>-v</code> option tells grep to "invert match", so any line that does not contain the "time" string.</p>
+<p>This command will search the network.log for any line that does not contain the string "time". So for any ping command that returns anything other than a normal ping time will be displayed. This includes any error messages that you should look at.</p>
+<p><img alt="Example showing an unreachable server" src="https://ghost.64zbit.com/content/images/2021/03/Screenshot_2021-03-09-11.44.55_rGKrOj.png" title="Example showing an unreachable server"><br>
+Example showing an unreachable server</p>
+<h3>Find your running ping command</h3>
+<p>Use the <code>pgrep</code> command to find running ping jobs and return the process id (PID). Pgrep is included in many Linux distributions.</p>
+<div class="codehilite"><pre><span></span><code>pgrep ping 
+</code></pre></div>
+
+<p><img alt="Example showing pgrep ping output" src="https://ghost.64zbit.com/content/images/2021/03/Screenshot_2021-03-09-11.57.09_k4jkp7.png" title="Example showing pgrep ping output"></p>
+<p><code>pgrep</code> returns the process id (PID) where the string matches. In this case the PID = 24895. Warning: Don't use this PID, use the PID you find on your own system.</p>
+<h3>Stopping the ping command</h3>
+<p>Use the <code>kill</code> command to stop a running job. Be careful, you can kill the wrong job and crash your system. Make sure you enter the correct process id (PID) you found above.</p>
+<div class="codehilite"><pre><span></span><code>kill PID 
+</code></pre></div>
+
+<p>Here's nother command to find the running ping processes. Use <code>ps</code> if your distribution doesn’t include the <code>pgrep</code> command. The <code>ps</code> command displays the current process status for all running processes. It's a long list and you can use <code>grep</code> to show you just what you want.</p>
+<div class="codehilite"><pre><span></span><code>ps -aux | grep ping 
+</code></pre></div>
+
+<p><img alt="Example showing ps -aux output" src="https://ghost.64zbit.com/content/images/2021/03/Screenshot_2021-03-09-12.01.43_GMlonb.png" title="Example showing ps -aux output"></p>
+<p>The process id on this distribution is in the second column from the left. In this case the PID = 24895.</p>
+<h3>Removing the network.log</h3>
+<p>When you are done with your analysis you can remove the network.log file with the <code>rm</code> command. Becareful not to remove the wrong file, this can crash your system.</p>
+<div class="codehilite"><pre><span></span><code>rm network.log
+</code></pre></div>
+
+<h3>References</h3>
+<p>More info about the Jobs Command<br>
+<a href="https://www.computerhope.com/unix/ujobs.htm">https://www.computerhope.com/unix/ujobs.htm</a></p>
+<p>Date logic from<br>
+<a href="https://stackoverflow.com/questions/10679807/how-do-i-timestamp-every-ping-result">https://stackoverflow.com/questions/10679807/how-do-i-timestamp-every-ping-result</a></p>
+<p>Use the linux manual pages to learn more about each command.<br>
+man kill<br>
+man ps<br>
+man grep<br>
+man pgrep<br>
+man ping<br>
+man cat<br>
+man more<br>
+man jobs<br>
+man date<br>
+man top<br>
+man rm</p>
+<p>You can search for the linux pipe command too.</p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/ping.html" rel="tag">Ping</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/shell.html" rel="tag">Shell</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/save-text-snippets-to-dayone-using-better-touch-tool.html">
+        <h2 itemprop="name headline">Save Text Snippets to DayOne using Better Touch Tool</h2>
+    </a>
+    <!-- 26 February 2021 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2021-02-26T17:45:00-06:00" itemprop="datePublished"> February 26, 2021</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/tech.html" rel="tag">Tech</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>For a long time I've wanted a quick way to save text snippets in a timestamped, quickly searchabe form. Today I created a Better Touch Tool keyboad shortcut to save text snippets to a specific DayOne journal.</p>
+<p>Here are the details on github so that you too can enjoy this …</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>For a long time I've wanted a quick way to save text snippets in a timestamped, quickly searchabe form. Today I created a Better Touch Tool keyboad shortcut to save text snippets to a specific DayOne journal.</p>
+<p>Here are the details on github so that you too can enjoy this amazing automation feature.</p>
+<p><a href="https://github.com/dougpark/dayone">dougpark/dayone</a></p>
+<p>Better Touch Tool create a DayOne journal entry. Contribute to dougpark/dayone development by creating an account on GitHub.</p>
+<p><img alt="" src="https://github.githubassets.com/favicons/favicon.svg">dougparkGitHub</p>
+<p><img alt="" src="https://avatars.githubusercontent.com/u/20155398?s=400&amp;v=4"></p>
+<p><img alt="" src="https://ghost.64zbit.com/content/images/2021/02/image.png"></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/tech.html" rel="tag">Tech</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/how-build-computer-controlled-robot.html">
+        <h2 itemprop="name headline">How-build-computer-controlled-robot</h2>
+    </a>
+    <!-- 28 November 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-11-28T03:56:47-06:00" itemprop="datePublished"> November 28, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Link
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/link.html" rel="category">Link</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/kim-1.html" rel="tag">kim-1</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/robots.html" rel="tag">robots</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>The book that started it all for me. Sometime around 1979  #kim1 #6502 #robot #diy #developer</p></span> -->
+    <div itemprop="articleBody" class="article-body"><h2><a href="https://www.amazon.com/How-build-computer-controlled-robot-Loofbourrow/dp/0810456818">Read the full article at www.amazon.com</a></h2>
+<blockquote>
+<p>The book that started it all for me. Sometime around 1979  #kim1 #6502 #robot #diy #developer</p>
+</blockquote></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/kim-1.html" rel="tag">kim-1</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/robots.html" rel="tag">robots</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/raspberry-pi-usb-boot.html">
+        <h2 itemprop="name headline">Raspberry Pi USB boot</h2>
+    </a>
+    <!-- 29 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-29T01:42:00-05:00" itemprop="datePublished"> October 29, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/tech.html" rel="tag">Tech</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">Link</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>How to install Ubuntu Desktop on Raspberry Pi 4 | Ubuntu</p>
+<p>Ubuntu is an open source software operating system that runs from the desktop, to the cloud, to all your internet connected things.</p>
+<p><a href="https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#4-optional-usb-boot">Install Ubuntu Desktop on Raspberry Pi 4</a></p>
+<p>Covers the basics of updating your Pi 4 to USB boot …</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>How to install Ubuntu Desktop on Raspberry Pi 4 | Ubuntu</p>
+<p>Ubuntu is an open source software operating system that runs from the desktop, to the cloud, to all your internet connected things.</p>
+<p><a href="https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#4-optional-usb-boot">Install Ubuntu Desktop on Raspberry Pi 4</a></p>
+<p>Covers the basics of updating your Pi 4 to USB boot.</p>
+<p><img alt="" src="https://assets.ubuntu.com/v1/17b68252-apple-touch-icon-180x180-precomposed-ubuntu.png"></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/tech.html" rel="tag">Tech</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/link.html" rel="tag">Link</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/pluto-attacks.html">
+        <h2 itemprop="name headline">Pluto Attacks</h2>
+    </a>
+    <!-- 26 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-26T00:10:00-05:00" itemprop="datePublished"> October 26, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/play.html" rel="category">Play</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/play.html" rel="tag">Play</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/gamedev.html" rel="tag">GameDev</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/projects.html" rel="tag">Projects</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>"The Plutonians are not happy with us calling their home a 'dwarf' planet. So when they discovered a trick in the space time continuum they sent an infinite number of drones to attack Earth. We created an energy weapon that can siphon off the energy from the drones weapons. This powers the Earths vessel and creates a powerful energy shield. Remember, don't let even one alien escape!"</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>Html5, <a href="http://phaser.io/">Phaser 2,</a> Action packed arcade game</p>
+<p>Pluto Attacks was previously hosted at <a href="https://povingames.com/">povingames.com</a></p>
+<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/Screenshot_2020-10-25-19.16.34_B29XIC.png"></p>
+<p><a href="https://play.64zbit.com/plutoattacks">Play Now</a></p>
+<p>"The Plutonians are not happy with us calling their home a 'dwarf' planet. So when they discovered a trick in the space time continuum they sent an infinite number of drones to attack Earth. We created an energy weapon that can siphon off the energy from the drones weapons. This powers the Earths vessel and creates a powerful energy shield. Remember, don't let even one alien escape!"</p>
+<p>Poving Games released this intense shooter based on the classic Phaser Invaders example and then taken it into complete overdrive! You don't have to shoot, that is done automatically. You just move left and right and blast away the plutonains. It all starts quite calmly and you'll no doubt do a perfect clearance of the first few levels.</p>
+<p><a href="http://phaser.io/news/2019/02/pluto-attacks">Read More</a> at phaser.io</p>
+<p><a href="https://www.html5games.net/pluto-attacks-space-shooter/">Read More</a> at html5games.net</p>
+<h3>How To Play</h3>
+<p>You can start at Normal level 1 if you want to see how it all began. Typical space game with normal dodge and shoot action. You can even level up to the 20’s and still play a dodge and shoot game. However, it will drive you crazy and you will get bored.</p>
+<p>The fun begins at about Fun level 20. Everything is faster and you quickly realize there is more to the game then just dodge and shoot. In fact dodging is no longer possible. There are explosions, lots and lots of explosions.</p>
+<p>Plutonians are not happy with the reclassification of their home world to Dwarf Planet. So when they discovered a trick in the space time continuum they send an infinite number of drones to attack Earth. Earth learned just enough about their technology to use it to their own advantage. We created an energy weapon that can siphon off the energy from the drones weapons. This powers the Earth vessel and creates a powerful energy shield.</p>
+<p>For desktop just press the space bar to start and then left and right arrows to move. That’s it.</p>
+<p>For mobile just tap to start and then use your finger to move back and forth. It’s actually easier and more fun on mobile.</p>
+<p>Levels go by pretty quickly. Hey, it’s a game with only two buttons and you can master it in 60 seconds. By level 20 it’s moving right along and by level 30 it’s actually pretty good. Have Fun!</p>
+<p>Tip: Don’t let any aliens escape!</p>
+<p><img alt="Pluto Attacks" src="https://ghost.64zbit.com/content/images/size/w2000/2020/10/pluto-attacks1.png"></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/play.html" rel="category">Play</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/play.html" rel="tag">Play</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/gamedev.html" rel="tag">GameDev</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/projects.html" rel="tag">Projects</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/future-projects.html">
+        <h2 itemprop="name headline">Future Projects</h2>
+    </a>
+    <!-- 23 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-23T22:20:00-05:00" itemprop="datePublished"> October 23, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/projects.html" rel="category">Projects</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/projects.html" rel="tag">Projects</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>I've been doing this for decades and now I want to be an HTML5 game devloper. I'm starting with a server! Well, I have very little experience with game development, graphics, animation, sound, so it's going to be a fun journey.</p>
+<p>Stories in the pipeline:</p>
+<ul>
+<li>VSCode Remote</li>
+<li>Installing Docker, Docker-Compose …</li></ul></span> -->
+    <div itemprop="articleBody" class="article-body"><p>I've been doing this for decades and now I want to be an HTML5 game devloper. I'm starting with a server! Well, I have very little experience with game development, graphics, animation, sound, so it's going to be a fun journey.</p>
+<p>Stories in the pipeline:</p>
+<ul>
+<li>VSCode Remote</li>
+<li>Installing Docker, Docker-Compose</li>
+<li>Nodejs with socket.io</li>
+<li>Nodemon sounds like Pokemon, yep!</li>
+<li>SSL and Letsencrypt certificates</li>
+<li>Working with Apache, MySQL and PHP</li>
+<li>Hosting your own VPS backend with Linode for $5 a month</li>
+<li>HTML5 games and AJAX are best buds</li>
+<li>HTML5 games and socket.io are even better buds</li>
+</ul></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/projects.html" rel="category">Projects</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/projects.html" rel="tag">Projects</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/macos-bitbar-get-wi-fi-ssid-with-shell-script.html">
+        <h2 itemprop="name headline">macOS - BitBar - Get Wi-Fi SSID with shell script</h2>
+    </a>
+    <!-- 18 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-18T00:14:00-05:00" itemprop="datePublished"> October 18, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/tech.html" rel="tag">Tech</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>So, <a href="https://sixcolors.com/">Jason Snell</a> got me hooked on <a href="https://sixcolors.com/post/2020/08/put-anything-in-your-macs-menu-bar-with-bitbar/">BitBar</a> (BitBar (by <a href="https://twitter.com/matryer">Mat Ryer - @matryer</a>) lets you put the output from any script/program in your Mac OS X Menu Bar.) and I've been working on a plugin ever since. Here's a quick way to get your current Wi-Fi SSID.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">function</span><span class="w"> </span>display-ssid …</code></pre></div></span> -->
+    <div itemprop="articleBody" class="article-body"><p>So, <a href="https://sixcolors.com/">Jason Snell</a> got me hooked on <a href="https://sixcolors.com/post/2020/08/put-anything-in-your-macs-menu-bar-with-bitbar/">BitBar</a> (BitBar (by <a href="https://twitter.com/matryer">Mat Ryer - @matryer</a>) lets you put the output from any script/program in your Mac OS X Menu Bar.) and I've been working on a plugin ever since. Here's a quick way to get your current Wi-Fi SSID.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">function</span><span class="w"> </span>display-ssid<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span>
+<span class="nv">ssid</span><span class="o">=</span><span class="k">$(</span>/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport<span class="w"> </span>-I<span class="w">  </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="s1">&#39; SSID: &#39;</span><span class="w">  </span><span class="s1">&#39;/ SSID: / {print $2}&#39;</span><span class="k">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Wi-Fi: </span><span class="nv">$ssid</span><span class="s2"> | terminal=false bash=&#39;</span><span class="nv">$0</span><span class="s2">&#39; param1=copy param2=</span><span class="nv">$ssid</span><span class="s2">&quot;</span>
+
+<span class="o">}</span>
+</code></pre></div>
+
+<p>Get wireless SSID through shell script on Mac OS X</p>
+<p>Is there any way to get the SSID of the current wireless network through a shell script on Mac OS X?</p>
+<p><img alt="" src="https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png?v=c78bd457575a">Mark SzymanskiStack Overflow</p>
+<p><a href="https://stackoverflow.com/questions/4481005/get-wireless-ssid-through-shell-script-on-mac-os-x">SSID with shell script</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/tech.html" rel="tag">Tech</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/how-to-answer-questions-in-a-helpful-way.html">
+        <h2 itemprop="name headline">How to answer questions in a helpful way</h2>
+    </a>
+    <!-- 18 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-18T00:11:00-05:00" itemprop="datePublished"> October 18, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/life.html" rel="category">Life</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/life.html" rel="tag">Life</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>We all work together. I always try to assume the other person is asking a serious question. Depending on how tired I am I may not answer in the best way. Here are some tips to stay on track.</p>
+<p>How to answer questions in a helpful way</p>
+<p><a href="https://jvns.ca/blog/answer-questions-well/">Answer Questions Well …</a></p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>We all work together. I always try to assume the other person is asking a serious question. Depending on how tired I am I may not answer in the best way. Here are some tips to stay on track.</p>
+<p>How to answer questions in a helpful way</p>
+<p><a href="https://jvns.ca/blog/answer-questions-well/">Answer Questions Well by Julia Evans</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/life.html" rel="category">Life</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/life.html" rel="tag">Life</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/how-to-think-like-a-programmer-lessons-in-problem-solving.html">
+        <h2 itemprop="name headline">How to think like a programmer — lessons in problem solving</h2>
+    </a>
+    <!-- 17 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-17T22:02:00-05:00" itemprop="datePublished"> October 17, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/life.html" rel="category">Life</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/life.html" rel="tag">Life</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>How to think like a programmer — lessons in problem solving</p>
+<p>by Richard Reis How to think like a programmer — lessons in problem solvingBy Richard Reis [https://twitter.com/richardreeze]If you’re interested inprogramming, you may well have seen this quote before: &gt; “Everyone in this country should learn to program …</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>How to think like a programmer — lessons in problem solving</p>
+<p>by Richard Reis How to think like a programmer — lessons in problem solvingBy Richard Reis [https://twitter.com/richardreeze]If you’re interested inprogramming, you may well have seen this quote before: &gt; “Everyone in this country should learn to program a computer, because it teachesyou to thi…</p>
+<p><a href="https://www.freecodecamp.org/news/how-to-think-like-a-programmer-lessons-in-problem-solving-d1d8bf1de7d2/amp/?__twitter_impression=true">How to think like a programmer</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/life.html" rel="category">Life</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/life.html" rel="tag">Life</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/the-gateless-gate.html">
+        <h2 itemprop="name headline">The Gateless Gate</h2>
+    </a>
+    <!-- 16 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-16T01:05:00-05:00" itemprop="datePublished"> October 16, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/life.html" rel="category">Life</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/life.html" rel="tag">Life</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><blockquote>
+<p>"This classic Zen Buddhist collection of 49 koans with commentary by Mumon was originally published in 1934, and later included in Paul Reps and Nyogen Senzaki's popular anthology Zen Flesh, Zen Bones. Due to non-renewal it is currently in the public domain in the US (although other parts of Zen …</p></blockquote></span> -->
+    <div itemprop="articleBody" class="article-body"><blockquote>
+<p>"This classic Zen Buddhist collection of 49 koans with commentary by Mumon was originally published in 1934, and later included in Paul Reps and Nyogen Senzaki's popular anthology Zen Flesh, Zen Bones. Due to non-renewal it is currently in the public domain in the US (although other parts of Zen Flesh, Zen Bones are not)." <a href="https://www.sacred-texts.com/bud/glg/index.htm">source link</a></p>
+</blockquote>
+<p>I was playing with CSS and Html and made a nice little web app.</p>
+<p><a href="https://dev.64zbit.com/gate/index.html">Check out my project and read all 49 koans</a></p>
+<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image-5.png"></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/life.html" rel="category">Life</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/life.html" rel="tag">Life</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/hyperlegible-typeface.html">
+        <h2 itemprop="name headline">Hyperlegible Typeface</h2>
+    </a>
+    <!-- 15 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-15T16:28:00-05:00" itemprop="datePublished"> October 15, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/life.html" rel="category">Life</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/life.html" rel="tag">Life</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>I love this and will need it sooner than I expect.</p>
+<p>"Atkinson Hyperlegible font is named after Braille Institute founder, Robert J. Atkinson.  What makes it different from traditional typography design is that it focuses on letterform distinction to increase character recognition, ultimately improving readability."</p>
+<p><a href="https://www.brailleinstitute.org/freefont">https://www.brailleinstitute.org/freefont …</a></p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>I love this and will need it sooner than I expect.</p>
+<p>"Atkinson Hyperlegible font is named after Braille Institute founder, Robert J. Atkinson.  What makes it different from traditional typography design is that it focuses on letterform distinction to increase character recognition, ultimately improving readability."</p>
+<p><a href="https://www.brailleinstitute.org/freefont">https://www.brailleinstitute.org/freefont</a></p>
+<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image-4.png"></p>
+<p>A Free Hyperlegible Typeface from the Braille Institute</p>
+<p>Atkinson Hyperlegible is a free typeface developed by the Braille Institute and Applied Design Works that makes text more readab</p>
+<p><img alt="" src="https://kottke.org/images/2016/ios/192x192.png">Jason Kottkekottke.org</p>
+<p><a href="https://kottke.org/20/10/a-free-hyperlegible-typeface-from-the-braille-institute">Hyperlegible Typeface</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/life.html" rel="category">Life</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/life.html" rel="tag">Life</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/get-the-most-from-siri-music.html">
+        <h2 itemprop="name headline">Get the most from Siri music</h2>
+    </a>
+    <!-- 12 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-12T18:03:00-05:00" itemprop="datePublished"> October 12, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/life.html" rel="category">Life</a>
+    </span> -->
+
+    <span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>I'm terrible a playing music, this helps.</p>
+<blockquote>
+<p><a href="https://www.smartenlight.com/siri-apple-music-voice-commands/">Hey Siri, Play Some Music: All the Music Commands (and more …)</a></p>
+</blockquote>
+<h3>How to play Music by Activity and Mood</h3>
+<p>Apple Music has a couple of not so obvious activities and moods, which you can use to specify what to play:</p>
+<ul>
+<li><strong><em>*Hey Siri play …</em></strong></li></ul></span> -->
+    <div itemprop="articleBody" class="article-body"><p>I'm terrible a playing music, this helps.</p>
+<blockquote>
+<p><a href="https://www.smartenlight.com/siri-apple-music-voice-commands/">Hey Siri, Play Some Music: All the Music Commands (and more …)</a></p>
+</blockquote>
+<h3>How to play Music by Activity and Mood</h3>
+<p>Apple Music has a couple of not so obvious activities and moods, which you can use to specify what to play:</p>
+<ul>
+<li><strong><em>*Hey Siri play (some) music for <activity></em></strong>*</li>
+<li><strong><em>*Hey Siri play <mood> music</em></strong>*</li>
+</ul>
+<p>Here is a list of some <strong><em>*moods</em></strong>* we have tested, we’ve added the station they will trigger:</p>
+<ul>
+<li><strong><em>*Peaceful / Meditation / Meditate / Bedtime / Sleeping</em></strong>* -&gt; station <em>Meditation</em></li>
+<li><strong><em>*Happy / Cheerful / Whimsical</em></strong>* -&gt; station <em>Happy Music</em></li>
+<li><strong><em>*Wild / Party / Fun</em></strong>* -&gt; station <em>Partying</em></li>
+<li><strong><em>*Stimulating / Exciting / Motivate(d) / Waking Up / Upbeat</em></strong>* -&gt; station <em>Motivated Music</em></li>
+<li><strong><em>*Angry</em></strong>* -&gt; station <em>Angry music</em></li>
+<li><strong><em>*Calm / Sad / Blue / Somber</em></strong>* -&gt; station <em>sad music</em></li>
+<li><strong><em>*Intimate / Erotic / Baby Making</em></strong>* -&gt; station <em>Getting it on</em></li>
+<li><strong><em>*Mellow / Chill / Soothing</em></strong>* -&gt; station <em>chill music</em></li>
+<li><strong><em>*Love / Passion / Tender / Romance / Romantic</em></strong>* -&gt; station <em>Romantic and Love Music</em></li>
+</ul>
+<p>Here we go with some <strong><em>*activities</em></strong>*, which we’ve tested (musically =):</p>
+<ul>
+<li><strong><em>*Seperate / Split(ing) / Break(ing) Up</em></strong>* -&gt; station <em>Breaking Up</em></li>
+<li><strong><em>*Exercise / Cardio / Work(ing) Out</em></strong>* -&gt; station <em>Working Out</em></li>
+<li><strong><em>*Dinner Party / Cooking / Entertaining</em></strong>* -&gt; station <em>Entertaining</em></li>
+<li><strong><em>*Dance / Dancing</em></strong>* -&gt; station <em>Dance</em></li>
+<li><strong><em>*Focus(ing) / Study(ing) / Concentrate / Concentration</em></strong>* -&gt; station <em>Focusing</em></li>
+<li><strong><em>*Family Time / Safe for Kids</em></strong>* -&gt; station <em>Family Time</em></li>
+<li><strong><em>*Family / Kids</em></strong>* -&gt; station <em>Disney</em></li>
+</ul></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/life.html" rel="category">Life</a>
+                	</span>
+                	Tags:
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/nodemon-for-docker.html">
+        <h2 itemprop="name headline">Nodemon for Docker</h2>
+    </a>
+    <!-- 08 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-08T21:04:00-05:00" itemprop="datePublished"> October 08, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/tech.html" rel="tag">Tech</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/docker.html" rel="tag">docker</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/gamedev.html" rel="tag">GameDev</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>I just installed Nodemon in my development Docker container. Here are the details.</p>
+<p>Game developers need a quick and easy server solution. Docker, nodejs, mysql, sqlite, socket.io are working great for me. This is part of my upcoming series on how to make it all work. Its way, WAY …</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>I just installed Nodemon in my development Docker container. Here are the details.</p>
+<p>Game developers need a quick and easy server solution. Docker, nodejs, mysql, sqlite, socket.io are working great for me. This is part of my upcoming series on how to make it all work. Its way, WAY easier than you might think.</p>
+<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image-3.png"></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/tech.html" rel="tag">Tech</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/docker.html" rel="tag">docker</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/gamedev.html" rel="tag">GameDev</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/use-prism-for-syntax-highlighting-in-ghost.html">
+        <h2 itemprop="name headline">Use Prism for Syntax Highlighting in Ghost</h2>
+    </a>
+    <!-- 05 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-05T03:00:00-05:00" itemprop="datePublished"> October 05, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/ghost.html" rel="tag">Ghost</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/tech.html" rel="tag">Tech</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>Configure Ghost and Prism to provide code syntax highlighting for all popular formats including javascript, php, html, css, markdown and more.</p>
+<p>Ghost is a great CMS and it's easy to add a code syntax highlighter such as <a href="https://prismjs.com/">Prism</a>.</p>
+<h2>Versions</h2>
+<p>Ghost version 3.3<br>
+Prism version 1.21</p>
+<h2>Prism</h2>
+<p>There are …</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>Configure Ghost and Prism to provide code syntax highlighting for all popular formats including javascript, php, html, css, markdown and more.</p>
+<p>Ghost is a great CMS and it's easy to add a code syntax highlighter such as <a href="https://prismjs.com/">Prism</a>.</p>
+<h2>Versions</h2>
+<p>Ghost version 3.3<br>
+Prism version 1.21</p>
+<h2>Prism</h2>
+<p>There are two ways to use Prism: 1) download and serve from your website or 2) serve from a <a href="https://en.wikipedia.org/wiki/Content_delivery_network">Content Delivery network (CDN)</a>. The CDN option is actually easier and better for your viewers. There is a chance that many sites use Prism and once your browser has it in its local cache it won't need to download it again, which makes it faster and uses less bandwidth. So, that's what you will learn about today.</p>
+<p><strong>Step 1</strong> - Go to the <a href="https://prismjs.com/">Prism</a> website and learn a little about it. Look at the Theme bubbles down the right-side of the page. Find a theme that you like and want to use on your Ghost powered blog. I use the "Okaidia" theme on this website. Also, notice that there are many, many language features supported. If you will always just use a few languages then you can hard code them into your setting and only use them. However, if like me there is no telling which language you will post about next then you should use the autoloader feature.</p>
+<p>Take note of the latest Prism version. As of this writting I'm using version 1.21.0. You will want to use the most current version.</p>
+<h2>CDN</h2>
+<p><strong>Step 2</strong> - Find a CDN that hosts Prism. I chose <a href="https://cdnjs.com/">cdnjs.com</a> to serve the Prism files. It's free, easy to use and fast. I recommend you go to <a href="https://cdnjs.com/">cdnjs.com</a> and search for Prism. You will see that there are a lot of options. You don't need all of those, just the ones you are interested in.</p>
+<p><strong>Step 3</strong> - There are 3 main parts of Prism you need to make this work. The first part is the CSS. To load this from cdnjs.com looks like this.</p>
+<p>Part 1: Choose your theme:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism-okaidia.min.css&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>Link to Prism okaidia theme</p>
+<p>Notice this version contains the word <code>okaidia</code> which means it has the color scheme for the Theme I like. You should search for the Theme that you chose in step 1.</p>
+<p>Part 2: Find the core js file:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/components/prism-core.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>Link to Prism core library</p>
+<p>It contains the <code>core</code> of the Prism library.</p>
+<p>Part 3: Find the language modules you want to use, or find the <a href="https://prismjs.com/plugins/autoloader/"><code>autoloader</code></a> version.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/autoloader/prism-autoloader.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>Link to Prism autoloader</p>
+<p>These are the 3 minimum components needed to use Prism with Ghost.</p>
+<p>Now that you have identified the 3 main components and their links to the CDN, it's time to put them into your Ghost blog.</p>
+<h2>Code Injection</h2>
+<p>Ghost makes this very easy to do with the <code>Code injection</code> feature on their admin page.</p>
+<p><strong>Step 4</strong> - Go to your ghost admin page, it is defaulted to site.tld/ghost, and login with your admin account.</p>
+<p>Click on the <code>Code injection</code> menu option on the left. You should see two main sections "Site Header" and "Site Footer".</p>
+<p>Part 1 - Place the CSS link in the <code>Site Header</code> section. It should look something like this:</p>
+<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image.png"></p>
+<p>Site Header portion of Code injection</p>
+<p>That's all there is, just copy and paste the above CSS link into the <code>Site Header</code> section.</p>
+<p>Part 2 - The <code>Site Footer</code> works the same, just copy and paste the <code>core</code> link and the <code>autoloader</code> link. If you decided to go with language specific options this is where you would load them instead of the autoloader link.</p>
+<p>Remember these links are loaded on every page of your blog even if you don't use them on that page, so keep it simple, small and fast.</p>
+<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image-1.png"></p>
+<p>Site Footer portion of Code injection</p>
+<h2>Configuration Complete</h2>
+<p>That's all there is to configuring Ghost to use Prism. The next portion will show you how to use them on your blog.</p>
+<p><strong>Step 1</strong> - Create a new post in Ghost and press the + icon to add a new section to your page, and then immediately type ``` <enter> that's 3 back-tick special characters under the ~ symbol on the top left of your keyboard. They are not single quotes ' or double quotes ".</p>
+<p>This puts Ghost into the code entry mode. You can copy and paste your code in here.</p>
+<p><strong>Step 2 -</strong> Notice on the right hand side of the code entry box there is a place for language. This is where you type in the language for this code snippet. Ghost has done some of the work for you. You don't have to prepend the language type with <code>language-</code> or <code>lang-</code> as talked about in the Prism documentation, just put in what you are working with. Such as: js, javascript, html, php, json, css, etc..</p>
+<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image-2.png"></p>
+<p>Sample html script with language type shown in top-right corner</p>
+<p>That's it! You code snippets will now be syntax highlighted with Prism.</p>
+<h2>Further Reading</h2>
+<p>For more examples and tips on how to add line numbers and a copy-to-clipboard button check out this <a href="https://ghost.org/tutorials/code-syntax-highlighting/">Ghost tutorial</a>.</p>
+<h2>Examples</h2>
+<p>Here are a few examples to look at.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">createBoard</span><span class="p">(</span><span class="nx">team</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;&lt;div class=&#39;text-center&#39;&gt;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">col</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">col</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">row</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">calcId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">team</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">zeroPad</span><span class="p">(</span><span class="nx">row</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">zeroPad</span><span class="p">(</span><span class="nx">col</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">` &#39;</span><span class="si">${</span><span class="nx">team</span><span class="si">}</span><span class="sb">&#39;, </span><span class="si">${</span><span class="nx">row</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">col</span><span class="si">}</span><span class="sb">, &#39;</span><span class="si">${</span><span class="nx">calcId</span><span class="si">}</span><span class="sb">&#39;`</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sb">`  &lt;a class=&#39;m-0 p-1 btn btn-dark&#39; href=&quot;javascript:fire(</span><span class="si">${</span><span class="nx">link</span><span class="si">}</span><span class="sb">);&quot; role=&#39;button&#39;&gt;`</span>
+<span class="w">            </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;   &lt;span class=&#39;title&#39;&gt;&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;    &lt;span id=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">calcId</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&#39; class=&#39;badge badge-dark oi&#39; data-glyph=&#39;target&#39;&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&lt;/span&gt;&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;   &lt;/span&gt;&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;  &lt;/a&gt;&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot; &lt;br&gt; &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;&lt;/div&gt;&quot;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#board-&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">team</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">out</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Sample Javascript code</p>
+<div class="codehilite"><pre><span></span><code><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">&quot;ios.css&quot;</span><span class="p">;</span>
+<span class="c">/* @import &quot;darkMode.css&quot;; */</span>
+<span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">&quot;toggleSwitch.css&quot;</span><span class="p">;</span>
+
+<span class="p">@</span><span class="k">font-face</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">font-family</span><span class="o">:</span><span class="w"> </span><span class="nt">Revamped</span><span class="o">;</span>
+<span class="w">    </span><span class="nt">src</span><span class="o">:</span><span class="w"> </span><span class="nt">url</span><span class="o">(</span><span class="s2">&quot;../font/Revamped.ttf&quot;</span><span class="o">)</span><span class="w"> </span><span class="nt">format</span><span class="o">(</span><span class="s1">&#39;truetype&#39;</span><span class="o">);</span>
+<span class="p">}</span>
+
+<span class="c">/* get screen width based on device */</span>
+<span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c">/* desktop vars */</span>
+<span class="w">    </span><span class="nv">--screen-w1</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">--screen-w2</span><span class="p">:</span><span class="w"> </span><span class="mi">495</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="nt">screen</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="o">(</span><span class="nt">max-width</span><span class="o">:</span><span class="w"> </span><span class="nt">500px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c">/* mobile vars */</span>
+<span class="w">        </span><span class="nv">--screen-w1</span><span class="p">:</span><span class="w"> </span><span class="mi">97</span><span class="kt">vw</span><span class="p">;</span>
+<span class="w">        </span><span class="nv">--screen-w2</span><span class="p">:</span><span class="w"> </span><span class="mi">94</span><span class="kt">vw</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Sample CSS code</p>
+<div class="codehilite"><pre><span></span><code><span class="x">public function getGame($userName, $roomName, $gameToken)</span>
+<span class="x">    {</span>
+
+<span class="x">        //load game</span>
+<span class="x">        $this-&gt;game = $this-&gt;loadGame($gameToken);</span>
+
+<span class="x">        return $this-&gt;game;</span>
+<span class="x">    }</span>
+</code></pre></div>
+
+<p>Sample PHP code</p>
+<div class="codehilite"><pre><span></span><code><span class="cm">&lt;!-- Main Nav Bar --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-top hide main&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar w3-round-large z-nav-background z-width&quot;</span> <span class="na">xstyle</span><span class="o">=</span><span class="s">&quot;max-width:500px&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;showPanel(&#39;lobby&#39;)&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar-item w3-round-large z-nav-text&quot;</span><span class="p">&gt;</span>Lobby<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+
+                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;showPanel(&#39;E-Space&#39;)&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-button z-nav-text w3-border w3-border-blue w3-hover-black w3-small&quot;</span><span class="p">&gt;</span>E-Space<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;showPanel(&#39;F-Space&#39;)&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-button z-nav-text w3-border w3-border-blue w3-hover-black w3-small&quot;</span><span class="p">&gt;</span>F-Space<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>Sample HTML code</p>
+<div class="codehilite"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">activeUserTable</span><span class="o">`</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span>
+<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">time_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="k">time</span><span class="o">`</span><span class="p">);</span>
+
+<span class="c1">--</span>
+<span class="c1">-- AUTO_INCREMENT for dumped tables</span>
+<span class="c1">--</span>
+
+<span class="c1">--</span>
+<span class="c1">-- AUTO_INCREMENT for table `activeUserTable`</span>
+<span class="c1">--</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">activeUserTable</span><span class="o">`</span>
+<span class="w">  </span><span class="k">MODIFY</span><span class="w"> </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Sample SQL code</p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/ghost.html" rel="tag">Ghost</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/tech.html" rel="tag">Tech</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/studio-ghibli-50-free-stills.html">
+        <h2 itemprop="name headline">Studio Ghibli 50 free stills</h2>
+    </a>
+    <!-- 19 September 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-09-19T00:44:38-05:00" itemprop="datePublished"> September 19, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Link
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/link.html" rel="category">Link</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/movie.html" rel="tag">movie</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>Studio Ghibli just announced they’ll be uploading 50 free stills from each of their movies: “feel free to use them as you wish, within the bounds of common sense”</p></span> -->
+    <div itemprop="articleBody" class="article-body"><blockquote>
+<p>Studio Ghibli just announced they’ll be uploading 50 free stills from each of their movies: “feel free to use them as you wish, within the bounds of common sense”</p>
+</blockquote>
+<p><a href="https://www.ghibli.jp/info/013344/">Link to the original article</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/movie.html" rel="tag">movie</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/discover-phaser-the-book.html">
+        <h2 itemprop="name headline">Discover Phaser - The Book</h2>
+    </a>
+    <!-- 26 July 2017 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2017-07-26T10:03:30-05:00" itemprop="datePublished"> July 26, 2017</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Link
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/link.html" rel="category">Link</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/phase.html" rel="tag">phase</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/js.html" rel="tag">js</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/gamedev.html" rel="tag">gamedev</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>@photonstorm Thanks to @thomaspalef for this excellent resource.  . Worth every penny.</p></span> -->
+    <div itemprop="articleBody" class="article-body"><blockquote>
+<p>@photonstorm Thanks to @thomaspalef for this excellent resource.  . Worth every penny.</p>
+</blockquote>
+<p><a href="https://www.discoverphaser.com/">Link to the original article</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/phase.html" rel="tag">phase</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/js.html" rel="tag">js</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/gamedev.html" rel="tag">gamedev</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/ios-is-boring.html">
+        <h2 itemprop="name headline">iOS is Boring</h2>
+    </a>
+    <!-- 23 January 2017 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2017-01-23T19:13:00-06:00" itemprop="datePublished"> January 23, 2017</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/robotcraft.html" rel="category">RobotCraft</a>
+    </span> -->
+
+    <span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>I’m a big Apple fan and I have lots of Apple products and the real problem is that iOS is boring. Tim Cook is known for efficiency and Jonathan Ive loves his basic looks, however, when combined they are boring! iOS used to have lots of little details that …</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>I’m a big Apple fan and I have lots of Apple products and the real problem is that iOS is boring. Tim Cook is known for efficiency and Jonathan Ive loves his basic looks, however, when combined they are boring! iOS used to have lots of little details that were exciting to find, but now they are hard to find, hard to discover, and boring when found. They need to let their developers have a little fun, stay in their human guidelines of course, but still have a little fun. Hardware optimization makes sense, but don’t over optimize the software. It can provide a path to fun.</p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/robotcraft.html" rel="category">RobotCraft</a>
+                	</span>
+                	Tags:
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/the-anatomy-of-the-underwater-fiber-optic-cables-that-connect-the-internet.html">
+        <h2 itemprop="name headline">The Anatomy of the Underwater Fiber Optic Cables That Connect the Internet</h2>
+    </a>
+    <!-- 16 December 2016 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2016-12-16T23:23:03-06:00" itemprop="datePublished"> December 16, 2016</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Link
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/link.html" rel="category">Link</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/internet.html" rel="tag">internet</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>The Anatomy of the Underwater Fiber Optic Cables That Connect the Internet</p></span> -->
+    <div itemprop="articleBody" class="article-body"><blockquote>
+<p>The Anatomy of the Underwater Fiber Optic Cables That Connect the Internet  </p>
+</blockquote>
+<p><a href="http://laughingsquid.com/the-anatomy-of-the-underwater-fiber-optic-cables-that-connect-the-internet/">Link to the original article</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/internet.html" rel="tag">internet</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/an-explanation-for-why-people-dont-often-see-b-batteries.html">
+        <h2 itemprop="name headline">An Explanation for Why People Don’t Often See ‘B’ Batteries</h2>
+    </a>
+    <!-- 09 November 2016 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2016-11-09T16:43:06-06:00" itemprop="datePublished"> November 09, 2016</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Link
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/link.html" rel="category">Link</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>An Explanation for Why People Don’t Often See ‘B’ Batteries</p></span> -->
+    <div itemprop="articleBody" class="article-body"><blockquote>
+<p>An Explanation for Why People Don’t Often See ‘B’ Batteries  </p>
+</blockquote>
+<p><a href="http://laughingsquid.com/an-explanation-for-why-people-dont-often-see-b-batteries/">Link to the original article</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/the-internet-of-things-nuts-volts-magazine-for-the-electronics-hobbyist.html">
+        <h2 itemprop="name headline">The Internet of Things - Nuts & Volts Magazine - For The Electronics Hobbyist</h2>
+    </a>
+    <!-- 21 July 2016 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2016-07-21T19:48:00-05:00" itemprop="datePublished"> July 21, 2016</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/robotcraft.html" rel="category">RobotCraft</a>
+    </span> -->
+
+    <span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>Everything starts somewhere...</p>
+<p><a href="http://www.nutsvolts.com/magazine/article/the-internet-of-things?utm_source=Newsletter+%2353&amp;utm_campaign=Newsletter+%2353&amp;utm_medium=email">The Internet of Things - Nuts &amp; Volts Magazine - For The Electronics Hobbyist</a></p>
+<p>NUTS &amp; VOLTS MAGAZINE (NOVEMBER2014)</p>
+<p><img alt="NewImage" border="0" height="300" src="http://robotcraft.org/wp-content/uploads/2016/07/NewImage-1.png" title="NewImage.png" width="600"></p>
+<p>THE INTERNET OF THINGS By Bryan Bergeron    View Digital Edition  </p>
+<p>» Skip to the Extras Since the birth of the Internet, there has been talk of total connectivity — between people, people and their …</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>Everything starts somewhere...</p>
+<p><a href="http://www.nutsvolts.com/magazine/article/the-internet-of-things?utm_source=Newsletter+%2353&amp;utm_campaign=Newsletter+%2353&amp;utm_medium=email">The Internet of Things - Nuts &amp; Volts Magazine - For The Electronics Hobbyist</a></p>
+<p>NUTS &amp; VOLTS MAGAZINE (NOVEMBER2014)</p>
+<p><img alt="NewImage" border="0" height="300" src="http://robotcraft.org/wp-content/uploads/2016/07/NewImage-1.png" title="NewImage.png" width="600"></p>
+<p>THE INTERNET OF THINGS By Bryan Bergeron    View Digital Edition  </p>
+<p>» Skip to the Extras Since the birth of the Internet, there has been talk of total connectivity — between people, people and their possessions, and things to things. Up until recently, the reality has been that such ecosystems existed only in academic and corporate research centers. Today, the Internet of Things (IoT) is a practical reality in many settings.</p>
+<p>Read the original artical at: <a href="http://www.nutsvolts.com/magazine/article/the-internet-of-things?utm_source=Newsletter+%2353&amp;utm_campaign=Newsletter+%2353&amp;utm_medium=email">The Internet of Things - Nuts &amp; Volts Magazine - For The Electronics Hobbyist</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/robotcraft.html" rel="category">RobotCraft</a>
+                	</span>
+                	Tags:
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://64zbit.com/the-joy-of-tech-comic-a-gathering-of-robots.html">
+        <h2 itemprop="name headline">The Joy of Tech comic... A gathering of robots!</h2>
+    </a>
+    <!-- 05 July 2016 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2016-07-05T11:22:00-05:00" itemprop="datePublished"> July 05, 2016</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://64zbit.com/category/robotcraft.html" rel="category">RobotCraft</a>
+    </span> -->
+
+    <span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p><a href="http://www.geekculture.com/joyoftech/index.html">The Joy of Tech comic... A gathering of robots!</a></p>
+<p><img alt="NewImage" border="0" height="305" src="http://robotcraft.org/wp-content/uploads/2016/07/NewImage.png" title="NewImage.png" width="319"></p>
+<p>More info at: <a href="http://www.geekculture.com/joyoftech/index.html">The Joy of Tech comic... A gathering of robots!</a></p></span> -->
+    <div itemprop="articleBody" class="article-body"><p><a href="http://www.geekculture.com/joyoftech/index.html">The Joy of Tech comic... A gathering of robots!</a></p>
+<p><img alt="NewImage" border="0" height="305" src="http://robotcraft.org/wp-content/uploads/2016/07/NewImage.png" title="NewImage.png" width="319"></p>
+<p>More info at: <a href="http://www.geekculture.com/joyoftech/index.html">The Joy of Tech comic... A gathering of robots!</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://64zbit.com/category/robotcraft.html" rel="category">RobotCraft</a>
+                	</span>
+                	Tags:
+ -->
+</div>
+<hr>
+<div class="pagination">
+        <ul>
+                <span class="prev"><a href="https://64zbit.com/index9.html">&larr;
+                                Newer</a></span>
+
+                <span class=""><a
+                                href="https://64zbit.com/index.html">1</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index2.html">2</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index3.html">3</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index4.html">4</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index5.html">5</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index6.html">6</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index7.html">7</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index8.html">8</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index9.html">9</a></span>
+                <span class="active"><a
+                                href="https://64zbit.com/index10.html">10</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index11.html">11</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index12.html">12</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index13.html">13</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index14.html">14</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index15.html">15</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index16.html">16</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index17.html">17</a></span>
+                <span class=""><a
+                                href="https://64zbit.com/index18.html">18</a></span>
+
+                <span class="next"><a
+                                href="https://64zbit.com/index11.html">Older
+                                &rarr;</a></span>
+
+        </ul>
+</div>            </div>
+        </div>
+        <!-- <hr> -->
+    </div>
+    <!-- /container -->
+
+    <!-- Footer -->
+    <div class="col-md-12 dnp-text-dark text-center center-block aw-bottom">
+        <div class="dnp-footer-logo">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1f">64</span><span class="dnp-logo-2f">Z</span><span
+                    class="dnp-logo-1f">bit.com</span>
+            </a>
+            <p>&copy; 64Zbit.com 2026 All rights reserved</p>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js"
+            crossorigin="anonymous"></script>
+
+        <script src="https://64zbit.com/theme/js/dnp.js"></script>
+
+
+
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $("div.collapseheader").click(function () {
+                    $header = $(this).children("span").first();
+                    $codearea = $(this).children(".input_area");
+                    $codearea.slideToggle(500, function () {
+                        $header.text(function () {
+                            return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+                        });
+                    });
+                });
+            });
+        </script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DL0ZSFC661"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-DL0ZSFC661');
+</script>
+
+
+</body>
+
+</html>

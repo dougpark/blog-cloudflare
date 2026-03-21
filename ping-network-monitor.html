@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Ping network monitor — 64Zbit.com</title>
+
+    <meta name="description"
+        content="Title: Ping network monitor; Date: 2021-03-08; Author: D">
+    <meta name="author" content="Doug">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" href="/theme/icons/favicon.ico?v=2" />
+    <link rel="icon" type="image/png" href="/theme/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/theme/icons/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/theme/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="64Zbit.com" />
+    <link rel="manifest" href="/theme/icons/site.webmanifest" />
+
+    <!-- Mastodon Verification -->
+    <link rel="me" href="https://mastodon.social/@Parkdn">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.1/dist/simplex/bootstrap.min.css" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/local.css?v=2" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Canonical Link for SEO -->
+    <link rel="canonical" href="https://64zbit.com/ping-network-monitor.html" />
+
+    <!-- Feeds -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://64zbit.com/feeds/all.rss" />
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="https://64zbit.com/feeds/all.atom.xml" />
+
+</head>
+
+<body>
+
+    <div class="container-fluid pl-0 mb-0 bg-white text-center ml-0 pr-0 pl-0">
+        <!-- Navigation Bar -->
+        <nav class="navbar p-0 m-0 dnp-navbar-color dnp-navbar-adjust justify-content-center">
+            <div class="navbar-collapse d-flex justify-content-center w-100">
+                <ul class="navbar-nav flex-row dnp-navbar-color">
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/archives.html">ARCHIVE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/contact.html">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/feeds/all.rss">RSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Brand Logo at the top of the page -->
+        <div class="mt-3 dnp-site-title">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1">64</span><span class="dnp-logo-2">Z</span><span
+                    class="dnp-logo-1">bit.com</span>
+            </a>
+        </div>
+        <small class="dnp-subTitle">Tech is way, WAY interesting</small>     </div>
+
+    <div class="container mx-auto">
+
+        <!-- Custom horitontal rule -->
+        <div class="row">
+            <div class="mt-0 col-md-8 col-md-offset-2 text-center mx-auto">
+                <hr class="custom-hr">
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <div class="row">
+            <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+
+	<h2 class="dnp-article-title" itemprop="name headline">Ping network monitor</h2>
+
+	<time class="dnp-index-date" datetime="2021-03-08T22:38:00-06:00" itemprop="datePublished">March 08, 2021</time>
+
+
+
+	<!-- <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		| <span itemprop="name">D
+		</span>
+	</span> -->
+
+	<!-- <span>
+		|
+		<span itemprop="articleSection">
+			<a href="https://64zbit.com/category/tech.html" rel="category">Tech</a>
+		</span>
+	</span> -->
+	<span>
+
+		<span class="post-tags" itemprop="keywords">
+			<a class="post-tags" href="https://64zbit.com/tag/ping.html" rel="tag">Ping</a>
+		</span>
+		<span class="post-tags" itemprop="keywords">
+			<a class="post-tags" href="https://64zbit.com/tag/shell.html" rel="tag">Shell</a>
+		</span>
+	</span>
+
+	<!-- <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+			<h4 itemprop="name">D</h4>
+		</span> -->
+
+	<div itemprop="articleBody" class="article-body"><p>The ping command is a built in linux and macOS command that shows the performance of the network connection to a remote server. It can be used to log network performance issues over time. The default ping command displays the results to standard output (the shell window). Used with the following options it routes the output to a file that you can look at later.</p>
+<blockquote>
+<p>The ping command will ping the remote server every second until you manually kill the process. This will create 86,400 pings per day in the output file. It's not something you want to forget about and let it run forever. It could create a very large file that fills up your drive space and crashes your system. I run my ping network monitor on a Raspberry Pi 4 so that it will run 24 hours per day in low power and uninterupted environment.</p>
+</blockquote>
+<h3>Ping directed to a file</h3>
+<p>You would normally just run the ping command interactivly and then stop it when you are done. But, that's not what we are doing today. We are looking for an intermident bug that may happen anytime in the future. For this we need to run the command for weeks at a time and be able to look at the results after a network error has been detected.</p>
+<p>Here is the <code>ping</code> command, running in the background, with the output directed to a file called "network.log".<br>
+Copy and paste this text to your command line.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">ping</span><span class="w"> </span><span class="nt">google</span><span class="p">.</span><span class="nc">com</span><span class="w"> </span><span class="nt">2</span><span class="o">&gt;&amp;</span><span class="nt">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nt">while</span><span class="w"> </span><span class="nt">read</span><span class="w"> </span><span class="nt">pong</span><span class="o">;</span><span class="w"> </span><span class="nt">do</span><span class="w"> </span><span class="nt">date</span><span class="w"> </span><span class="s2">&quot;+%c: $pong&quot;</span><span class="o">;</span><span class="w"> </span><span class="nt">done</span><span class="w"> </span><span class="o">&gt;</span><span class="nt">network</span><span class="p">.</span><span class="nc">log</span><span class="w"> </span><span class="o">&amp;</span>
+</code></pre></div>
+
+<p>Here are the details of what this command does</p>
+<ul>
+<li><code>ping</code> // the ping command to run</li>
+<li><code>google.com</code> // name of the remote server</li>
+<li><code>2&gt;&amp;1</code> // routes stderr to stdout</li>
+<li><code>| while read pong; do date "+%c: $pong"; done</code> // pipe the ping results and add the current date and time</li>
+<li><code>&gt;network.log</code> // routes output to file network.log</li>
+<li><code>&amp;</code> // at end means to run in background</li>
+</ul>
+<p>The <code>pipe</code> command, represented by the vertical bar <code>|</code> takes the output of the first command and routes it into the second command. In this case it takes the output of the <code>ping</code> command and routes it into a command that prepends the current date and then uses the <code>&gt;</code> command to route everthing to a file instead of standard out (stdout).</p>
+<p>The <code>&amp;</code> at the end of the line makes this command run in the background. This frees up your terminal so you can run other commands. It will continue running even when you exit your terminal and logout. The commands below show you how to find the background command later and control it.</p>
+<h3>Jobs and Processes</h3>
+<p>The jobs command only works for jobs you have started in the current shell. If you exit the shell and open a new one then this command will not display your jobs. You will need to use the other commands listed below to work with system level processes.</p>
+<blockquote>
+<p>Fun fact: jobs are started by a user, processes are started and managed by the system. A users job is also a system process.</p>
+</blockquote>
+<h3>Process Id</h3>
+<p>Every command running on the computer is assigned a unique process id (PID). You can use this PID to interact with background processes.</p>
+<blockquote>
+<p>The terms Command, Job, and Process are basically the same thing. They are programs running on your computer.</p>
+<p>Type <code>top</code> into your shell to see a list of the top processes running on your current computer. Notice the PID column listed on the far left. Type <code>q</code> to exit this view. For a fun day of reading type <code>man top</code> to read all the details of the <code>top</code> command.</p>
+</blockquote>
+<p>Use the jobs command to see running background jobs, <code>-l</code> shows the process id (PID). (That’s a lowercase L)</p>
+<div class="codehilite"><pre><span></span><code>jobs -l 
+</code></pre></div>
+
+<h3>Viewing your ping log</h3>
+<p>Use the <code>cat</code> command to view contents of the output file, use the <code>| more</code> option to show a page at a time. This could take awhile, you are getting 86,400 lines per day and paging through them a few lines at a time will get tedious.</p>
+<div class="codehilite"><pre><span></span><code>cat network.log 
+or
+cat network.log | more
+</code></pre></div>
+
+<h3>Look at the output</h3>
+<p>If all goes well you should see a <code>time=</code> value at the end of each line. This tells you the ping completed successfully and you have a good connection to the server.</p>
+<p>When the connection goes down you will receive error messages. These will be helpful in determining what went wrong.</p>
+<p><img alt="" src="https://ghost.64zbit.com/content/images/2021/03/Screenshot_2021-03-08-21.51.21_ya0Tr6.png"></p>
+<p>Example showing a request timout error</p>
+<h3>Use grep to find interesting data</h3>
+<p>The <code>grep</code> command will help you find interesting data in your output file.</p>
+<div class="codehilite"><pre><span></span><code>cat network.log | grep -v time
+</code></pre></div>
+
+<p>The <code>-v</code> option tells grep to "invert match", so any line that does not contain the "time" string.</p>
+<p>This command will search the network.log for any line that does not contain the string "time". So for any ping command that returns anything other than a normal ping time will be displayed. This includes any error messages that you should look at.</p>
+<p><img alt="Example showing an unreachable server" src="https://ghost.64zbit.com/content/images/2021/03/Screenshot_2021-03-09-11.44.55_rGKrOj.png" title="Example showing an unreachable server"><br>
+Example showing an unreachable server</p>
+<h3>Find your running ping command</h3>
+<p>Use the <code>pgrep</code> command to find running ping jobs and return the process id (PID). Pgrep is included in many Linux distributions.</p>
+<div class="codehilite"><pre><span></span><code>pgrep ping 
+</code></pre></div>
+
+<p><img alt="Example showing pgrep ping output" src="https://ghost.64zbit.com/content/images/2021/03/Screenshot_2021-03-09-11.57.09_k4jkp7.png" title="Example showing pgrep ping output"></p>
+<p><code>pgrep</code> returns the process id (PID) where the string matches. In this case the PID = 24895. Warning: Don't use this PID, use the PID you find on your own system.</p>
+<h3>Stopping the ping command</h3>
+<p>Use the <code>kill</code> command to stop a running job. Be careful, you can kill the wrong job and crash your system. Make sure you enter the correct process id (PID) you found above.</p>
+<div class="codehilite"><pre><span></span><code>kill PID 
+</code></pre></div>
+
+<p>Here's nother command to find the running ping processes. Use <code>ps</code> if your distribution doesn’t include the <code>pgrep</code> command. The <code>ps</code> command displays the current process status for all running processes. It's a long list and you can use <code>grep</code> to show you just what you want.</p>
+<div class="codehilite"><pre><span></span><code>ps -aux | grep ping 
+</code></pre></div>
+
+<p><img alt="Example showing ps -aux output" src="https://ghost.64zbit.com/content/images/2021/03/Screenshot_2021-03-09-12.01.43_GMlonb.png" title="Example showing ps -aux output"></p>
+<p>The process id on this distribution is in the second column from the left. In this case the PID = 24895.</p>
+<h3>Removing the network.log</h3>
+<p>When you are done with your analysis you can remove the network.log file with the <code>rm</code> command. Becareful not to remove the wrong file, this can crash your system.</p>
+<div class="codehilite"><pre><span></span><code>rm network.log
+</code></pre></div>
+
+<h3>References</h3>
+<p>More info about the Jobs Command<br>
+<a href="https://www.computerhope.com/unix/ujobs.htm">https://www.computerhope.com/unix/ujobs.htm</a></p>
+<p>Date logic from<br>
+<a href="https://stackoverflow.com/questions/10679807/how-do-i-timestamp-every-ping-result">https://stackoverflow.com/questions/10679807/how-do-i-timestamp-every-ping-result</a></p>
+<p>Use the linux manual pages to learn more about each command.<br>
+man kill<br>
+man ps<br>
+man grep<br>
+man pgrep<br>
+man ping<br>
+man cat<br>
+man more<br>
+man jobs<br>
+man date<br>
+man top<br>
+man rm</p>
+<p>You can search for the linux pipe command too.</p></div>
+	<hr>
+
+
+</div>
+            </div>
+        </div>
+        <!-- <hr> -->
+    </div>
+    <!-- /container -->
+
+    <!-- Footer -->
+    <div class="col-md-12 dnp-text-dark text-center center-block aw-bottom">
+        <div class="dnp-footer-logo">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1f">64</span><span class="dnp-logo-2f">Z</span><span
+                    class="dnp-logo-1f">bit.com</span>
+            </a>
+            <p>&copy; 64Zbit.com 2026 All rights reserved</p>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js"
+            crossorigin="anonymous"></script>
+
+        <script src="https://64zbit.com/theme/js/dnp.js"></script>
+
+
+
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $("div.collapseheader").click(function () {
+                    $header = $(this).children("span").first();
+                    $codearea = $(this).children(".input_area");
+                    $codearea.slideToggle(500, function () {
+                        $header.text(function () {
+                            return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+                        });
+                    });
+                });
+            });
+        </script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DL0ZSFC661"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-DL0ZSFC661');
+</script>
+
+
+</body>
+
+</html>

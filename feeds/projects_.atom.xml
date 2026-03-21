@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>64Zbit.com - projects_</title><link href="https://64zbit.com/" rel="alternate"/><link href="https://64zbit.com/feeds/projects_.atom.xml" rel="self"/><id>https://64zbit.com/</id><updated>2025-05-26T00:00:00-05:00</updated><subtitle>Tech is way, WAY interesting</subtitle><entry><title>Circle Game</title><link href="https://64zbit.com/projects/circle/index.html" rel="alternate"/><published>2025-05-26T00:00:00-05:00</published><updated>2025-05-26T00:00:00-05:00</updated><author><name>Doug</name></author><id>tag:64zbit.com,2025-05-26:/projects/circle/index.html</id><summary type="html">&lt;p&gt;Here’s a small demo game built with Phaser, used to test how Phaser games can be embedded directly in blog posts.&lt;/p&gt;</summary><content type="html">&lt;p style="text-align: center;"&gt;
+  &lt;img src="/projects/circle/circle.png" alt="Car Game Screenshot" style="max-width: 100%; height: auto;"&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Here’s a small demo game built with Phaser, used to test how Phaser games can be embedded directly in blog posts.&lt;/p&gt;
+&lt;p&gt;In this simple game, you click the cirlce and it shows how fast your response time is. No bells and whistles — just a quick test to prove the concept.&lt;/p&gt;
+&lt;p&gt;Go ahead and give it a try! It opens in a new tab for a cleaner, full-page experience.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/projects/circle/circle.html" target="_blank" rel="noopener noreferrer" target="_blank"&gt;
+  Circle Game (opens in new browser tab)
+&lt;/a&gt;&lt;/p&gt;</content><category term="projects_"/><category term="phaser"/><category term="game"/></entry><entry><title>Demo: Embedding a Phaser Game in a Blog Post</title><link href="https://64zbit.com/projects/car/index.html" rel="alternate"/><published>2025-05-25T00:00:00-05:00</published><updated>2025-05-25T00:00:00-05:00</updated><author><name>Doug</name></author><id>tag:64zbit.com,2025-05-25:/projects/car/index.html</id><summary type="html">&lt;p&gt;Here’s a small demo game built with Phaser, used to test how Phaser games can be embedded directly in blog posts.&lt;/p&gt;</summary><content type="html">&lt;p style="text-align: center;"&gt;
+  &lt;img src="/projects/car/car.png" alt="Car Game Screenshot" style="max-width: 100%; height: auto;"&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Here’s a small demo game built with Phaser, used to test how Phaser games can be embedded directly in blog posts.&lt;/p&gt;
+&lt;p&gt;In this simple game, you control a car using only the left and right arrow keys. The goal? Navigate to the end of the road without crashing. No bells and whistles — just a quick test to prove the concept.&lt;/p&gt;
+&lt;p&gt;Go ahead and give it a try! It opens in a new tab for a cleaner, full-page experience.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/projects/car/car.html" target="_blank" rel="noopener noreferrer" target="_blank"&gt;
+  Car Game (opens in new browser tab)
+&lt;/a&gt;&lt;/p&gt;</content><category term="projects_"/><category term="phaser"/><category term="game"/></entry><entry><title>Hello Phaser</title><link href="https://64zbit.com/projects/hello/index.html" rel="alternate"/><published>2025-05-25T00:00:00-05:00</published><updated>2025-05-25T00:00:00-05:00</updated><author><name>Doug</name></author><id>tag:64zbit.com,2025-05-25:/projects/hello/index.html</id><summary type="html">&lt;p&gt;A small JS-based game demo in Pelican.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Welcome Embeded Hello Phaser!&lt;/p&gt;
+&lt;div id="game-wrapper" style="position: relative; width: 100%; padding-top: 75%; /* 4:3 aspect ratio */"&gt;
+  &lt;div id="game-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script src="https://unpkg.com/phaser@3/dist/phaser.js"&gt;&lt;/script&gt;
+
+&lt;script src="/projects/hello/main.js"&gt;&lt;/script&gt;</content><category term="projects_"/><category term="phaser"/><category term="game"/></entry></feed>

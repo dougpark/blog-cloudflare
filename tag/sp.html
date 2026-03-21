@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>sp — 64Zbit.com</title>
+
+    <meta name="description"
+        content="All posts which refer to tag sp">
+    <meta name="author" content="Doug">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" href="/theme/icons/favicon.ico?v=2" />
+    <link rel="icon" type="image/png" href="/theme/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/theme/icons/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/theme/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="64Zbit.com" />
+    <link rel="manifest" href="/theme/icons/site.webmanifest" />
+
+    <!-- Mastodon Verification -->
+    <link rel="me" href="https://mastodon.social/@Parkdn">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.1/dist/simplex/bootstrap.min.css" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/local.css?v=2" rel="stylesheet">
+    <link href="https://64zbit.com/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Canonical Link for SEO -->
+
+    <!-- Feeds -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://64zbit.com/feeds/all.rss" />
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="https://64zbit.com/feeds/all.atom.xml" />
+
+</head>
+
+<body>
+
+    <div class="container-fluid pl-0 mb-0 bg-white text-center ml-0 pr-0 pl-0">
+        <!-- Navigation Bar -->
+        <nav class="navbar p-0 m-0 dnp-navbar-color dnp-navbar-adjust justify-content-center">
+            <div class="navbar-collapse d-flex justify-content-center w-100">
+                <ul class="navbar-nav flex-row dnp-navbar-color">
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/archives.html">ARCHIVE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/contact.html">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/feeds/all.rss">RSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dnp-nav-menu nav-link px-2" href="https://64zbit.com/pages/about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Brand Logo at the top of the page -->
+        <div class="mt-3 dnp-site-title">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1">64</span><span class="dnp-logo-2">Z</span><span
+                    class="dnp-logo-1">bit.com</span>
+            </a>
+        </div>
+        <small class="dnp-subTitle">Tech is way, WAY interesting</small>     </div>
+
+    <div class="container mx-auto">
+
+        <!-- Custom horitontal rule -->
+        <div class="row">
+            <div class="mt-0 col-md-8 col-md-offset-2 text-center mx-auto">
+                <hr class="custom-hr">
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <div class="row">
+            <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> 
+
+
+<div class="dnp-search container-fluid mb-3">
+    <label for="searchBox" class="form-label">Search Tags</label>
+
+    <div class="position-relative" style="width: 100%;">
+        <input type="text" id="searchBox" class="form-control pe-5" placeholder="Search tags..." />
+        <span id="clearSearchIcon" class="position-absolute" style="
+        top: 50%;
+        right: 0.75rem;
+        transform: translateY(-50%);
+        font-size: 0.75rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        text-align: center;
+        color: white;
+        background-color: black;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+      ">
+            ×
+        </span>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-2 flex-wrap gap-2">
+        <button class="btn btn-sm btn-outline-primary" id="toggleSummaryBtn" title="Toggle Summaries">
+            <span class="me-1">Show Summaries</span>
+            <i class="fa-solid fa-toggle-off"></i>
+        </button>
+    </div>
+</div>
+
+
+
+
+<script>
+    const searchBox = document.getElementById('searchBox');
+    const clearIcon = document.getElementById('clearSearchIcon');
+    const toggleSummaryBtn = document.getElementById('toggleSummaryBtn');
+    let summariesVisible = false;
+
+    function setSummaryVisibility(visible) {
+        summariesVisible = visible;
+
+        const summaries = document.querySelectorAll('.hidden-summary');
+        summaries.forEach(summary => {
+            summary.style.display = visible ? 'block' : 'none';
+        });
+
+        const toggleIcon = toggleSummaryBtn.querySelector('i');
+        toggleIcon.classList.toggle('fa-toggle-off', !visible);
+        toggleIcon.classList.toggle('fa-toggle-on', visible);
+    }
+
+    searchBox.addEventListener('input', function () {
+        const query = this.value.trim().toLowerCase();
+
+        // Show or hide the clear "×"
+        clearIcon.style.display = query ? 'inline-block' : 'none';
+
+        // Your search logic here (already implemented)
+        const items = document.querySelectorAll('.archive-item');
+        items.forEach(item => {
+            if (item.dataset.originalHtml) {
+                item.innerHTML = item.dataset.originalHtml;
+            } else {
+                item.dataset.originalHtml = item.innerHTML;
+            }
+
+            const textContent = item.textContent.toLowerCase();
+            const show = query === '' || textContent.includes(query);
+            item.style.display = show ? '' : 'none';
+
+            if (show && query) {
+                highlightText(item, query);
+            }
+        });
+
+        // Re-apply summary state if you're using it
+        setSummaryVisibility(summariesVisible);
+    });
+
+    clearIcon.addEventListener('click', function () {
+        searchBox.value = '';
+        clearIcon.style.display = 'none';
+        searchBox.dispatchEvent(new Event('input'));
+    });
+
+    function highlightText(element, keyword) {
+        const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+
+        const textNodes = [];
+        while (walker.nextNode()) {
+            const node = walker.currentNode;
+            if (node.nodeValue.trim()) {
+                textNodes.push(node);
+            }
+        }
+
+        textNodes.forEach(node => {
+            const value = node.nodeValue;
+            const parent = node.parentNode;
+
+            // Skip script/style/code/pre tags
+            if (['SCRIPT', 'STYLE', 'CODE', 'PRE'].includes(parent.tagName)) return;
+
+            const regex = new RegExp(`(${keyword})`, 'gi');
+            if (regex.test(value)) {
+                const highlighted = value.replace(regex, '<mark>$1</mark>');
+                const span = document.createElement('span');
+                span.innerHTML = highlighted;
+                parent.replaceChild(span, node);
+            }
+        });
+    }
+
+
+
+    // Toggle summaries visibility
+    toggleSummaryBtn.addEventListener('click', function () {
+
+        setSummaryVisibility(!summariesVisible);
+
+        const summaries = document.querySelectorAll('.hidden-summary');
+
+        summaries.forEach(summary => {
+            summary.style.display = summariesVisible ? 'block' : 'none';
+        });
+
+        // Update the icon
+        const toggleIcon = toggleSummaryBtn.querySelector('i');
+        toggleIcon.classList.toggle('fa-toggle-off', !summariesVisible);
+        toggleIcon.classList.toggle('fa-toggle-on', summariesVisible);
+    });
+</script>
+
+
+<h1>Tag <small>sp</small></h1>
+<div>
+
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/nike-is-trying-to-sell-you-mind-body-shoes-the-verge.html">
+            <h2 itemprop="name headline">Nike is trying to sell you ‘mind-body’ shoes | The Verge</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2025-10-25T17:51:46-05:00" itemprop="datePublished">October 25, 2025</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Doug</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/web.html" rel="category">Web</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/nike-is-trying-to-sell-you-mind-body-shoes-the-verge.html" class="archive-link">Nike is trying to sell you ‘mind-body’ shoes | The Verge</a>
+        </span>
+
+        <span class="hidden-summary"><p>Nike’s new “neuroscience-based footwear” is designed to activate an athlete’s brain before and after a big game. The two shoes, a mule (the $95 Mind 001) and a lace-up sneaker (the $145 Mind 002), feature a distinctive array of 22 orange foam nodes embedded in each sole. Nike says the nodes each move up and down independently, like “pistons and gimbals,” as the athlete walks, mimicking the feeling of walking on the ground in a way that is “scientifically shown” to stimulate the foot and thus activate the brain’s sensory areas.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/trickle-ai-turn-your-ideas-into-live-apps-and-websites-with-ai.html">
+            <h2 itemprop="name headline">Trickle AI - Turn your ideas into live apps and websites with AI.</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2025-08-21T00:25:20-05:00" itemprop="datePublished">August 21, 2025</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Doug</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/web.html" rel="category">Web</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/game.html" rel="tag">game</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/html.html" rel="tag">html</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/trickle-ai-turn-your-ideas-into-live-apps-and-websites-with-ai.html" class="archive-link">Trickle AI - Turn your ideas into live apps and websites with AI.</a>
+        </span>
+
+        <span class="hidden-summary"><p>Fun &amp; simple little browser game: Dodge This. “Move to dodge the bullets. How long can you survive?”</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/chinese-universities-want-students-to-use-more-ai-not-less-mit-technology-review.html">
+            <h2 itemprop="name headline">Chinese universities want students to use more AI, not less | MIT Technology Review</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2025-07-29T02:54:13-05:00" itemprop="datePublished">July 29, 2025</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Doug</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/web.html" rel="category">Web</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/ai.html" rel="tag">ai</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/education.html" rel="tag">education</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/china.html" rel="tag">china</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/chinese-universities-want-students-to-use-more-ai-not-less-mit-technology-review.html" class="archive-link">Chinese universities want students to use more AI, not less | MIT Technology Review</a>
+        </span>
+
+        <span class="hidden-summary"><p>Liu recommends that students use generative AI to write literature reviews, draft abstracts, generate charts, and organize thoughts. She’s created slides that lay out detailed examples of good and bad prompts, along with one core principle: AI can’t replace human judgment. “Only high-quality input and smart prompting can lead to good results,” she says.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/experimental-gatherings.html">
+            <h2 itemprop="name headline">Experimental Gatherings</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2024-11-21T22:44:53-06:00" itemprop="datePublished">November 21, 2024</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/online.html" rel="tag">online</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/design.html" rel="tag">design</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/spaces.html" rel="tag">spaces</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/experimental-gatherings.html" class="archive-link">Experimental Gatherings</a>
+        </span>
+
+        <span class="hidden-summary"><p>Welcome! Here you'll find a sampling of tools for connecting online including delightful musical collaboration sites, collaborative drawing sites, online galleries, weird experiments, corporate video-meeting tools, and office tools repurposed as spaces for gathering together.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/the-wes-cook-archive.html">
+            <h2 itemprop="name headline">The Wes Cook Archive</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2024-10-13T20:19:17-05:00" itemprop="datePublished">October 13, 2024</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/art.html" rel="tag">art</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/the-wes-cook-archive.html" class="archive-link">The Wes Cook Archive</a>
+        </span>
+
+        <span class="hidden-summary"><p>Hi, I’m Cabel. I was driving to Seattle and got hungry, so I stopped at a McDonalds in Centralia, WA. And when I went inside, I saw something incredible.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/crazy-charlies-window-rands-in-repose.html">
+            <h2 itemprop="name headline">Crazy Charlie’s Window – Rands in Repose</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2024-09-01T17:00:47-05:00" itemprop="datePublished">September 01, 2024</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/crazy-charlies-window-rands-in-repose.html" class="archive-link">Crazy Charlie’s Window – Rands in Repose</a>
+        </span>
+
+        <span class="hidden-summary"><p>The lab technician role was among the lowest rungs on the Social Science ladder. My boss was a tenured professor who was somehow protecting grant money by hiring a minimum-wage lab technician. Her description of the role during the interview versus what she described on my first day had little intersection.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/bambu-lab-releases-a-brand-new-filament-guide-all-about-bambu.html">
+            <h2 itemprop="name headline">Bambu Lab releases a brand new Filament Guide – All About Bambu</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2024-07-14T16:32:20-05:00" itemprop="datePublished">July 14, 2024</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/bambu.html" rel="tag">bambu</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/3dprinter.html" rel="tag">3dprinter</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/bambu-lab-releases-a-brand-new-filament-guide-all-about-bambu.html" class="archive-link">Bambu Lab releases a brand new Filament Guide – All About Bambu</a>
+        </span>
+
+        <span class="hidden-summary"><p>With all the different types of filament available, it can be hard to keep track and know which one is best suited for your project. Bambu Lab thinks so and has released a new interactive guide to help you choose.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/calculating-empires.html">
+            <h2 itemprop="name headline">Calculating Empires</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2024-06-25T00:34:52-05:00" itemprop="datePublished">June 25, 2024</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/programming.html" rel="tag">programming</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/calculating-empires.html" class="archive-link">Calculating Empires</a>
+        </span>
+
+        <span class="hidden-summary"><p>How can we understand the operations of technology and power in our era? Our technological systems are increasingly complex, interconnected, automated and opaque. Social institutions, from schools to prisons, are becoming data industries, incorporating pervasive forms of capture and analysis. Even places that were once off-limits to capital, from our emotional expressions to outer space, are now subject to computational control and extraction. Meanwhile, the industrial transformations in AI are</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/career-advice-from-jim-donovan-espresso-insight.html">
+            <h2 itemprop="name headline">Career Advice from Jim Donovan – Espresso Insight</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2024-05-10T00:05:51-05:00" itemprop="datePublished">May 10, 2024</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/career.html" rel="tag">career</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/career-advice-from-jim-donovan-espresso-insight.html" class="archive-link">Career Advice from Jim Donovan – Espresso Insight</a>
+        </span>
+
+        <span class="hidden-summary"><p>Career Advice from Jim Donovan - I stumbled upon “The Making of an Investment Banker”, a talk given by Jim Donovan to the UVA school of law, which was posted to their YouTube channel. I found the advice to be quite good, regardless of your chosen career path, investment banker or otherwise. 3 pieces of advice before starting your career / job: Read the Wall Street Journal every day, no matter what. You should read 3 articles: one macro article, such as related to what the Fed is doing with interest rates, for example. one on a specific company that recently released earnings, or a specific transaction / acquisition. one op-ed</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/hydrogen-is-coming-to-the-rescue-ieee-spectrum.html">
+            <h2 itemprop="name headline">Hydrogen Is Coming to the Rescue - IEEE Spectrum</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2024-04-16T19:31:18-05:00" itemprop="datePublished">April 16, 2024</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/hydrogen.html" rel="tag">hydrogen</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/hydrogen-is-coming-to-the-rescue-ieee-spectrum.html" class="archive-link">Hydrogen Is Coming to the Rescue - IEEE Spectrum</a>
+        </span>
+
+        <span class="hidden-summary"><p>A consortium of U.S. federal agencies has pooled their funds and wide array of expertise to reinvent the emergency vehicle. The hybrid electric box truck they’ve come up with is carbon neutral. And in the aftermath of a natural disaster like a tornado or wildfire, the vehicle, called H2Rescue, can supply electric power and potable water to survivors while acting as a temperature-controlled command center for rescue personnel.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/and-it-can-also-do-that-seths-blog.html">
+            <h2 itemprop="name headline">And it can also do that | Seth's Blog</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2024-04-06T15:35:46-05:00" itemprop="datePublished">April 06, 2024</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/career.html" rel="tag">career</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/and-it-can-also-do-that-seths-blog.html" class="archive-link">And it can also do that | Seth's Blog</a>
+        </span>
+
+        <span class="hidden-summary"><p>If you were around when the Model T was first announced, you could have built the organizations that became Disney, McDonald’s and Holiday Inn, all of which were powered by cheap, plentiful cars. You could have become a major developer of suburbs, mortgage banking and even pop music record labels (car radios changed the way music was consumed).</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/jevons-paradox-is-not-surprising-seths-blog.html">
+            <h2 itemprop="name headline">Jevons paradox is not surprising | Seth's Blog</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2024-04-06T15:34:54-05:00" itemprop="datePublished">April 06, 2024</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/resource.html" rel="tag">resource</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/career.html" rel="tag">career</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/jevons-paradox-is-not-surprising-seths-blog.html" class="archive-link">Jevons paradox is not surprising | Seth's Blog</a>
+        </span>
+
+        <span class="hidden-summary"><p>When a resource can be used more efficiently, we end up using more of the thing, not less.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/use-these-simple-strategies-to-retain-everything-you-read.html">
+            <h2 itemprop="name headline">Use These Simple Strategies to Retain Everything You Read</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2024-04-01T13:49:38-05:00" itemprop="datePublished">April 01, 2024</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/reading.html" rel="tag">reading</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/use-these-simple-strategies-to-retain-everything-you-read.html" class="archive-link">Use These Simple Strategies to Retain Everything You Read</a>
+        </span>
+
+        <span class="hidden-summary"><p>When you first start with a blank sheet, you’re forced to search your memory and put on paper what you know (or what you think you know) about a subject. As you read, you see that understanding grow as you add new knowledge to the foundation.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/use-inxi-to-get-all-kind-of-system-information-in-linux.html">
+            <h2 itemprop="name headline">Use inxi to Get All Kind of System Information in Linux</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2024-03-08T21:28:22-06:00" itemprop="datePublished">March 08, 2024</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/linux.html" rel="tag">linux</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sysinfo.html" rel="tag">sysinfo</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/use-inxi-to-get-all-kind-of-system-information-in-linux.html" class="archive-link">Use inxi to Get All Kind of System Information in Linux</a>
+        </span>
+
+        <span class="hidden-summary"><p>inxi is a handy script that provides you with the system hardware and software information about the Linux system it is executed on. Learn more about using it.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/dak-and-the-golden-age-of-gadget-catalogs-cabelcom.html">
+            <h2 itemprop="name headline">DAK and the Golden Age of Gadget Catalogs – cabel.com</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-11-12T02:53:28-06:00" itemprop="datePublished">November 12, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/history.html" rel="tag">history</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/gadgets.html" rel="tag">gadgets</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/catalog.html" rel="tag">catalog</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/dak-and-the-golden-age-of-gadget-catalogs-cabelcom.html" class="archive-link">DAK and the Golden Age of Gadget Catalogs – cabel.com</a>
+        </span>
+
+        <span class="hidden-summary"><p>The cover’s hero image draws you in. What is that beautiful-looking tape deck? (And wow, even today, that thing is pretty awesome.)</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/addyosmanicom-beyond-the-comfort-zone-is-where-all-magic-happens.html">
+            <h2 itemprop="name headline">AddyOsmani.com - Beyond the comfort zone is where all magic happens.⁠</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-09-10T18:17:32-05:00" itemprop="datePublished">September 10, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/life.html" rel="tag">life</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/addyosmanicom-beyond-the-comfort-zone-is-where-all-magic-happens.html" class="archive-link">AddyOsmani.com - Beyond the comfort zone is where all magic happens.⁠</a>
+        </span>
+
+        <span class="hidden-summary"><p>Ah, the comfort zone—a snug emotional space where stress is scarce and predictability prevails. While it’s not all bad, staying there too long can effectively serve as a straightjacket for your potential. Let's peel back the layers and dissect the interplay between your comfort zone, personal growth, and the 'magic' that happens when you dare to stretch your boundaries.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/behind-hello-world-on-linux.html">
+            <h2 itemprop="name headline">Behind "Hello World" on Linux</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-08-06T15:38:24-05:00" itemprop="datePublished">August 06, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/architecture.html" rel="tag">architecture</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/linux.html" rel="tag">linux</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/programming.html" rel="tag">programming</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/behind-hello-world-on-linux.html" class="archive-link">Behind "Hello World" on Linux</a>
+        </span>
+
+        <span class="hidden-summary"><p>But behind the scenes, there’s a lot more going on. I’ll describe some of what happens, and (much much more importantly!) explain some tools you can use to see what’s going on behind the scenes yourself. We’ll use readelf, strace, ldd, debugfs, /proc, ltrace, dd, and stat. I won’t talk about the Python-specific parts at all – just what happens when you run any dynamically linked executable.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/3-2-1-on-designing-your-life-and-the-value-of-doing-hard-things-james-clear.html">
+            <h2 itemprop="name headline">3-2-1: On designing your life, and the value of doing hard things - James Clear</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-07-26T22:14:30-05:00" itemprop="datePublished">July 26, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/life.html" rel="tag">life</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/plan.html" rel="tag">plan</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/3-2-1-on-designing-your-life-and-the-value-of-doing-hard-things-james-clear.html" class="archive-link">3-2-1: On designing your life, and the value of doing hard things - James Clear</a>
+        </span>
+
+        <span class="hidden-summary"><p>“The ability to do hard things is perhaps the most useful ability you can foster in yourself or your children. And proof that you are someone who can do them is one of the most useful assets you can have on your life resume.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/how-nasa-writes-space-proof-code.html">
+            <h2 itemprop="name headline">How NASA Writes Space-Proof Code</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-06-28T05:30:56-05:00" itemprop="datePublished">June 28, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/code.html" rel="tag">code</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/nasa.html" rel="tag">nasa</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/how-nasa-writes-space-proof-code.html" class="archive-link">How NASA Writes Space-Proof Code</a>
+        </span>
+
+        <span class="hidden-summary"><p>When you write some code and put it on a spacecraft headed into the far reaches of space, you need to it work, no matter what. Mistakes can mean loss of mission or even loss of life. In 2006, Gerard Holzmann of the NASA/JPL Laboratory for Reliable Software wrote a paper called The Power of 10: Rules for Developing Safety-Critical Code. The rules focus on testability, readability, and predictability:</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/living-in-hyperbole-seths-blog.html">
+            <h2 itemprop="name headline">Living in hyperbole | Seth's Blog</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-06-17T17:30:58-05:00" itemprop="datePublished">June 17, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/hyperbole.html" rel="tag">hyperbole</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/living-in-hyperbole-seths-blog.html" class="archive-link">Living in hyperbole | Seth's Blog</a>
+        </span>
+
+        <span class="hidden-summary"><p>In the pre-media world, we bumped into fables, or news from across the village, but mostly, our role models and experiences were based on reality.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/folding-phones-are-the-stuff-of-science-fiction-the-verge.html">
+            <h2 itemprop="name headline">Folding phones are the stuff of science fiction - The Verge</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-06-15T04:53:22-05:00" itemprop="datePublished">June 15, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sci-fi.html" rel="tag">sci-fi</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/tables.html" rel="tag">tables</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/screens.html" rel="tag">screens</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/folding-phones-are-the-stuff-of-science-fiction-the-verge.html" class="archive-link">Folding phones are the stuff of science fiction - The Verge</a>
+        </span>
+
+        <span class="hidden-summary"><p>In the process, they've given us vivid examples of why folding phones could be more than the latest gadget gimmick or another screen to scratch. They could actually be useful. According to these fictional futures, three primary reasons stand out:</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/apollo-remastered.html">
+            <h2 itemprop="name headline">Apollo Remastered</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-06-14T19:54:31-05:00" itemprop="datePublished">June 14, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/nasa.html" rel="tag">nasa</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/apollo.html" rel="tag">apollo</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/apollo-remastered.html" class="archive-link">Apollo Remastered</a>
+        </span>
+
+        <span class="hidden-summary"><p>NASA keeps the original film negatives from the Apollo program sealed in a frozen vault in Houston, TX and rarely grants access to them. As a result, nearly all of the photos we see of those historic missions were made decades ago or are copies of copies. Recently, the film was cleaned and digitally scanned at "an unprecedented resolution".</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/apple-vision-stratechery-by-ben-thompson.html">
+            <h2 itemprop="name headline">Apple Vision – Stratechery by Ben Thompson</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-06-07T20:18:11-05:00" itemprop="datePublished">June 07, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/strategy.html" rel="tag">strategy</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/visionpro.html" rel="tag">visionpro</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/ar.html" rel="tag">ar</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/vr.html" rel="tag">vr</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/xr.html" rel="tag">xr</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/mr.html" rel="tag">mr</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/apple-vision-stratechery-by-ben-thompson.html" class="archive-link">Apple Vision – Stratechery by Ben Thompson</a>
+        </span>
+
+        <span class="hidden-summary"><p>It really is one of the best product names in Apple history: Vision is a description of a product, it is an aspiration for a use case, and it is a critique on the sort of society we are building, behind Apple’s leadership more than anyone else.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/first-impressions-yes-apple-vision-pro-works-and-yes-its-good-techcrunch.html">
+            <h2 itemprop="name headline">First impressions: Yes, Apple Vision Pro works and yes, it’s good. | TechCrunch</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-06-06T03:02:06-05:00" itemprop="datePublished">June 06, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/visionpro.html" rel="tag">visionpro</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/headset.html" rel="tag">headset</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/xr.html" rel="tag">xr</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/vr.html" rel="tag">vr</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/ar.html" rel="tag">ar</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/mr.html" rel="tag">mr</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/first-impressions-yes-apple-vision-pro-works-and-yes-its-good-techcrunch.html" class="archive-link">First impressions: Yes, Apple Vision Pro works and yes, it’s good. | TechCrunch</a>
+        </span>
+
+        <span class="hidden-summary"><p>But, I’ve used essentially every major VR headset and AR device since 2013’s Oculus DK1 right up through the latest generations of Quest and Vive headsets. I’ve tried all of the experiences and stabs at making fetch happen when it comes to XR. I’ve been awed and re-awed as developers of the hardware and software of those devices and their marquee apps have continued to chew away at the “conundrum of the killer app” — trying to find something that would get real purchase with the broader public.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/tldr-inbrowserapp.html">
+            <h2 itemprop="name headline">tldr InBrowser.App</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-06-04T21:22:32-05:00" itemprop="datePublished">June 04, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/linux.html" rel="tag">linux</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/tldr-inbrowserapp.html" class="archive-link">tldr InBrowser.App</a>
+        </span>
+
+        <span class="hidden-summary"><p>tldr InBrowser.App is an offline-capable PWA for tldr-pages. Fully runs in your browser. Zero API latency.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/implement-dns-in-a-weekend.html">
+            <h2 itemprop="name headline">Implement DNS in a weekend</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-05-13T03:39:01-05:00" itemprop="datePublished">May 13, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/dns.html" rel="tag">dns</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/python.html" rel="tag">python</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/binary.html" rel="tag">binary</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/implement-dns-in-a-weekend.html" class="archive-link">Implement DNS in a weekend</a>
+        </span>
+
+        <span class="hidden-summary"><p>Implement DNS in a weekend</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/meet-mr-internet-vint-cerf-ieee-spectrum.html">
+            <h2 itemprop="name headline">Meet Mr. Internet: Vint Cerf - IEEE Spectrum</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-04-30T16:04:44-05:00" itemprop="datePublished">April 30, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/internet.html" rel="tag">internet</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/meet-mr-internet-vint-cerf-ieee-spectrum.html" class="archive-link">Meet Mr. Internet: Vint Cerf - IEEE Spectrum</a>
+        </span>
+
+        <span class="hidden-summary"><p>Vint Cerf is the recipient of the IEEE Medal of Honor “for cocreating the Internet architecture and providing sustained leadership in its phenomenal growth in becoming society’s critical infrastructure.” PETER ADAMS</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/passkeys-using-fido-for-secure-and-easy-authentication.html">
+            <h2 itemprop="name headline">Passkeys: Using FIDO for Secure and Easy Authentication</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-03-29T02:53:24-05:00" itemprop="datePublished">March 29, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/security.html" rel="tag">security</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/passkeys.html" rel="tag">passkeys</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/fido.html" rel="tag">FIDO</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/identity.html" rel="tag">Identity</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/passkeys-using-fido-for-secure-and-easy-authentication.html" class="archive-link">Passkeys: Using FIDO for Secure and Easy Authentication</a>
+        </span>
+
+        <span class="hidden-summary"><p>Passkeys, the popular name for FIDO, are not only easy, they offer better protection against phishing than other forms of multi-factor authentication. This is how they work.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/passkeysio-a-passkey-authentication-demo.html">
+            <h2 itemprop="name headline">Passkeys.io – A Passkey Authentication Demo</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2023-03-29T02:32:59-05:00" itemprop="datePublished">March 29, 2023</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/security.html" rel="tag">security</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/passkeys.html" rel="tag">passkeys</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/fido.html" rel="tag">FIDO.</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/passkeysio-a-passkey-authentication-demo.html" class="archive-link">Passkeys.io – A Passkey Authentication Demo</a>
+        </span>
+
+        <span class="hidden-summary"><p>What is a passkey? A passkey is a new way to sign in that works completely without passwords. By using the security capabilities of your devices like Touch ID and Face ID, passkeys are way more secure and are easier to use than both passwords and all current 2-factor authentication methods.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/the-outrageous-electric-audi-s1-hoonitron-stars-in-new-ken-block-video-ars-technica.html">
+            <h2 itemprop="name headline">The outrageous electric Audi S1 Hoonitron stars in new Ken Block video | Ars Technica</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-10-28T00:24:59-05:00" itemprop="datePublished">October 28, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/ev.html" rel="tag">ev</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/auto.html" rel="tag">auto</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/the-outrageous-electric-audi-s1-hoonitron-stars-in-new-ken-block-video-ars-technica.html" class="archive-link">The outrageous electric Audi S1 Hoonitron stars in new Ken Block video | Ars Technica</a>
+        </span>
+
+        <span class="hidden-summary"><p>Now, you don't just go hooning any old EV around the strip, at least not if you're Ken Block. In this case, his ride is a stunning one-off electric Audi, the S1 Hoonitron, inspired by the 1987 Audi Sport quattro S1 Pikes Peak car.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/running-lego-engines-with-air-youtube.html">
+            <h2 itemprop="name headline">Running Lego Engines with Air - YouTube</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-10-26T16:43:52-05:00" itemprop="datePublished">October 26, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/lego.html" rel="tag">LEGO</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/engineering.html" rel="tag">engineering</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/running-lego-engines-with-air-youtube.html" class="archive-link">Running Lego Engines with Air - YouTube</a>
+        </span>
+
+        <span class="hidden-summary"><p>Building and testing different types of Lego Pneumatic Engines that run on compressed air.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/students-broke-the-world-record-for-0-60-mph-acceleration-in-an-electric-vehicle.html">
+            <h2 itemprop="name headline">Students broke the world record for 0-60 mph acceleration in an electric vehicle</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-10-25T14:14:08-05:00" itemprop="datePublished">October 25, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/ev.html" rel="tag">ev</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/students-broke-the-world-record-for-0-60-mph-acceleration-in-an-electric-vehicle.html" class="archive-link">Students broke the world record for 0-60 mph acceleration in an electric vehicle</a>
+        </span>
+
+        <span class="hidden-summary"><p>A university group named the GreenTeam, from the University of Stuttgart set the Guinness World Record for the fastest 0-62 mph (0-100 kph) electric vehicle acceleration in a 1.461-sec 0-62 mph run.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/maker-resources-compliant-mechanisms.html">
+            <h2 itemprop="name headline">Maker Resources | Compliant Mechanisms</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-08-04T00:32:21-05:00" itemprop="datePublished">August 04, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/3dprinter.html" rel="tag">3dprinter</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/maker-resources-compliant-mechanisms.html" class="archive-link">Maker Resources | Compliant Mechanisms</a>
+        </span>
+
+        <span class="hidden-summary"><p>3d resources to 3d print these compliant mechanisms</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/31-why-machines-that-bend-are-better-youtube.html">
+            <h2 itemprop="name headline">(31) Why Machines That Bend Are Better - YouTube</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-08-04T00:26:12-05:00" itemprop="datePublished">August 04, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/31-why-machines-that-bend-are-better-youtube.html" class="archive-link">(31) Why Machines That Bend Are Better - YouTube</a>
+        </span>
+
+        <span class="hidden-summary"><p>I visited the Compliant Mechanisms Research group at Brigham Young University and spoke to Professor Larry Howell:</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/31-the-kg-is-dead-long-live-the-kg-youtube.html">
+            <h2 itemprop="name headline">(31) The kg is dead, long live the kg - YouTube</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-08-04T00:19:26-05:00" itemprop="datePublished">August 04, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/31-the-kg-is-dead-long-live-the-kg-youtube.html" class="archive-link">(31) The kg is dead, long live the kg - YouTube</a>
+        </span>
+
+        <span class="hidden-summary"><p>The kilogram, mole, kelvin, and ampere will be redefined by physical constants</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/compared-16-inch-macbook-pro-vs-razer-blade-15-advanced-appleinsider.html">
+            <h2 itemprop="name headline">Compared: 16-inch MacBook Pro vs Razer Blade 15 Advanced | AppleInsider</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-05-10T15:48:09-05:00" itemprop="datePublished">May 10, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/compared-16-inch-macbook-pro-vs-razer-blade-15-advanced-appleinsider.html" class="archive-link">Compared: 16-inch MacBook Pro vs Razer Blade 15 Advanced | AppleInsider</a>
+        </span>
+
+        <span class="hidden-summary"><p>Apple used the Razer Blade 15 Advanced as a point of comparison for the performance of the M1 Max chip. Here's how the rest of the notebook compares against the 16-inch MacBook Pro.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/compared-14-inch-macbook-pro-vs-2022-razer-blade-14-appleinsider.html">
+            <h2 itemprop="name headline">Compared: 14-inch MacBook Pro vs 2022 Razer Blade 14 | AppleInsider</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-05-10T15:45:51-05:00" itemprop="datePublished">May 10, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/compared-14-inch-macbook-pro-vs-2022-razer-blade-14-appleinsider.html" class="archive-link">Compared: 14-inch MacBook Pro vs 2022 Razer Blade 14 | AppleInsider</a>
+        </span>
+
+        <span class="hidden-summary"><p>The Razer Blade 14 has been updated for 2022 to make it more powerful, but it has to fight with the 14-inch MacBook Pro as a creator's choice notebook. Here's how the two laptops compare.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/mechanical-watch-bartosz-ciechanowski.html">
+            <h2 itemprop="name headline">Mechanical Watch – Bartosz Ciechanowski</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2022-05-09T23:13:46-05:00" itemprop="datePublished">May 09, 2022</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/engineering.html" rel="tag">engineering</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/hardware.html" rel="tag">hardware</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/mechanical-watch-bartosz-ciechanowski.html" class="archive-link">Mechanical Watch – Bartosz Ciechanowski</a>
+        </span>
+
+        <span class="hidden-summary"><p>Mechanical Watch</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/european-civilization-is-built-on-ham-and-cheese.html">
+            <h2 itemprop="name headline">European civilization is built on ham and cheese,</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2021-09-06T15:59:25-05:00" itemprop="datePublished">September 06, 2021</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/history.html" rel="tag">history</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/european-civilization-is-built-on-ham-and-cheese.html" class="archive-link">European civilization is built on ham and cheese,</a>
+        </span>
+
+        <span class="hidden-summary"><p>European civilization is built on ham and cheese, which allowed protein to be stored throughout the icy winters.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/its-going-to-be-okay-the-oatmeal.html">
+            <h2 itemprop="name headline">It's going to be okay. - The Oatmeal</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2021-08-19T22:20:06-05:00" itemprop="datePublished">August 19, 2021</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/history.html" rel="tag">history</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/startrek.html" rel="tag">startrek</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/its-going-to-be-okay-the-oatmeal.html" class="archive-link">It's going to be okay. - The Oatmeal</a>
+        </span>
+
+        <span class="hidden-summary"><p>And if you haven't seen this, well then. Let's fix that right now. Via @Oatmeal.</p></span>
+
+
+    </div>
+    <div class="archive-item" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <div>
+            <!-- <a class="dnp-index-title" href=" https://64zbit.com/the-expanse-ui-design-hudsguis.html">
+            <h2 itemprop="name headline">The Expanse UI Design — HUDS+GUIS</h2>
+        </a> -->
+
+            <time class="dnp-index-date" datetime="2021-05-28T22:28:10-05:00" itemprop="datePublished">May 28, 2021</time>
+
+            <!-- &nbsp;—&nbsp;
+                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                    <span itemprop="name">Link</span>
+                </span> -->
+            <!-- <div>
+                Category:
+                <span itemprop="articleSection">
+                    <a href="https://64zbit.com/category/link.html" rel="category">Link</a>
+                </span>
+            </div> -->
+            <span>
+
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/art.html" rel="tag">art</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/design.html" rel="tag">design</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sci-fi.html" rel="tag">sci-fi</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/link.html" rel="tag">link</a>
+                </span>
+                <span class="post-tags" itemprop="keywords">
+                    <a class="post-tags" href="https://64zbit.com/tag/sp.html" rel="tag">sp</a>
+                </span>
+            </span>
+        </div>
+        <span>
+            <a href="https://64zbit.com/the-expanse-ui-design-hudsguis.html" class="archive-link">The Expanse UI Design — HUDS+GUIS</a>
+        </span>
+
+        <span class="hidden-summary"><p>The Expanse UI Design</p></span>
+
+
+    </div>
+
+</div>
+            </div>
+        </div>
+        <!-- <hr> -->
+    </div>
+    <!-- /container -->
+
+    <!-- Footer -->
+    <div class="col-md-12 dnp-text-dark text-center center-block aw-bottom">
+        <div class="dnp-footer-logo">
+            <a class="dnp-logo-no-line" href="https://64zbit.com/">
+                <span class="dnp-logo-1f">64</span><span class="dnp-logo-2f">Z</span><span
+                    class="dnp-logo-1f">bit.com</span>
+            </a>
+            <p>&copy; 64Zbit.com 2026 All rights reserved</p>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js"
+            crossorigin="anonymous"></script>
+
+        <script src="https://64zbit.com/theme/js/dnp.js"></script>
+
+
+
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $("div.collapseheader").click(function () {
+                    $header = $(this).children("span").first();
+                    $codearea = $(this).children(".input_area");
+                    $codearea.slideToggle(500, function () {
+                        $header.text(function () {
+                            return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+                        });
+                    });
+                });
+            });
+        </script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DL0ZSFC661"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-DL0ZSFC661');
+</script>
+
+
+</body>
+
+</html>
