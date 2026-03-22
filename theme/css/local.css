@@ -84,7 +84,7 @@ code {
 }
 
 p {
-  font-family: "Open Sans", Verdana, sans-serif;
+  font-family: 'Bahnschrift', 'Avenir Next', 'Avenir', 'Montserrat', sans-serif;
   font-size: 1em;
 }
 
@@ -272,7 +272,7 @@ blockquote::before {
   font-family: Georgia, serif;
   font-size: 40px;
   font-weight: bold;
-  color: #000000;
+  color: --var(--dnp-blue-highlight);
   /*Positioning*/
   position: absolute;
   left: 10px;
@@ -411,7 +411,7 @@ div.collapseheader {
   background-color: #d3d3d3;
   padding: 2px;
   cursor: pointer;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Bahnschrift', 'Avenir Next', 'Avenir', 'Montserrat', sans-serif;
 }
 
 .custom-hr {
