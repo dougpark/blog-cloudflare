@@ -21,13 +21,25 @@ function createGame(width, height) {
                 this.tweens.add({
                     targets: { colorValue: 0 },
                     colorValue: 1,
-                    duration: 500,
+                    duration: 1500,
                     ease: 'Linear',
                     loop: -1,
                     onUpdate: (tween, target) => {
                         colorIndex = Math.floor(target.colorValue * colors.length) % colors.length;
                         text.setFill(colors[colorIndex]);
                     }
+                });
+
+                // Create text that follows the mouse
+                const followerText = this.add.text(0, 0, 'Follow Me!', {
+                    font: '20px Arial',
+                    fill: '#00ff00'
+                }).setOrigin(0.5);
+
+                // Update follower position when mouse moves
+                this.input.on('pointermove', (pointer) => {
+                    followerText.x = pointer.x;
+                    followerText.y = pointer.y;
                 });
             }
         },
