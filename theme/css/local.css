@@ -110,7 +110,7 @@ p {
 }
 
 .dnp-logo-1 {
-  font-family: "Kelly Slab", cursive;
+  font-family: 'Bahnschrift', 'Avenir Next', 'Avenir', 'Montserrat', sans-serif;
   color: var(--dnp-off-black-logo-font);
   font-size: calc(300% + 1vw);
   /* font-size: 4em; */
@@ -122,7 +122,7 @@ p {
 }
 
 .dnp-logo-2 {
-  font-family: "Kelly Slab", cursive;
+  font-family: 'Bahnschrift', 'Avenir Next', 'Avenir', 'Montserrat', sans-serif;
   color: var(--dnp-blue-highlight);
   font-size: calc(300% + 1vw);
   /* font-size: 4em; */
@@ -130,14 +130,14 @@ p {
 
 /* footer */
 .dnp-logo-1f {
-  font-family: "Kelly Slab", cursive;
+  font-family: 'Bahnschrift', 'Avenir Next', 'Avenir', 'Montserrat', sans-serif;
   color: var(--dnp-off-black-logo-font);
   font-size: calc(150% + 1vw);
   /* font-size: 4em; */
 }
 
 .dnp-logo-2f {
-  font-family: "Kelly Slab", cursive;
+  font-family: 'Bahnschrift', 'Avenir Next', 'Avenir', 'Montserrat', sans-serif;
   color: var(--dnp-blue-highlight);
   font-size: calc(150% + 1vw);
   /* font-size: 4em; */
