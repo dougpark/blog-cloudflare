@@ -19,7 +19,7 @@
   /* body text font */
   color: #3cb0ef;
   /* blue highlight */
-  --dnp-blue-highlight: #d32f2f;
+  --dnp-red-highlight: #d32f2f;
 }
 
 :root {
@@ -28,11 +28,11 @@
   --dnp-off-white-logo-font: #a1a1a1;
   --dnp-off-black-logo-font: #15171a;
   --dnp-grey-highlight: #464744;
-  --dnp-blue-highlight: #d32f2f;
+  --dnp-red-highlight: #d32f2f;
   --dnp-light-background: #ffffff;
   --dnp-off-black-font: #15171a;
   --dnp-body-text-font: #728a94;
-  --dnp-blue-highlight: #3cb0ef;
+  --dnp-pale-blue-highlight: #3cb0ef;
   --dnp-blue-highlight: #7b5aca;
   --dnp-green-highlight: #29c71f;
   --dnp-light-background: #e3eef3;
@@ -254,7 +254,7 @@ blockquote {
   /* font-family: Georgia, serif; */
   font-size: 16px;
   line-height: 1.2;
-  color: #000000;
+  color: var(--dnp-blue-highlight);
   text-align: justify;
   /*Borders - (Optional)*/
   /* border-left: 15px solid var(--dnp-blue-highlight);
@@ -272,7 +272,7 @@ blockquote::before {
   font-family: Georgia, serif;
   font-size: 40px;
   font-weight: bold;
-  color: --var(--dnp-blue-highlight);
+  color: var(--dnp-blue-highlight);
   /*Positioning*/
   position: absolute;
   left: 10px;
@@ -611,7 +611,7 @@ button i {
 }
 
 .post-tags a:hover {
-  color: var(--dnp-highlight);
+  color: var(--dnp-blue-highlight);
   text-decoration: none;
   transform: translateY(-2px); /* nudges upward by 2px */
 }
