@@ -86,6 +86,121 @@
         <!-- Article Content -->
         <div class="row">
             <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://blog.d11cloud.com/publish-pelican-to-remote-web-server.html">
+        <h2 itemprop="name headline">Publish Pelican To Remote Web server</h2>
+    </a>
+    <!-- 24 December 2021 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2021-12-24T14:14:00-06:00" itemprop="datePublished"> December 24, 2021</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>Tips and ideas on best way to publish a static site generated with Pelican using the Makefile and creating Obsidian commands.</p></span> -->
+    <div itemprop="articleBody" class="article-body"><h2>Makefile</h2>
+<p>When you install Pelican be sure to install the Makefile too. This allows you to use the make command to build your static website. It takes a bit of configuration for your specific server details, but it's easy to setup.</p>
+<p>All the details are handled in these three files:</p>
+<div class="codehilite"><pre><span></span><code>pelicanconf.py
+publishconf.py
+Makefile
+</code></pre></div>
+
+<p>The command I ended up using is: <code>make ssh_upload</code></p>
+<p>This creates a production build and uploads all the files to the server.</p>
+<p>I actually renamed <code>ssh_upload</code> in the Makefile to <code>prod</code>, so now I use the command: <code>make prod</code></p>
+<h2>Obsidian Shell Command</h2>
+<p>It's not bad to open a shell command and execute the <code>make prod</code> command, but it's even better to hit a hotkey within Obsidian to do the same thing.</p>
+<p>Install the <a href="https://github.com/Taitava/obsidian-shellcommands">Obsidian ShellCommands Plugin</a></p>
+<p>This plugin allows you to execute a shell command from within Obsidian.</p>
+<p>It also allows you to execute that command from the Obsidian command pallet.</p>
+<p>Which allows you to execute the command from a hotkey.</p>
+<h2>Copy all files to remote web server</h2>
+<p>If you want to manually upload the files then here is a good use of the <code>scp</code> command.</p>
+<div class="codehilite"><pre><span></span><code>scp<span class="w"> </span>-r<span class="w"> </span>/Users/doug/OneDrive/www_root/pelican/projects/64zbit/output/*<span class="w"> </span>user@64zbit.com:/home/pi/dev_volumes/public_html/apache/new/
+</code></pre></div></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://blog.d11cloud.com/deep-thoughts.html">
+        <h2 itemprop="name headline">Deep Thoughts</h2>
+    </a>
+    <!-- 22 December 2021 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2021-12-22T10:57:00-06:00" itemprop="datePublished"> December 22, 2021</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/life.html" rel="category">Life</a>
+    </span> -->
+
+    <span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>Deep Thoughts I've learned along the way.</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>Thoughts</p>
+<p>— 2021/12/04
+We shall go into the land so our children can always hold us and will never be alone.
+— The wheel of time S1E4</p>
+<p>It is like swimming. If you can’t swim, you won’t be having any fun at all. Swimming sucks if all you do is float (or even sink) and fight the water. But boy, if you figure out the technique and glide through the water, it is incredible. But you don’t learn swimming by aiming for ease and fun. You learn to swim by aiming to be fast and graceful.</p>
+<ul>
+<li>In the end we only regret the chances we didn’t take</li>
+<li>If we all do all that we can do then great things will happen</li>
+<li>Quote John S. - “I’m experiencing a narrowing of the possibility space due to aging.”</li>
+<li></li>
+</ul>
+<p>School Success</p>
+<p>I think kids’ school success comes down to this in this order:</p>
+<ol>
+<li>Homelife</li>
+<li>Sleep</li>
+<li>Diet</li>
+<li>Exercise</li>
+<li>Teachers</li>
+<li>Tech</li>
+<li>School Year Length</li>
+<li>Homework</li>
+</ol>
+<p>What many seem to think:</p>
+<ol>
+<li>School Year Length</li>
+<li>Homework</li>
+<li>Teachers</li>
+<li>Tech</li>
+<li>Homelife</li>
+<li>Exercise </li>
+<li>Sleep</li>
+<li>Diet</li>
+</ol></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://blog.d11cloud.com/category/life.html" rel="category">Life</a>
+                	</span>
+                	Tags:
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
     <a class="dnp-index-title" href="https://blog.d11cloud.com/pelican-plugins.html">
         <h2 itemprop="name headline">pelican-plugins</h2>
     </a>
@@ -1551,94 +1666,6 @@ Prism version 1.21</p>
                 		<a href="https://blog.d11cloud.com/category/robotcraft.html" rel="category">RobotCraft</a>
                 	</span>
                 	Tags:
- -->
-</div>
-<hr>
-<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <a class="dnp-index-title" href="https://blog.d11cloud.com/the-anatomy-of-the-underwater-fiber-optic-cables-that-connect-the-internet.html">
-        <h2 itemprop="name headline">The Anatomy of the Underwater Fiber Optic Cables That Connect the Internet</h2>
-    </a>
-    <!-- 16 December 2016 -->
-    <!-- article.date.isoformat() -->
-    <!-- article.locale_date -->
-    <time class="dnp-index-date" datetime="2016-12-16T23:23:03-06:00" itemprop="datePublished"> December 16, 2016</time>
-
-    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        | <span itemprop="name">Link
-        </span>
-    </span> -->
-    <!-- |
-    <span class="dnp-index-date" itemprop="articleSection">
-        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/link.html" rel="category">Link</a>
-    </span> -->
-
-    <span>
-        <span class="post-tags" itemprop="keywords">
-            <a class="post-tags" href="https://blog.d11cloud.com/tag/internet.html" rel="tag">internet</a>
-        </span>
-        <span class="post-tags" itemprop="keywords">
-            <a class="post-tags" href="https://blog.d11cloud.com/tag/link.html" rel="tag">link</a>
-        </span>
-    </span>
-    <p class="mb-3"></p>
-    <!-- <span class="summary"><p>The Anatomy of the Underwater Fiber Optic Cables That Connect the Internet</p></span> -->
-    <div itemprop="articleBody" class="article-body"><blockquote>
-<p>The Anatomy of the Underwater Fiber Optic Cables That Connect the Internet  </p>
-</blockquote>
-<p><a href="http://laughingsquid.com/the-anatomy-of-the-underwater-fiber-optic-cables-that-connect-the-internet/">Link to the original article</a></p></div>
-    <!--                 	Category:
-                	<span itemprop="articleSection">
-                		<a href="https://blog.d11cloud.com/category/link.html" rel="category">Link</a>
-                	</span>
-                	Tags:
- 
-                	<span itemprop="keywords">
-                		<a href="https://blog.d11cloud.com/tag/internet.html" rel="tag">internet</a>
-                	</span>
-                	<span itemprop="keywords">
-                		<a href="https://blog.d11cloud.com/tag/link.html" rel="tag">link</a>
-                	</span>
- -->
-</div>
-<hr>
-<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <a class="dnp-index-title" href="https://blog.d11cloud.com/an-explanation-for-why-people-dont-often-see-b-batteries.html">
-        <h2 itemprop="name headline">An Explanation for Why People Don’t Often See ‘B’ Batteries</h2>
-    </a>
-    <!-- 09 November 2016 -->
-    <!-- article.date.isoformat() -->
-    <!-- article.locale_date -->
-    <time class="dnp-index-date" datetime="2016-11-09T16:43:06-06:00" itemprop="datePublished"> November 09, 2016</time>
-
-    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        | <span itemprop="name">Link
-        </span>
-    </span> -->
-    <!-- |
-    <span class="dnp-index-date" itemprop="articleSection">
-        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/link.html" rel="category">Link</a>
-    </span> -->
-
-    <span>
-        <span class="post-tags" itemprop="keywords">
-            <a class="post-tags" href="https://blog.d11cloud.com/tag/link.html" rel="tag">link</a>
-        </span>
-    </span>
-    <p class="mb-3"></p>
-    <!-- <span class="summary"><p>An Explanation for Why People Don’t Often See ‘B’ Batteries</p></span> -->
-    <div itemprop="articleBody" class="article-body"><blockquote>
-<p>An Explanation for Why People Don’t Often See ‘B’ Batteries  </p>
-</blockquote>
-<p><a href="http://laughingsquid.com/an-explanation-for-why-people-dont-often-see-b-batteries/">Link to the original article</a></p></div>
-    <!--                 	Category:
-                	<span itemprop="articleSection">
-                		<a href="https://blog.d11cloud.com/category/link.html" rel="category">Link</a>
-                	</span>
-                	Tags:
- 
-                	<span itemprop="keywords">
-                		<a href="https://blog.d11cloud.com/tag/link.html" rel="tag">link</a>
-                	</span>
  -->
 </div>
 <hr>
