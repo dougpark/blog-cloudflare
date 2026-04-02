@@ -86,6 +86,73 @@
         <!-- Article Content -->
         <div class="row">
             <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://blog.d11cloud.com/images-with-obsidian-and-pelican.html">
+        <h2 itemprop="name headline">Images with Obsidian and Pelican</h2>
+    </a>
+    <!-- 05 January 2022 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2022-01-05T19:46:00-06:00" itemprop="datePublished"> January 05, 2022</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://blog.d11cloud.com/tag/obsidian.html" rel="tag">Obsidian</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://blog.d11cloud.com/tag/pelican.html" rel="tag">Pelican</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>A short article on how to work with images so they display correctly in Obsidian and when published with Pelican.</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>A short article on how to work with images so they display correctly in Obsidian and when published with Pelican.</p>
+<h3>Native</h3>
+<p>This default Obsidian format, with drag and drop into the document, works in Obsidian, but not Pelican.</p>
+<p>Obsidian Native: (doesn't work on this site)</p>
+<p><code>![Obsidian](CleanShot%202022-01-05%20at%2019.30.59@2x.png)</code>
+<img alt="Obsidian" src="CleanShot%202022-01-05%20at%2019.30.59@2x.png"></p>
+<h3>Path</h3>
+<p>Obsidian knows where to find the image, whereas Pelican needs a path added to find the image. In this case <code>/images/</code></p>
+<p>Added Path:</p>
+<p><code>![Added Path](/images/CleanShot%202022-01-05%20at%2019.30.59@2x.png)</code>
+<img alt="Added Path" src="/images/CleanShot%202022-01-05%20at%2019.30.59@2x.png"></p>
+<h3>Img Tag</h3>
+<p>But the images are 2x based on the image format and the Retina display it was captured from. It needs to be resized to 50% to display properly. There is not a size option available in Obsidian markdown. You can revert to a standard img html tag to make this work. However, the image will not display in Obsidian.</p>
+<p>Use <code>&lt;img&gt;</code> tag:</p>
+<p><code>&lt;img src="/images/CleanShot%202022-01-05%20at%2019.30.59@2x.png" alt="alt text" title="image Title" width="50%"/&gt;</code></p>
+<p><img src="/images/CleanShot%202022-01-05%20at%2019.30.59@2x.png" alt="alt text" title="image Title" width="50%"/></p>
+<h3>1x with Path</h3>
+<p>The solution is to use images that are 1x sized. Or, set your screen capture tool to 1x, non Retina. This way the images will display correctly in Obsidian and when published with Pelican, with only the path being added manually to the file name.</p>
+<p>1x with path added:</p>
+<p><code>![](/images/CleanShot%202022-01-05%20at%2019.59.47.png)</code>
+<img alt="" src="/images/CleanShot%202022-01-05%20at%2019.59.47.png"></p>
+<h3>Automation</h3>
+<p>What automation tools are available in Pelican to automatically reformat and resize the images?</p>
+<p>To be continued....</p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://blog.d11cloud.com/tag/obsidian.html" rel="tag">Obsidian</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://blog.d11cloud.com/tag/pelican.html" rel="tag">Pelican</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
     <a class="dnp-index-title" href="https://blog.d11cloud.com/raspberry-pi-as-a-flask-server.html">
         <h2 itemprop="name headline">Raspberry Pi as a Flask Server</h2>
     </a>
@@ -1652,75 +1719,6 @@ man rm</p>
                 	<span itemprop="keywords">
                 		<a href="https://blog.d11cloud.com/tag/life.html" rel="tag">Life</a>
                 	</span>
- -->
-</div>
-<hr>
-<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <a class="dnp-index-title" href="https://blog.d11cloud.com/get-the-most-from-siri-music.html">
-        <h2 itemprop="name headline">Get the most from Siri music</h2>
-    </a>
-    <!-- 12 October 2020 -->
-    <!-- article.date.isoformat() -->
-    <!-- article.locale_date -->
-    <time class="dnp-index-date" datetime="2020-10-12T18:03:00-05:00" itemprop="datePublished"> October 12, 2020</time>
-
-    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        | <span itemprop="name">D
-        </span>
-    </span> -->
-    <!-- |
-    <span class="dnp-index-date" itemprop="articleSection">
-        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/life.html" rel="category">Life</a>
-    </span> -->
-
-    <span>
-    </span>
-    <p class="mb-3"></p>
-    <!-- <span class="summary"><p>I'm terrible a playing music, this helps.</p>
-<blockquote>
-<p><a href="https://www.smartenlight.com/siri-apple-music-voice-commands/">Hey Siri, Play Some Music: All the Music Commands (and more …)</a></p>
-</blockquote>
-<h3>How to play Music by Activity and Mood</h3>
-<p>Apple Music has a couple of not so obvious activities and moods, which you can use to specify what to play:</p>
-<ul>
-<li><strong><em>*Hey Siri play …</em></strong></li></ul></span> -->
-    <div itemprop="articleBody" class="article-body"><p>I'm terrible a playing music, this helps.</p>
-<blockquote>
-<p><a href="https://www.smartenlight.com/siri-apple-music-voice-commands/">Hey Siri, Play Some Music: All the Music Commands (and more …)</a></p>
-</blockquote>
-<h3>How to play Music by Activity and Mood</h3>
-<p>Apple Music has a couple of not so obvious activities and moods, which you can use to specify what to play:</p>
-<ul>
-<li><strong><em>*Hey Siri play (some) music for <activity></em></strong>*</li>
-<li><strong><em>*Hey Siri play <mood> music</em></strong>*</li>
-</ul>
-<p>Here is a list of some <strong><em>*moods</em></strong>* we have tested, we’ve added the station they will trigger:</p>
-<ul>
-<li><strong><em>*Peaceful / Meditation / Meditate / Bedtime / Sleeping</em></strong>* -&gt; station <em>Meditation</em></li>
-<li><strong><em>*Happy / Cheerful / Whimsical</em></strong>* -&gt; station <em>Happy Music</em></li>
-<li><strong><em>*Wild / Party / Fun</em></strong>* -&gt; station <em>Partying</em></li>
-<li><strong><em>*Stimulating / Exciting / Motivate(d) / Waking Up / Upbeat</em></strong>* -&gt; station <em>Motivated Music</em></li>
-<li><strong><em>*Angry</em></strong>* -&gt; station <em>Angry music</em></li>
-<li><strong><em>*Calm / Sad / Blue / Somber</em></strong>* -&gt; station <em>sad music</em></li>
-<li><strong><em>*Intimate / Erotic / Baby Making</em></strong>* -&gt; station <em>Getting it on</em></li>
-<li><strong><em>*Mellow / Chill / Soothing</em></strong>* -&gt; station <em>chill music</em></li>
-<li><strong><em>*Love / Passion / Tender / Romance / Romantic</em></strong>* -&gt; station <em>Romantic and Love Music</em></li>
-</ul>
-<p>Here we go with some <strong><em>*activities</em></strong>*, which we’ve tested (musically =):</p>
-<ul>
-<li><strong><em>*Seperate / Split(ing) / Break(ing) Up</em></strong>* -&gt; station <em>Breaking Up</em></li>
-<li><strong><em>*Exercise / Cardio / Work(ing) Out</em></strong>* -&gt; station <em>Working Out</em></li>
-<li><strong><em>*Dinner Party / Cooking / Entertaining</em></strong>* -&gt; station <em>Entertaining</em></li>
-<li><strong><em>*Dance / Dancing</em></strong>* -&gt; station <em>Dance</em></li>
-<li><strong><em>*Focus(ing) / Study(ing) / Concentrate / Concentration</em></strong>* -&gt; station <em>Focusing</em></li>
-<li><strong><em>*Family Time / Safe for Kids</em></strong>* -&gt; station <em>Family Time</em></li>
-<li><strong><em>*Family / Kids</em></strong>* -&gt; station <em>Disney</em></li>
-</ul></div>
-    <!--                 	Category:
-                	<span itemprop="articleSection">
-                		<a href="https://blog.d11cloud.com/category/life.html" rel="category">Life</a>
-                	</span>
-                	Tags:
  -->
 </div>
 <hr>
