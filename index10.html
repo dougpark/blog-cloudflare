@@ -86,6 +86,262 @@
         <!-- Article Content -->
         <div class="row">
             <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://blog.d11cloud.com/raspberry-pi-as-a-flask-server.html">
+        <h2 itemprop="name headline">Raspberry Pi as a Flask Server</h2>
+    </a>
+    <!-- 05 January 2022 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2022-01-05T18:30:00-06:00" itemprop="datePublished"> January 05, 2022</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://blog.d11cloud.com/tag/programming.html" rel="tag">programming</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://blog.d11cloud.com/tag/pi.html" rel="tag">Pi</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>I created an Air Quality Index gadget made from a Raspberry Pi Zero W with a tiny OLED screen from Adafruit. It shows the AQI from my local PurpleAir sensor. I created a Flask web server on the Pi so I could remotely see the AQI and change the PurpleAir sensor ID.</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>I created an Air Quality Index gadget made from a Raspberry Pi Zero W with a tiny OLED screen from Adafruit. It shows the AQI from my local PurpleAir sensor. </p>
+<p>I created a Flask web server on the Pi so I could remotely see the AQI and change the PurpleAir sensor ID.</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The triple-colon syntax will *not* show line numbers.&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">make_response</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datastore</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">aqistore</span>
+
+<span class="c1"># DotMap is a dot-access dictionary subclass</span>
+<span class="c1"># https://pypi.org/project/dotmap/</span>
+<span class="c1"># https://github.com/drgrib/dotmap</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotmap</span><span class="w"> </span><span class="kn">import</span> <span class="n">DotMap</span>
+
+<span class="c1"># logging configuration</span>
+<span class="c1"># debug, info, warning, error, critical</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;./instance/aqi.log&#39;</span><span class="p">,</span>
+                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Started&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;running server.py&#39;</span><span class="p">)</span>
+
+<span class="c1"># Example ajax code from</span>
+<span class="c1"># https://github.com/caseydunham/ajax-flask-demo</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_mapping</span><span class="p">(</span>
+    <span class="n">SECRET_KEY</span><span class="o">=</span><span class="s1">&#39;dev&#39;</span><span class="p">,</span>
+    <span class="n">DATABASE</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">instance_path</span><span class="p">,</span> <span class="s1">&#39;aqi.sqlite&#39;</span><span class="p">),</span>
+    <span class="n">LOGGER</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">instance_path</span><span class="p">,</span> <span class="s1">&#39;aqi.log&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="c1"># ensure the instance folder exists</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">instance_path</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;server - created instance folder.&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="c1"># default sensor_id for PurpleAir sensor Forest Park</span>
+<span class="n">sensor_id</span> <span class="o">=</span> <span class="mi">104402</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/pi&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pi</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;Raspberry Pie!&#39;</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/sensor&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sensor_index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;sensor.html&#39;</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/aqi&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">aqi_index</span><span class="p">():</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;aqi.html&#39;</span><span class="p">))</span>
+    <span class="n">resp</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="s1">&#39;aqi&#39;</span><span class="p">,</span> <span class="s1">&#39;aqi&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resp</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/sensor&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_sensor_post</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;**************** starting sensor &#39;</span><span class="p">)</span>
+    <span class="c1"># logging.info(&#39;request user_agent: &#39;, request.)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">get_sensor_proc</span><span class="p">()</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_sensor_proc</span><span class="p">():</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">DotMap</span><span class="p">()</span>
+    <span class="n">sensor_id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sensor_id</span> <span class="o">=</span> <span class="n">datastore</span><span class="o">.</span><span class="n">get_sensor_id</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="n">e</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">sensor_id</span> <span class="o">=</span> <span class="n">sensor_id</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;get_sensor_proc - sensor_id from db.&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/aqi&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">aqi_post</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;**************** starting aqi &#39;</span><span class="p">)</span>
+    <span class="c1"># logging.info(&#39;request user_agent: &#39;, request.)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">aqi_proc</span><span class="p">()</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">aqi_proc</span><span class="p">():</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">aqi</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">aqiColor</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">aqistore</span><span class="o">.</span><span class="n">purpleAir</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="n">e</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;aqi_proc - data from purpleAir.&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/sensor_post&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sensor_post</span><span class="p">():</span>
+    <span class="n">json</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">DotMap</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">sensor_proc</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sensor_proc</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="n">sensor_id</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">sensor_id</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;server - updating db sensor_id: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sensor_id</span><span class="p">))</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sensor_id</span><span class="p">:</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="s1">&#39;Sensor_id is required.&#39;</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">error</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="n">datastore</span><span class="o">.</span><span class="n">set_sensor_id</span><span class="p">(</span><span class="n">sensor_id</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">DotMap</span><span class="p">()</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">sensor_id</span> <span class="o">=</span> <span class="n">sensor_id</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/say_name&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">say_name_post</span><span class="p">():</span>
+    <span class="n">json</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">DotMap</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">say_name_proc</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># process say_name message</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">say_name_proc</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="n">datastore</span><span class="o">.</span><span class="n">get_db</span><span class="p">()</span>
+    <span class="n">first_name</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">first_name</span>
+    <span class="n">last_name</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">last_name</span>
+    <span class="n">day_week</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">day_week</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">DotMap</span><span class="p">()</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">day_week</span> <span class="o">=</span> <span class="n">day_week</span>
+    <span class="n">datastore</span><span class="o">.</span><span class="n">close_db</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/init&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">():</span>
+    <span class="n">datastore</span><span class="o">.</span><span class="n">init_db</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s1">&#39;Database initialized&#39;</span>
+
+<span class="c1"># dynamic route</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&lt;name&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">print_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;Hi, </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+</code></pre></div></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://blog.d11cloud.com/tag/programming.html" rel="tag">programming</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://blog.d11cloud.com/tag/pi.html" rel="tag">Pi</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://blog.d11cloud.com/new-pelican-based-website.html">
+        <h2 itemprop="name headline">New Pelican based Website</h2>
+    </a>
+    <!-- 05 January 2022 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2022-01-05T15:40:00-06:00" itemprop="datePublished"> January 05, 2022</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>It's been in the works for awhile, but today I updated my production server settings to show the new website based on the Pelican static site generator.</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p>It's been in the works for awhile, but today I updated my production server settings to show the new website based on the Pelican static site generator.</p>
+<p>I tried to follow the same look and feel of the Ghost based server but with a fully customizable template. With Ghost I was limited to using their default template and never wanted to learn how to change it. With the new Pelican based site it is super easy to make all the modifications I want.</p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
     <a class="dnp-index-title" href="https://blog.d11cloud.com/favicon-generator-for-perfect-icons-on-all-browsers.html">
         <h2 itemprop="name headline">Favicon Generator for perfect icons on all browsers</h2>
     </a>
@@ -1465,256 +1721,6 @@ man rm</p>
                 		<a href="https://blog.d11cloud.com/category/life.html" rel="category">Life</a>
                 	</span>
                 	Tags:
- -->
-</div>
-<hr>
-<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <a class="dnp-index-title" href="https://blog.d11cloud.com/nodemon-for-docker.html">
-        <h2 itemprop="name headline">Nodemon for Docker</h2>
-    </a>
-    <!-- 08 October 2020 -->
-    <!-- article.date.isoformat() -->
-    <!-- article.locale_date -->
-    <time class="dnp-index-date" datetime="2020-10-08T21:04:00-05:00" itemprop="datePublished"> October 08, 2020</time>
-
-    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        | <span itemprop="name">D
-        </span>
-    </span> -->
-    <!-- |
-    <span class="dnp-index-date" itemprop="articleSection">
-        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
-    </span> -->
-
-    <span>
-        <span class="post-tags" itemprop="keywords">
-            <a class="post-tags" href="https://blog.d11cloud.com/tag/tech.html" rel="tag">Tech</a>
-        </span>
-        <span class="post-tags" itemprop="keywords">
-            <a class="post-tags" href="https://blog.d11cloud.com/tag/docker.html" rel="tag">docker</a>
-        </span>
-        <span class="post-tags" itemprop="keywords">
-            <a class="post-tags" href="https://blog.d11cloud.com/tag/gamedev.html" rel="tag">GameDev</a>
-        </span>
-    </span>
-    <p class="mb-3"></p>
-    <!-- <span class="summary"><p>I just installed Nodemon in my development Docker container. Here are the details.</p>
-<p>Game developers need a quick and easy server solution. Docker, nodejs, mysql, sqlite, socket.io are working great for me. This is part of my upcoming series on how to make it all work. Its way, WAY …</p></span> -->
-    <div itemprop="articleBody" class="article-body"><p>I just installed Nodemon in my development Docker container. Here are the details.</p>
-<p>Game developers need a quick and easy server solution. Docker, nodejs, mysql, sqlite, socket.io are working great for me. This is part of my upcoming series on how to make it all work. Its way, WAY easier than you might think.</p>
-<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image-3.png"></p></div>
-    <!--                 	Category:
-                	<span itemprop="articleSection">
-                		<a href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
-                	</span>
-                	Tags:
- 
-                	<span itemprop="keywords">
-                		<a href="https://blog.d11cloud.com/tag/tech.html" rel="tag">Tech</a>
-                	</span>
-                	<span itemprop="keywords">
-                		<a href="https://blog.d11cloud.com/tag/docker.html" rel="tag">docker</a>
-                	</span>
-                	<span itemprop="keywords">
-                		<a href="https://blog.d11cloud.com/tag/gamedev.html" rel="tag">GameDev</a>
-                	</span>
- -->
-</div>
-<hr>
-<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <a class="dnp-index-title" href="https://blog.d11cloud.com/use-prism-for-syntax-highlighting-in-ghost.html">
-        <h2 itemprop="name headline">Use Prism for Syntax Highlighting in Ghost</h2>
-    </a>
-    <!-- 05 October 2020 -->
-    <!-- article.date.isoformat() -->
-    <!-- article.locale_date -->
-    <time class="dnp-index-date" datetime="2020-10-05T03:00:00-05:00" itemprop="datePublished"> October 05, 2020</time>
-
-    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        | <span itemprop="name">D
-        </span>
-    </span> -->
-    <!-- |
-    <span class="dnp-index-date" itemprop="articleSection">
-        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
-    </span> -->
-
-    <span>
-        <span class="post-tags" itemprop="keywords">
-            <a class="post-tags" href="https://blog.d11cloud.com/tag/ghost.html" rel="tag">Ghost</a>
-        </span>
-        <span class="post-tags" itemprop="keywords">
-            <a class="post-tags" href="https://blog.d11cloud.com/tag/tech.html" rel="tag">Tech</a>
-        </span>
-    </span>
-    <p class="mb-3"></p>
-    <!-- <span class="summary"><p>Configure Ghost and Prism to provide code syntax highlighting for all popular formats including javascript, php, html, css, markdown and more.</p>
-<p>Ghost is a great CMS and it's easy to add a code syntax highlighter such as <a href="https://prismjs.com/">Prism</a>.</p>
-<h2>Versions</h2>
-<p>Ghost version 3.3<br>
-Prism version 1.21</p>
-<h2>Prism</h2>
-<p>There are …</p></span> -->
-    <div itemprop="articleBody" class="article-body"><p>Configure Ghost and Prism to provide code syntax highlighting for all popular formats including javascript, php, html, css, markdown and more.</p>
-<p>Ghost is a great CMS and it's easy to add a code syntax highlighter such as <a href="https://prismjs.com/">Prism</a>.</p>
-<h2>Versions</h2>
-<p>Ghost version 3.3<br>
-Prism version 1.21</p>
-<h2>Prism</h2>
-<p>There are two ways to use Prism: 1) download and serve from your website or 2) serve from a <a href="https://en.wikipedia.org/wiki/Content_delivery_network">Content Delivery network (CDN)</a>. The CDN option is actually easier and better for your viewers. There is a chance that many sites use Prism and once your browser has it in its local cache it won't need to download it again, which makes it faster and uses less bandwidth. So, that's what you will learn about today.</p>
-<p><strong>Step 1</strong> - Go to the <a href="https://prismjs.com/">Prism</a> website and learn a little about it. Look at the Theme bubbles down the right-side of the page. Find a theme that you like and want to use on your Ghost powered blog. I use the "Okaidia" theme on this website. Also, notice that there are many, many language features supported. If you will always just use a few languages then you can hard code them into your setting and only use them. However, if like me there is no telling which language you will post about next then you should use the autoloader feature.</p>
-<p>Take note of the latest Prism version. As of this writting I'm using version 1.21.0. You will want to use the most current version.</p>
-<h2>CDN</h2>
-<p><strong>Step 2</strong> - Find a CDN that hosts Prism. I chose <a href="https://cdnjs.com/">cdnjs.com</a> to serve the Prism files. It's free, easy to use and fast. I recommend you go to <a href="https://cdnjs.com/">cdnjs.com</a> and search for Prism. You will see that there are a lot of options. You don't need all of those, just the ones you are interested in.</p>
-<p><strong>Step 3</strong> - There are 3 main parts of Prism you need to make this work. The first part is the CSS. To load this from cdnjs.com looks like this.</p>
-<p>Part 1: Choose your theme:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism-okaidia.min.css&quot;</span><span class="p">&gt;</span>
-</code></pre></div>
-
-<p>Link to Prism okaidia theme</p>
-<p>Notice this version contains the word <code>okaidia</code> which means it has the color scheme for the Theme I like. You should search for the Theme that you chose in step 1.</p>
-<p>Part 2: Find the core js file:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/components/prism-core.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-
-<p>Link to Prism core library</p>
-<p>It contains the <code>core</code> of the Prism library.</p>
-<p>Part 3: Find the language modules you want to use, or find the <a href="https://prismjs.com/plugins/autoloader/"><code>autoloader</code></a> version.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/autoloader/prism-autoloader.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-
-<p>Link to Prism autoloader</p>
-<p>These are the 3 minimum components needed to use Prism with Ghost.</p>
-<p>Now that you have identified the 3 main components and their links to the CDN, it's time to put them into your Ghost blog.</p>
-<h2>Code Injection</h2>
-<p>Ghost makes this very easy to do with the <code>Code injection</code> feature on their admin page.</p>
-<p><strong>Step 4</strong> - Go to your ghost admin page, it is defaulted to site.tld/ghost, and login with your admin account.</p>
-<p>Click on the <code>Code injection</code> menu option on the left. You should see two main sections "Site Header" and "Site Footer".</p>
-<p>Part 1 - Place the CSS link in the <code>Site Header</code> section. It should look something like this:</p>
-<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image.png"></p>
-<p>Site Header portion of Code injection</p>
-<p>That's all there is, just copy and paste the above CSS link into the <code>Site Header</code> section.</p>
-<p>Part 2 - The <code>Site Footer</code> works the same, just copy and paste the <code>core</code> link and the <code>autoloader</code> link. If you decided to go with language specific options this is where you would load them instead of the autoloader link.</p>
-<p>Remember these links are loaded on every page of your blog even if you don't use them on that page, so keep it simple, small and fast.</p>
-<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image-1.png"></p>
-<p>Site Footer portion of Code injection</p>
-<h2>Configuration Complete</h2>
-<p>That's all there is to configuring Ghost to use Prism. The next portion will show you how to use them on your blog.</p>
-<p><strong>Step 1</strong> - Create a new post in Ghost and press the + icon to add a new section to your page, and then immediately type ``` <enter> that's 3 back-tick special characters under the ~ symbol on the top left of your keyboard. They are not single quotes ' or double quotes ".</p>
-<p>This puts Ghost into the code entry mode. You can copy and paste your code in here.</p>
-<p><strong>Step 2 -</strong> Notice on the right hand side of the code entry box there is a place for language. This is where you type in the language for this code snippet. Ghost has done some of the work for you. You don't have to prepend the language type with <code>language-</code> or <code>lang-</code> as talked about in the Prism documentation, just put in what you are working with. Such as: js, javascript, html, php, json, css, etc..</p>
-<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image-2.png"></p>
-<p>Sample html script with language type shown in top-right corner</p>
-<p>That's it! You code snippets will now be syntax highlighted with Prism.</p>
-<h2>Further Reading</h2>
-<p>For more examples and tips on how to add line numbers and a copy-to-clipboard button check out this <a href="https://ghost.org/tutorials/code-syntax-highlighting/">Ghost tutorial</a>.</p>
-<h2>Examples</h2>
-<p>Here are a few examples to look at.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">createBoard</span><span class="p">(</span><span class="nx">team</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;&lt;div class=&#39;text-center&#39;&gt;&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">col</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">col</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">row</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">calcId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">team</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">zeroPad</span><span class="p">(</span><span class="nx">row</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">zeroPad</span><span class="p">(</span><span class="nx">col</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">` &#39;</span><span class="si">${</span><span class="nx">team</span><span class="si">}</span><span class="sb">&#39;, </span><span class="si">${</span><span class="nx">row</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">col</span><span class="si">}</span><span class="sb">, &#39;</span><span class="si">${</span><span class="nx">calcId</span><span class="si">}</span><span class="sb">&#39;`</span><span class="p">;</span>
-<span class="w">            </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sb">`  &lt;a class=&#39;m-0 p-1 btn btn-dark&#39; href=&quot;javascript:fire(</span><span class="si">${</span><span class="nx">link</span><span class="si">}</span><span class="sb">);&quot; role=&#39;button&#39;&gt;`</span>
-<span class="w">            </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;   &lt;span class=&#39;title&#39;&gt;&quot;</span><span class="p">;</span>
-<span class="w">            </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;    &lt;span id=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">calcId</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&#39; class=&#39;badge badge-dark oi&#39; data-glyph=&#39;target&#39;&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&lt;/span&gt;&quot;</span><span class="p">;</span>
-<span class="w">            </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;   &lt;/span&gt;&quot;</span><span class="p">;</span>
-<span class="w">            </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;  &lt;/a&gt;&quot;</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot; &lt;br&gt; &quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;&lt;/div&gt;&quot;</span><span class="p">;</span>
-
-<span class="w">    </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#board-&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">team</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">out</span><span class="p">);</span>
-
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Sample Javascript code</p>
-<div class="codehilite"><pre><span></span><code><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">&quot;ios.css&quot;</span><span class="p">;</span>
-<span class="c">/* @import &quot;darkMode.css&quot;; */</span>
-<span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">&quot;toggleSwitch.css&quot;</span><span class="p">;</span>
-
-<span class="p">@</span><span class="k">font-face</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">font-family</span><span class="o">:</span><span class="w"> </span><span class="nt">Revamped</span><span class="o">;</span>
-<span class="w">    </span><span class="nt">src</span><span class="o">:</span><span class="w"> </span><span class="nt">url</span><span class="o">(</span><span class="s2">&quot;../font/Revamped.ttf&quot;</span><span class="o">)</span><span class="w"> </span><span class="nt">format</span><span class="o">(</span><span class="s1">&#39;truetype&#39;</span><span class="o">);</span>
-<span class="p">}</span>
-
-<span class="c">/* get screen width based on device */</span>
-<span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c">/* desktop vars */</span>
-<span class="w">    </span><span class="nv">--screen-w1</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">    </span><span class="nv">--screen-w2</span><span class="p">:</span><span class="w"> </span><span class="mi">495</span><span class="kt">px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="nt">screen</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="o">(</span><span class="nt">max-width</span><span class="o">:</span><span class="w"> </span><span class="nt">500px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c">/* mobile vars */</span>
-<span class="w">        </span><span class="nv">--screen-w1</span><span class="p">:</span><span class="w"> </span><span class="mi">97</span><span class="kt">vw</span><span class="p">;</span>
-<span class="w">        </span><span class="nv">--screen-w2</span><span class="p">:</span><span class="w"> </span><span class="mi">94</span><span class="kt">vw</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Sample CSS code</p>
-<div class="codehilite"><pre><span></span><code><span class="x">public function getGame($userName, $roomName, $gameToken)</span>
-<span class="x">    {</span>
-
-<span class="x">        //load game</span>
-<span class="x">        $this-&gt;game = $this-&gt;loadGame($gameToken);</span>
-
-<span class="x">        return $this-&gt;game;</span>
-<span class="x">    }</span>
-</code></pre></div>
-
-<p>Sample PHP code</p>
-<div class="codehilite"><pre><span></span><code><span class="cm">&lt;!-- Main Nav Bar --&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-top hide main&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar w3-round-large z-nav-background z-width&quot;</span> <span class="na">xstyle</span><span class="o">=</span><span class="s">&quot;max-width:500px&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;showPanel(&#39;lobby&#39;)&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-bar-item w3-round-large z-nav-text&quot;</span><span class="p">&gt;</span>Lobby<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-
-                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;showPanel(&#39;E-Space&#39;)&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-button z-nav-text w3-border w3-border-blue w3-hover-black w3-small&quot;</span><span class="p">&gt;</span>E-Space<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;showPanel(&#39;F-Space&#39;)&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w3-button z-nav-text w3-border w3-border-blue w3-hover-black w3-small&quot;</span><span class="p">&gt;</span>F-Space<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
-
-<p>Sample HTML code</p>
-<div class="codehilite"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">activeUserTable</span><span class="o">`</span>
-<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span>
-<span class="w">  </span><span class="k">ADD</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">time_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="k">time</span><span class="o">`</span><span class="p">);</span>
-
-<span class="c1">--</span>
-<span class="c1">-- AUTO_INCREMENT for dumped tables</span>
-<span class="c1">--</span>
-
-<span class="c1">--</span>
-<span class="c1">-- AUTO_INCREMENT for table `activeUserTable`</span>
-<span class="c1">--</span>
-<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">activeUserTable</span><span class="o">`</span>
-<span class="w">  </span><span class="k">MODIFY</span><span class="w"> </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="k">COMMIT</span><span class="p">;</span>
-</code></pre></div>
-
-<p>Sample SQL code</p></div>
-    <!--                 	Category:
-                	<span itemprop="articleSection">
-                		<a href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
-                	</span>
-                	Tags:
- 
-                	<span itemprop="keywords">
-                		<a href="https://blog.d11cloud.com/tag/ghost.html" rel="tag">Ghost</a>
-                	</span>
-                	<span itemprop="keywords">
-                		<a href="https://blog.d11cloud.com/tag/tech.html" rel="tag">Tech</a>
-                	</span>
  -->
 </div>
 <hr>
