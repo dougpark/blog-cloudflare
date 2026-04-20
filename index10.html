@@ -86,6 +86,171 @@
         <!-- Article Content -->
         <div class="row">
             <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://blog.d11cloud.com/pelican-pluginsjinja2content-use-jinja2-template-code-within-post-content.html">
+        <h2 itemprop="name headline">pelican-plugins/jinja2content: Use Jinja2 template code within post content</h2>
+    </a>
+    <!-- 07 January 2022 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2022-01-07T00:18:47-06:00" itemprop="datePublished"> January 07, 2022</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Link
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/link.html" rel="category">Link</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://blog.d11cloud.com/tag/pelican.html" rel="tag">pelican</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://blog.d11cloud.com/tag/jinja.html" rel="tag">jinja</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://blog.d11cloud.com/tag/static.html" rel="tag">static</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://blog.d11cloud.com/tag/website.html" rel="tag">website</a>
+        </span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://blog.d11cloud.com/tag/link.html" rel="tag">link</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>This plugin allows the use of Jinja2 directives inside your Pelican articles and pages.</p></span> -->
+    <div itemprop="articleBody" class="article-body"><blockquote>
+<p>This plugin allows the use of Jinja2 directives inside your Pelican articles and pages.</p>
+<p>In this approach, your content is first rendered by the Jinja template engine. The result is then passed to the normal Pelican reader as usual. There are two consequences for usage. First, this means the Pelican context and Jinja variables usually visible to your article or page template are not available at rendering time. Second, it means that if any of your input content could be parsed as Jinja directives, they will be rendered as such. This is unlikely to happen accidentally, but it’s good to be aware of.</p>
+<p>All input that needs Pelican variables such as article, category, etc., should be put inside your theme’s templating. As such, the main use of this plugin is to automatically generate parts of your articles or pages.</p>
+<p>Markdown, reStructured Text, and HTML input are all supported. Note that by enabling this plugin, all input files of these file types will be pre-processed with the Jinja renderer. It is not currently supported to selectively enable or disable jinja2content for only some of these input sources.</p>
+</blockquote>
+<p><a href="https://github.com/pelican-plugins/jinja2content">Link to the original article</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://blog.d11cloud.com/category/link.html" rel="category">Link</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://blog.d11cloud.com/tag/pelican.html" rel="tag">pelican</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://blog.d11cloud.com/tag/jinja.html" rel="tag">jinja</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://blog.d11cloud.com/tag/static.html" rel="tag">static</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://blog.d11cloud.com/tag/website.html" rel="tag">website</a>
+                	</span>
+                	<span itemprop="keywords">
+                		<a href="https://blog.d11cloud.com/tag/link.html" rel="tag">link</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://blog.d11cloud.com/feeds.html">
+        <h2 itemprop="name headline">Feeds</h2>
+    </a>
+    <!-- 06 January 2022 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2022-01-06T13:40:00-06:00" itemprop="datePublished"> January 06, 2022</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/pages.html" rel="category">Pages</a>
+    </span> -->
+
+    <span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><h2>Syndicated Feeds</h2>
+<p>Just click and then register with your favorite RSS reader, like <a href="https://netnewswire.com">NetNewsWire</a></p>
+<h4><img src="/images/256px-Feed-icon.svg.png" alt="atom logo" title="atom logo" width="30"/> Atom Feeds <a href="https://en.wikipedia.org/wiki/Atom_%28Web_standard%29">Same as RSS but better</a></h4>
+<ul>
+<li>
+<p>Subscribe to the main feed</p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/all.atom.xml">All Articles</a></p>
+</li>
+<li>
+<p>If that's too much here are more specific feeds</p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/tech.atom.xml">Tech Articles</a></p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/life.atom.xml">Life Articles</a></p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/play.atom.xml">Play Articles</a></p>
+</li>
+</ul>
+<h4><img src="/images/jsonfeed.png" alt="json logo" title="json logo" width="30"/> Json Feeds <a href="https://www.jsonfeed.org">Same but in JSON format …</a></h4></span> -->
+    <div itemprop="articleBody" class="article-body"><h2>Syndicated Feeds</h2>
+<p>Just click and then register with your favorite RSS reader, like <a href="https://netnewswire.com">NetNewsWire</a></p>
+<h4><img src="/images/256px-Feed-icon.svg.png" alt="atom logo" title="atom logo" width="30"/> Atom Feeds <a href="https://en.wikipedia.org/wiki/Atom_%28Web_standard%29">Same as RSS but better</a></h4>
+<ul>
+<li>
+<p>Subscribe to the main feed</p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/all.atom.xml">All Articles</a></p>
+</li>
+<li>
+<p>If that's too much here are more specific feeds</p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/tech.atom.xml">Tech Articles</a></p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/life.atom.xml">Life Articles</a></p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/play.atom.xml">Play Articles</a></p>
+</li>
+</ul>
+<h4><img src="/images/jsonfeed.png" alt="json logo" title="json logo" width="30"/> Json Feeds <a href="https://www.jsonfeed.org">Same but in JSON format</a></h4>
+<ul>
+<li>
+<p>Subscribe to the main feed</p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/all.json">All Articles</a></p>
+</li>
+<li>
+<p>If that's too much here are more specific feeds</p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/tech.json">Tech Articles</a></p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/life.json">Life Articles</a></p>
+</li>
+<li>
+<p><a href="https://64zbit.com/feeds/play.json">Play Articles</a></p>
+</li>
+</ul></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://blog.d11cloud.com/category/pages.html" rel="category">Pages</a>
+                	</span>
+                	Tags:
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
     <a class="dnp-index-title" href="https://blog.d11cloud.com/images-with-obsidian-and-pelican.html">
         <h2 itemprop="name headline">Images with Obsidian and Pelican</h2>
     </a>
@@ -1619,97 +1784,6 @@ man rm</p>
     <div itemprop="articleBody" class="article-body"><p>How to think like a programmer — lessons in problem solving</p>
 <p>by Richard Reis How to think like a programmer — lessons in problem solvingBy Richard Reis [https://twitter.com/richardreeze]If you’re interested inprogramming, you may well have seen this quote before: &gt; “Everyone in this country should learn to program a computer, because it teachesyou to thi…</p>
 <p><a href="https://www.freecodecamp.org/news/how-to-think-like-a-programmer-lessons-in-problem-solving-d1d8bf1de7d2/amp/?__twitter_impression=true">How to think like a programmer</a></p></div>
-    <!--                 	Category:
-                	<span itemprop="articleSection">
-                		<a href="https://blog.d11cloud.com/category/life.html" rel="category">Life</a>
-                	</span>
-                	Tags:
- 
-                	<span itemprop="keywords">
-                		<a href="https://blog.d11cloud.com/tag/life.html" rel="tag">Life</a>
-                	</span>
- -->
-</div>
-<hr>
-<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <a class="dnp-index-title" href="https://blog.d11cloud.com/the-gateless-gate.html">
-        <h2 itemprop="name headline">The Gateless Gate</h2>
-    </a>
-    <!-- 16 October 2020 -->
-    <!-- article.date.isoformat() -->
-    <!-- article.locale_date -->
-    <time class="dnp-index-date" datetime="2020-10-16T01:05:00-05:00" itemprop="datePublished"> October 16, 2020</time>
-
-    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        | <span itemprop="name">D
-        </span>
-    </span> -->
-    <!-- |
-    <span class="dnp-index-date" itemprop="articleSection">
-        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/life.html" rel="category">Life</a>
-    </span> -->
-
-    <span>
-        <span class="post-tags" itemprop="keywords">
-            <a class="post-tags" href="https://blog.d11cloud.com/tag/life.html" rel="tag">Life</a>
-        </span>
-    </span>
-    <p class="mb-3"></p>
-    <!-- <span class="summary"><blockquote>
-<p>"This classic Zen Buddhist collection of 49 koans with commentary by Mumon was originally published in 1934, and later included in Paul Reps and Nyogen Senzaki's popular anthology Zen Flesh, Zen Bones. Due to non-renewal it is currently in the public domain in the US (although other parts of Zen …</p></blockquote></span> -->
-    <div itemprop="articleBody" class="article-body"><blockquote>
-<p>"This classic Zen Buddhist collection of 49 koans with commentary by Mumon was originally published in 1934, and later included in Paul Reps and Nyogen Senzaki's popular anthology Zen Flesh, Zen Bones. Due to non-renewal it is currently in the public domain in the US (although other parts of Zen Flesh, Zen Bones are not)." <a href="https://www.sacred-texts.com/bud/glg/index.htm">source link</a></p>
-</blockquote>
-<p>I was playing with CSS and Html and made a nice little web app.</p>
-<p><a href="https://dev.64zbit.com/gate/index.html">Check out my project and read all 49 koans</a></p>
-<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image-5.png"></p></div>
-    <!--                 	Category:
-                	<span itemprop="articleSection">
-                		<a href="https://blog.d11cloud.com/category/life.html" rel="category">Life</a>
-                	</span>
-                	Tags:
- 
-                	<span itemprop="keywords">
-                		<a href="https://blog.d11cloud.com/tag/life.html" rel="tag">Life</a>
-                	</span>
- -->
-</div>
-<hr>
-<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <a class="dnp-index-title" href="https://blog.d11cloud.com/hyperlegible-typeface.html">
-        <h2 itemprop="name headline">Hyperlegible Typeface</h2>
-    </a>
-    <!-- 15 October 2020 -->
-    <!-- article.date.isoformat() -->
-    <!-- article.locale_date -->
-    <time class="dnp-index-date" datetime="2020-10-15T16:28:00-05:00" itemprop="datePublished"> October 15, 2020</time>
-
-    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        | <span itemprop="name">D
-        </span>
-    </span> -->
-    <!-- |
-    <span class="dnp-index-date" itemprop="articleSection">
-        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/life.html" rel="category">Life</a>
-    </span> -->
-
-    <span>
-        <span class="post-tags" itemprop="keywords">
-            <a class="post-tags" href="https://blog.d11cloud.com/tag/life.html" rel="tag">Life</a>
-        </span>
-    </span>
-    <p class="mb-3"></p>
-    <!-- <span class="summary"><p>I love this and will need it sooner than I expect.</p>
-<p>"Atkinson Hyperlegible font is named after Braille Institute founder, Robert J. Atkinson.  What makes it different from traditional typography design is that it focuses on letterform distinction to increase character recognition, ultimately improving readability."</p>
-<p><a href="https://www.brailleinstitute.org/freefont">https://www.brailleinstitute.org/freefont …</a></p></span> -->
-    <div itemprop="articleBody" class="article-body"><p>I love this and will need it sooner than I expect.</p>
-<p>"Atkinson Hyperlegible font is named after Braille Institute founder, Robert J. Atkinson.  What makes it different from traditional typography design is that it focuses on letterform distinction to increase character recognition, ultimately improving readability."</p>
-<p><a href="https://www.brailleinstitute.org/freefont">https://www.brailleinstitute.org/freefont</a></p>
-<p><img alt="" src="https://ghost.64zbit.com/content/images/2020/10/image-4.png"></p>
-<p>A Free Hyperlegible Typeface from the Braille Institute</p>
-<p>Atkinson Hyperlegible is a free typeface developed by the Braille Institute and Applied Design Works that makes text more readab</p>
-<p><img alt="" src="https://kottke.org/images/2016/ios/192x192.png">Jason Kottkekottke.org</p>
-<p><a href="https://kottke.org/20/10/a-free-hyperlegible-typeface-from-the-braille-institute">Hyperlegible Typeface</a></p></div>
     <!--                 	Category:
                 	<span itemprop="articleSection">
                 		<a href="https://blog.d11cloud.com/category/life.html" rel="category">Life</a>

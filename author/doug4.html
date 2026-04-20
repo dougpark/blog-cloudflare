@@ -86,6 +86,96 @@
         <!-- Article Content -->
         <div class="row">
             <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://blog.d11cloud.com/iphone-device-resolutions.html">
+        <h2 itemprop="name headline">iPhone Device Resolutions</h2>
+    </a>
+    <!-- 02 January 2022 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2022-01-02T09:57:00-06:00" itemprop="datePublished"> January 02, 2022</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://blog.d11cloud.com/tag/iphone.html" rel="tag">iphone</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>A quick chart showing the different iPhone resolutions.</p></span> -->
+    <div itemprop="articleBody" class="article-body"><p><img alt="iphone" src="/images/Pasted%20image%2020220102123741.png"></p>
+<p>source:<a href="https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions =x400">paintcodeapp.com</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://blog.d11cloud.com/tag/iphone.html" rel="tag">iphone</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://blog.d11cloud.com/publish-pelican-to-remote-web-server.html">
+        <h2 itemprop="name headline">Publish Pelican To Remote Web server</h2>
+    </a>
+    <!-- 24 December 2021 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2021-12-24T14:14:00-06:00" itemprop="datePublished"> December 24, 2021</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">Doug
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>Tips and ideas on best way to publish a static site generated with Pelican using the Makefile and creating Obsidian commands.</p></span> -->
+    <div itemprop="articleBody" class="article-body"><h2>Makefile</h2>
+<p>When you install Pelican be sure to install the Makefile too. This allows you to use the make command to build your static website. It takes a bit of configuration for your specific server details, but it's easy to setup.</p>
+<p>All the details are handled in these three files:</p>
+<div class="codehilite"><pre><span></span><code>pelicanconf.py
+publishconf.py
+Makefile
+</code></pre></div>
+
+<p>The command I ended up using is: <code>make ssh_upload</code></p>
+<p>This creates a production build and uploads all the files to the server.</p>
+<p>I actually renamed <code>ssh_upload</code> in the Makefile to <code>prod</code>, so now I use the command: <code>make prod</code></p>
+<h2>Obsidian Shell Command</h2>
+<p>It's not bad to open a shell command and execute the <code>make prod</code> command, but it's even better to hit a hotkey within Obsidian to do the same thing.</p>
+<p>Install the <a href="https://github.com/Taitava/obsidian-shellcommands">Obsidian ShellCommands Plugin</a></p>
+<p>This plugin allows you to execute a shell command from within Obsidian.</p>
+<p>It also allows you to execute that command from the Obsidian command pallet.</p>
+<p>Which allows you to execute the command from a hotkey.</p>
+<h2>Copy all files to remote web server</h2>
+<p>If you want to manually upload the files then here is a good use of the <code>scp</code> command.</p>
+<div class="codehilite"><pre><span></span><code>scp<span class="w"> </span>-r<span class="w"> </span>/Users/doug/OneDrive/www_root/pelican/projects/64zbit/output/*<span class="w"> </span>user@64zbit.com:/home/pi/dev_volumes/public_html/apache/new/
+</code></pre></div></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
     <a class="dnp-index-title" href="https://blog.d11cloud.com/deep-thoughts.html">
         <h2 itemprop="name headline">Deep Thoughts</h2>
     </a>
@@ -897,75 +987,6 @@ We shall go into the land so our children can always hold us and will never be a
     <p class="mb-3"></p>
     <!-- <span class="summary"><p>We are all robots in one way or another. We all have goals and we all have constraints that we have to work within. There's nothing wrong with being a robot, we just have to accept it.</p></span> -->
     <div itemprop="articleBody" class="article-body"><p>We are all robots in one way or another. We all have goals and we all have constraints that we have to work within. There's nothing wrong with being a robot, we just have to accept it.</p></div>
-    <!--                 	Category:
-                	<span itemprop="articleSection">
-                		<a href="https://blog.d11cloud.com/category/robotcraft.html" rel="category">RobotCraft</a>
-                	</span>
-                	Tags:
- -->
-</div>
-<hr>
-<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <a class="dnp-index-title" href="https://blog.d11cloud.com/bits-of-cents-disassembling-the-dash.html">
-        <h2 itemprop="name headline">Bits of Cents — Disassembling the Dash</h2>
-    </a>
-    <!-- 15 May 2015 -->
-    <!-- article.date.isoformat() -->
-    <!-- article.locale_date -->
-    <time class="dnp-index-date" datetime="2015-05-15T09:02:00-05:00" itemprop="datePublished"> May 15, 2015</time>
-
-    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        | <span itemprop="name">Doug
-        </span>
-    </span> -->
-    <!-- |
-    <span class="dnp-index-date" itemprop="articleSection">
-        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/robotcraft.html" rel="category">RobotCraft</a>
-    </span> -->
-
-    <span>
-    </span>
-    <p class="mb-3"></p>
-    <!-- <span class="summary"><p><a href="http://www.bitsofcents.com/post/118749233621/disassembling-the-dash">Bits of Cents — Disassembling the Dash</a></p>
-<p>Disassembling the Dash On Thursday I got an email from Amazon saying I had been selected to try out two Dash buttons at zero cost. To be honest it as kind of surprising given that although we order from them plenty, I can’t …</p></span> -->
-    <div itemprop="articleBody" class="article-body"><p><a href="http://www.bitsofcents.com/post/118749233621/disassembling-the-dash">Bits of Cents — Disassembling the Dash</a></p>
-<p>Disassembling the Dash On Thursday I got an email from Amazon saying I had been selected to try out two Dash buttons at zero cost. To be honest it as kind of surprising given that although we order from them plenty, I can’t say that we regularly stock up on consumables from Amazon: they suggested I get the Gillette razor button, something I’ve ordered twice. Maybe it’s a ploy to try and get me to order more regularly from them. Maybe it’s because I’m in New York and they are trying to get more density in Manhattan. Maybe they read my blog. Who knows but in any case it’s free hardware. The functionality is simple enough: click a button, get the Dash item at your door. But what makes it tick? Like any good hardware nerd, I was excited to find out.</p>
-<p>More info at: <a href="http://www.bitsofcents.com/post/118749233621/disassembling-the-dash">Bits of Cents — Disassembling the Dash</a></p></div>
-    <!--                 	Category:
-                	<span itemprop="articleSection">
-                		<a href="https://blog.d11cloud.com/category/robotcraft.html" rel="category">RobotCraft</a>
-                	</span>
-                	Tags:
- -->
-</div>
-<hr>
-<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <a class="dnp-index-title" href="https://blog.d11cloud.com/arduino-ide-becomes-more-open-less-snarky-hackaday.html">
-        <h2 itemprop="name headline">Arduino IDE Becomes More Open, Less Snarky | Hackaday</h2>
-    </a>
-    <!-- 15 May 2015 -->
-    <!-- article.date.isoformat() -->
-    <!-- article.locale_date -->
-    <time class="dnp-index-date" datetime="2015-05-15T08:55:00-05:00" itemprop="datePublished"> May 15, 2015</time>
-
-    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        | <span itemprop="name">Doug
-        </span>
-    </span> -->
-    <!-- |
-    <span class="dnp-index-date" itemprop="articleSection">
-        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/robotcraft.html" rel="category">RobotCraft</a>
-    </span> -->
-
-    <span>
-    </span>
-    <p class="mb-3"></p>
-    <!-- <span class="summary"><p><a href="http://hackaday.com/2015/05/13/arduino-ide-becomes-more-open-less-snarky/">Arduino IDE Becomes More Open, Less Snarky | Hackaday</a></p>
-<p><img alt="NewImage" border="0" height="400" src="http://robotcraft.org/wp-content/uploads/2015/05/NewImage1.png" title="NewImage.png" width="550"></p>
-<p>More info at: <a href="http://hackaday.com/2015/05/13/arduino-ide-becomes-more-open-less-snarky/">Arduino IDE Becomes More Open, Less Snarky | Hackaday</a></p></span> -->
-    <div itemprop="articleBody" class="article-body"><p><a href="http://hackaday.com/2015/05/13/arduino-ide-becomes-more-open-less-snarky/">Arduino IDE Becomes More Open, Less Snarky | Hackaday</a></p>
-<p><img alt="NewImage" border="0" height="400" src="http://robotcraft.org/wp-content/uploads/2015/05/NewImage1.png" title="NewImage.png" width="550"></p>
-<p>More info at: <a href="http://hackaday.com/2015/05/13/arduino-ide-becomes-more-open-less-snarky/">Arduino IDE Becomes More Open, Less Snarky | Hackaday</a></p></div>
     <!--                 	Category:
                 	<span itemprop="articleSection">
                 		<a href="https://blog.d11cloud.com/category/robotcraft.html" rel="category">RobotCraft</a>
