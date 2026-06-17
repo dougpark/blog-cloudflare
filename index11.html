@@ -86,6 +86,57 @@
         <!-- Article Content -->
         <div class="row">
             <div class="mt-2 col-md-8 col-md-offset-2 mx-auto"> <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <a class="dnp-index-title" href="https://blog.d11cloud.com/macos-bitbar-get-wi-fi-ssid-with-shell-script.html">
+        <h2 itemprop="name headline">macOS - BitBar - Get Wi-Fi SSID with shell script</h2>
+    </a>
+    <!-- 18 October 2020 -->
+    <!-- article.date.isoformat() -->
+    <!-- article.locale_date -->
+    <time class="dnp-index-date" datetime="2020-10-18T00:14:00-05:00" itemprop="datePublished"> October 18, 2020</time>
+
+    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        | <span itemprop="name">D
+        </span>
+    </span> -->
+    <!-- |
+    <span class="dnp-index-date" itemprop="articleSection">
+        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+    </span> -->
+
+    <span>
+        <span class="post-tags" itemprop="keywords">
+            <a class="post-tags" href="https://blog.d11cloud.com/tag/tech.html" rel="tag">Tech</a>
+        </span>
+    </span>
+    <p class="mb-3"></p>
+    <!-- <span class="summary"><p>So, <a href="https://sixcolors.com/">Jason Snell</a> got me hooked on <a href="https://sixcolors.com/post/2020/08/put-anything-in-your-macs-menu-bar-with-bitbar/">BitBar</a> (BitBar (by <a href="https://twitter.com/matryer">Mat Ryer - @matryer</a>) lets you put the output from any script/program in your Mac OS X Menu Bar.) and I've been working on a plugin ever since. Here's a quick way to get your current Wi-Fi SSID.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">function</span><span class="w"> </span>display-ssid …</code></pre></div></span> -->
+    <div itemprop="articleBody" class="article-body"><p>So, <a href="https://sixcolors.com/">Jason Snell</a> got me hooked on <a href="https://sixcolors.com/post/2020/08/put-anything-in-your-macs-menu-bar-with-bitbar/">BitBar</a> (BitBar (by <a href="https://twitter.com/matryer">Mat Ryer - @matryer</a>) lets you put the output from any script/program in your Mac OS X Menu Bar.) and I've been working on a plugin ever since. Here's a quick way to get your current Wi-Fi SSID.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">function</span><span class="w"> </span>display-ssid<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span>
+<span class="nv">ssid</span><span class="o">=</span><span class="k">$(</span>/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport<span class="w"> </span>-I<span class="w">  </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="s1">&#39; SSID: &#39;</span><span class="w">  </span><span class="s1">&#39;/ SSID: / {print $2}&#39;</span><span class="k">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Wi-Fi: </span><span class="nv">$ssid</span><span class="s2"> | terminal=false bash=&#39;</span><span class="nv">$0</span><span class="s2">&#39; param1=copy param2=</span><span class="nv">$ssid</span><span class="s2">&quot;</span>
+
+<span class="o">}</span>
+</code></pre></div>
+
+<p>Get wireless SSID through shell script on Mac OS X</p>
+<p>Is there any way to get the SSID of the current wireless network through a shell script on Mac OS X?</p>
+<p><img alt="" src="https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png?v=c78bd457575a">Mark SzymanskiStack Overflow</p>
+<p><a href="https://stackoverflow.com/questions/4481005/get-wireless-ssid-through-shell-script-on-mac-os-x">SSID with shell script</a></p></div>
+    <!--                 	Category:
+                	<span itemprop="articleSection">
+                		<a href="https://blog.d11cloud.com/category/tech.html" rel="category">Tech</a>
+                	</span>
+                	Tags:
+ 
+                	<span itemprop="keywords">
+                		<a href="https://blog.d11cloud.com/tag/tech.html" rel="tag">Tech</a>
+                	</span>
+ -->
+</div>
+<hr>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
     <a class="dnp-index-title" href="https://blog.d11cloud.com/how-to-answer-questions-in-a-helpful-way.html">
         <h2 itemprop="name headline">How to answer questions in a helpful way</h2>
     </a>
@@ -1222,39 +1273,6 @@ Prism version 1.21</p>
     <p class="mb-3"></p>
     <!-- <span class="summary"><p>Did we not learn anything from Windows? Security is a must.</p></span> -->
     <div itemprop="articleBody" class="article-body"><p>Did we not learn anything from Windows? Security is a must.</p></div>
-    <!--                 	Category:
-                	<span itemprop="articleSection">
-                		<a href="https://blog.d11cloud.com/category/robotcraft.html" rel="category">RobotCraft</a>
-                	</span>
-                	Tags:
- -->
-</div>
-<hr>
-<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <a class="dnp-index-title" href="https://blog.d11cloud.com/robots-and-ai.html">
-        <h2 itemprop="name headline">Robots and AI</h2>
-    </a>
-    <!-- 28 March 2016 -->
-    <!-- article.date.isoformat() -->
-    <!-- article.locale_date -->
-    <time class="dnp-index-date" datetime="2016-03-28T19:20:00-05:00" itemprop="datePublished"> March 28, 2016</time>
-
-    <!-- <span class="dnp-index-tag" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        | <span itemprop="name">Link
-        </span>
-    </span> -->
-    <!-- |
-    <span class="dnp-index-date" itemprop="articleSection">
-        <a class="dnp-index-date" href="https://blog.d11cloud.com/category/robotcraft.html" rel="category">RobotCraft</a>
-    </span> -->
-
-    <span>
-    </span>
-    <p class="mb-3"></p>
-    <!-- <span class="summary"><p>Does a robot need AI or be self aware to be a robot?</p>
-<p><a href="https://en.wikipedia.org/wiki/Robot">Wikipedia</a></p></span> -->
-    <div itemprop="articleBody" class="article-body"><p>Does a robot need AI or be self aware to be a robot?</p>
-<p><a href="https://en.wikipedia.org/wiki/Robot">Wikipedia</a></p></div>
     <!--                 	Category:
                 	<span itemprop="articleSection">
                 		<a href="https://blog.d11cloud.com/category/robotcraft.html" rel="category">RobotCraft</a>
