@@ -118,9 +118,9 @@
 
 	<div itemprop="articleBody" class="article-body"><p>So, <a href="https://sixcolors.com/">Jason Snell</a> got me hooked on <a href="https://sixcolors.com/post/2020/08/put-anything-in-your-macs-menu-bar-with-bitbar/">BitBar</a> (BitBar (by <a href="https://twitter.com/matryer">Mat Ryer - @matryer</a>) lets you put the output from any script/program in your Mac OS X Menu Bar.) and I've been working on a plugin ever since. Here's a quick way to get your current Wi-Fi SSID.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">function</span><span class="w"> </span>display-ssid<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span>
-<span class="nv">ssid</span><span class="o">=</span><span class="k">$(</span>/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport<span class="w"> </span>-I<span class="w">  </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="s1">&#39; SSID: &#39;</span><span class="w">  </span><span class="s1">&#39;/ SSID: / {print $2}&#39;</span><span class="k">)</span><span class="w"> </span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Wi-Fi: </span><span class="nv">$ssid</span><span class="s2"> | terminal=false bash=&#39;</span><span class="nv">$0</span><span class="s2">&#39; param1=copy param2=</span><span class="nv">$ssid</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"---"</span>
+<span class="nv">ssid</span><span class="o">=</span><span class="k">$(</span>/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport<span class="w"> </span>-I<span class="w">  </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="s1">' SSID: '</span><span class="w">  </span><span class="s1">'/ SSID: / {print $2}'</span><span class="k">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Wi-Fi: </span><span class="nv">$ssid</span><span class="s2"> | terminal=false bash='</span><span class="nv">$0</span><span class="s2">' param1=copy param2=</span><span class="nv">$ssid</span><span class="s2">"</span>
 
 <span class="o">}</span>
 </code></pre></div>

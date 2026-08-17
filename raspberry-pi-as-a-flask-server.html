@@ -121,7 +121,7 @@
 
 	<div itemprop="articleBody" class="article-body"><p>I created an Air Quality Index gadget made from a Raspberry Pi Zero W with a tiny OLED screen from Adafruit. It shows the AQI from my local PurpleAir sensor. </p>
 <p>I created a Flask web server on the Pi so I could remotely see the AQI and change the PurpleAir sensor ID.</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The triple-colon syntax will *not* show line numbers.&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"The triple-colon syntax will *not* show line numbers."</span><span class="p">)</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">make_response</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -136,25 +136,25 @@
 
 <span class="c1"># logging configuration</span>
 <span class="c1"># debug, info, warning, error, critical</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;./instance/aqi.log&#39;</span><span class="p">,</span>
-                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Started&#39;</span><span class="p">)</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;running server.py&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'./instance/aqi.log'</span><span class="p">,</span>
+                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'Started'</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'running server.py'</span><span class="p">)</span>
 
 <span class="c1"># Example ajax code from</span>
 <span class="c1"># https://github.com/caseydunham/ajax-flask-demo</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_mapping</span><span class="p">(</span>
-    <span class="n">SECRET_KEY</span><span class="o">=</span><span class="s1">&#39;dev&#39;</span><span class="p">,</span>
-    <span class="n">DATABASE</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">instance_path</span><span class="p">,</span> <span class="s1">&#39;aqi.sqlite&#39;</span><span class="p">),</span>
-    <span class="n">LOGGER</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">instance_path</span><span class="p">,</span> <span class="s1">&#39;aqi.log&#39;</span><span class="p">),</span>
+    <span class="n">SECRET_KEY</span><span class="o">=</span><span class="s1">'dev'</span><span class="p">,</span>
+    <span class="n">DATABASE</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">instance_path</span><span class="p">,</span> <span class="s1">'aqi.sqlite'</span><span class="p">),</span>
+    <span class="n">LOGGER</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">instance_path</span><span class="p">,</span> <span class="s1">'aqi.log'</span><span class="p">),</span>
 <span class="p">)</span>
 
 <span class="c1"># ensure the instance folder exists</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">instance_path</span><span class="p">)</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;server - created instance folder.&#39;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'server - created instance folder.'</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
     <span class="k">pass</span>
 
@@ -162,32 +162,32 @@
 <span class="n">sensor_id</span> <span class="o">=</span> <span class="mi">104402</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">'index.html'</span><span class="p">)</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/pi&#39;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/pi'</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">pi</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s1">&#39;Raspberry Pie!&#39;</span>
+    <span class="k">return</span> <span class="s1">'Raspberry Pie!'</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/sensor&#39;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/sensor'</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">sensor_index</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;sensor.html&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">'sensor.html'</span><span class="p">)</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/aqi&#39;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/aqi'</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">aqi_index</span><span class="p">():</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;aqi.html&#39;</span><span class="p">))</span>
-    <span class="n">resp</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="s1">&#39;aqi&#39;</span><span class="p">,</span> <span class="s1">&#39;aqi&#39;</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="n">render_template</span><span class="p">(</span><span class="s1">'aqi.html'</span><span class="p">))</span>
+    <span class="n">resp</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="s1">'aqi'</span><span class="p">,</span> <span class="s1">'aqi'</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">resp</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/sensor&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/api/sensor'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'POST'</span><span class="p">])</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_sensor_post</span><span class="p">():</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;**************** starting sensor &#39;</span><span class="p">)</span>
-    <span class="c1"># logging.info(&#39;request user_agent: &#39;, request.)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'**************** starting sensor '</span><span class="p">)</span>
+    <span class="c1"># logging.info('request user_agent: ', request.)</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">get_sensor_proc</span><span class="p">()</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -204,15 +204,15 @@
         <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="n">out</span><span class="o">.</span><span class="n">sensor_id</span> <span class="o">=</span> <span class="n">sensor_id</span>
     <span class="n">out</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;get_sensor_proc - sensor_id from db.&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">())</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'get_sensor_proc - sensor_id from db.'</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">out</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/aqi&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/api/aqi'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'POST'</span><span class="p">])</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">aqi_post</span><span class="p">():</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;**************** starting aqi &#39;</span><span class="p">)</span>
-    <span class="c1"># logging.info(&#39;request user_agent: &#39;, request.)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'**************** starting aqi '</span><span class="p">)</span>
+    <span class="c1"># logging.info('request user_agent: ', request.)</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">aqi_proc</span><span class="p">()</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -228,12 +228,12 @@
         <span class="n">error</span> <span class="o">=</span> <span class="n">e</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="n">out</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;aqi_proc - data from purpleAir.&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">())</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'aqi_proc - data from purpleAir.'</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">toDict</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">out</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/sensor_post&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/api/sensor_post'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'POST'</span><span class="p">])</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">sensor_post</span><span class="p">():</span>
     <span class="n">json</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
     <span class="n">msg</span> <span class="o">=</span> <span class="n">DotMap</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
@@ -244,11 +244,11 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">sensor_proc</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
     <span class="n">sensor_id</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">sensor_id</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;server - updating db sensor_id: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sensor_id</span><span class="p">))</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'server - updating db sensor_id: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sensor_id</span><span class="p">))</span>
     <span class="n">error</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">sensor_id</span><span class="p">:</span>
-        <span class="n">error</span> <span class="o">=</span> <span class="s1">&#39;Sensor_id is required.&#39;</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="s1">'Sensor_id is required.'</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">error</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -259,7 +259,7 @@
     <span class="k">return</span> <span class="n">out</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/say_name&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/api/say_name'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'POST'</span><span class="p">])</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">say_name_post</span><span class="p">():</span>
     <span class="n">json</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
     <span class="n">msg</span> <span class="o">=</span> <span class="n">DotMap</span><span class="p">(</span><span class="n">json</span><span class="p">)</span>
@@ -284,21 +284,21 @@
     <span class="k">return</span> <span class="n">out</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/init&#39;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/init'</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">():</span>
     <span class="n">datastore</span><span class="o">.</span><span class="n">init_db</span><span class="p">()</span>
-    <span class="k">return</span> <span class="s1">&#39;Database initialized&#39;</span>
+    <span class="k">return</span> <span class="s1">'Database initialized'</span>
 
 <span class="c1"># dynamic route</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&lt;name&gt;&#39;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/&lt;name&gt;'</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">print_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;Hi, </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">'Hi, </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s1">'0.0.0.0'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
 </code></pre></div></div>
 	<hr>
 
